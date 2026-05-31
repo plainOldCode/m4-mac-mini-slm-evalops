@@ -27,8 +27,8 @@ decimal place.
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- |
 | 1 | Qwen2.5 14B Instruct 4bit | 7.7 GB | 78.3 | 90/100 | 82/100 | 8/12 | 10/12 | Fail | [HF](https://huggingface.co/mlx-community/Qwen2.5-14B-Instruct-4bit) |
 | 2 | Ternary Bonsai 8B 2bit | 2.2 GB | 77.3 | 88/100 | 50/100 | 8/12 | 12/12 | Pass* | [HF](https://huggingface.co/prism-ml/Ternary-Bonsai-8B-mlx-2bit) |
-| 3 | Mistral 7B Instruct v0.3 4bit | 3.8 GB | 77.3 | 88/100 | 59/100 | 8/12 | 10/12 | Fail | [HF](https://huggingface.co/mlx-community/Mistral-7B-Instruct-v0.3-4bit) |
-| 4 | Mistral Nemo Instruct 2407 4bit | 6.4 GB | 76.5 | 78/100 | 59/100 | 9/12 | 11/12 | Fail | [HF](https://huggingface.co/mlx-community/Mistral-Nemo-Instruct-2407-4bit) |
+| 3 | Mistral 7B Instruct v0.3 4bit | 3.8 GB | 77.3 | 88/100 | 59/100 | 8/12 | 10/12 | Adapter-pass** | [HF](https://huggingface.co/mlx-community/Mistral-7B-Instruct-v0.3-4bit) |
+| 4 | Mistral Nemo Instruct 2407 4bit | 6.4 GB | 76.5 | 78/100 | 59/100 | 9/12 | 11/12 | Adapter-pass** | [HF](https://huggingface.co/mlx-community/Mistral-Nemo-Instruct-2407-4bit) |
 | 5 | Qwen3 4B Instruct 2507 5bit | 2.6 GB | 74.2 | 90/100 | 53/100 | 7/12 | 9/12 | Pass | [HF](https://huggingface.co/lmstudio-community/Qwen3-4B-Instruct-2507-MLX-5bit) |
 | 6 | Qwen3 4B Instruct 2507 4bit, LM Studio | 2.1 GB | 73.2 | 88/100 | 55/100 | 7/12 | 10/12 | Pass | [HF](https://huggingface.co/lmstudio-community/Qwen3-4B-Instruct-2507-MLX-4bit) |
 | 7 | Qwen3 4B Instruct 2507 4bit, MLX Community | 2.1 GB | 72.7 | 87/100 | 54/100 | 7/12 | 10/12 | Pass | [HF](https://huggingface.co/mlx-community/Qwen3-4B-Instruct-2507-4bit) |
@@ -39,6 +39,10 @@ decimal place.
 `Pass*`: tool side effect was verified, but the follow-up assistant turn hit a
 Metal out-of-memory error after the tool ran. Treat as promising, not yet
 stable enough for an always-on default.
+
+`Adapter-pass**`: native OpenAI-style tool execution failed, but a constrained
+text-intent adapter replay recovered the benchmark tool side effect. Treat as
+patchable, not native-compatible yet.
 
 Readout:
 
