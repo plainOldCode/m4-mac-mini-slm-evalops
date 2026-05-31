@@ -1,0 +1,68 @@
+{
+  "name": "tool_calling_leaders_100prompt_candidates_2026_05_31",
+  "source_report": "reports/small-models/tool-calling-suite-all-candidates-2026-05-31.json",
+  "selection_policy": "Tool-calling leaders with case_pass_count >= 7/12, ordered by the all-candidate tool-calling ranking.",
+  "prompt_suite": "data/benchmark/multilingual-domain-prompt-pack-v1.json",
+  "candidates": [
+    {
+      "tool_calling_rank": 1,
+      "model_id": "mlx-community/Mistral-Nemo-Instruct-2407-4bit",
+      "params": "12B",
+      "routing_label": "candidate_for_core_tasks"
+    },
+    {
+      "tool_calling_rank": 2,
+      "model_id": "prism-ml/Ternary-Bonsai-8B-mlx-2bit",
+      "params": "8B",
+      "routing_label": "candidate_for_core_tasks"
+    },
+    {
+      "tool_calling_rank": 3,
+      "model_id": "mlx-community/Mistral-7B-Instruct-v0.3-4bit",
+      "params": "7B",
+      "routing_label": "candidate_for_core_tasks"
+    },
+    {
+      "tool_calling_rank": 4,
+      "model_id": "mlx-community/Qwen2.5-14B-Instruct-4bit",
+      "params": "14B",
+      "routing_label": "candidate_for_core_tasks"
+    },
+    {
+      "tool_calling_rank": 5,
+      "model_id": "lmstudio-community/Qwen3-VL-4B-Instruct-MLX-4bit",
+      "params": "4B",
+      "routing_label": "candidate_for_core_tasks"
+    },
+    {
+      "tool_calling_rank": 6,
+      "model_id": "lmstudio-community/Qwen3-4B-Instruct-2507-MLX-4bit",
+      "params": "4B",
+      "routing_label": "candidate_for_core_tasks"
+    },
+    {
+      "tool_calling_rank": 7,
+      "model_id": "mlx-community/Qwen3-4B-Instruct-2507-4bit",
+      "params": "4B",
+      "routing_label": "candidate_for_core_tasks"
+    },
+    {
+      "tool_calling_rank": 8,
+      "model_id": "lmstudio-community/Qwen3-4B-Instruct-2507-MLX-5bit",
+      "params": "4B",
+      "routing_label": "candidate_for_core_tasks"
+    },
+    {
+      "tool_calling_rank": 9,
+      "model_id": "lmstudio-community/Qwen3-4B-Instruct-2507-MLX-6bit",
+      "params": "4B",
+      "routing_label": "candidate_for_core_tasks"
+    },
+    {
+      "tool_calling_rank": 10,
+      "model_id": "mlx-community/Qwen2.5-7B-Instruct-4bit",
+      "params": "7B",
+      "routing_label": "candidate_for_core_tasks"
+    }
+  ]
+}

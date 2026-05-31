@@ -1,0 +1,74 @@
+{
+  "candidates": [
+    {
+      "model_id": "lmstudio-community/Qwen3-4B-Instruct-2507-MLX-5bit",
+      "params": "4B",
+      "routing_label": "core_direct_precision_probe"
+    },
+    {
+      "model_id": "lmstudio-community/Qwen3-4B-Instruct-2507-MLX-6bit",
+      "params": "4B",
+      "routing_label": "core_direct_precision_probe"
+    },
+    {
+      "model_id": "lmstudio-community/Qwen3-4B-Thinking-2507-MLX-6bit",
+      "params": "4B",
+      "routing_label": "reasoning_cleanup_lane"
+    },
+    {
+      "model_id": "lmstudio-community/LFM2.5-1.2B-Instruct-MLX-6bit",
+      "params": "1.2B",
+      "routing_label": "latency_control_probe"
+    },
+    {
+      "model_id": "lmstudio-community/LFM2.5-1.2B-Instruct-MLX-8bit",
+      "params": "1.2B",
+      "routing_label": "latency_control_probe"
+    },
+    {
+      "model_id": "mlx-community/gemma-4-e2b-it-4bit",
+      "params": "2B",
+      "routing_label": "core_direct_new_gemma"
+    },
+    {
+      "model_id": "mlx-community/gemma-4-e4b-it-4bit",
+      "params": "4B",
+      "routing_label": "core_direct_new_gemma"
+    },
+    {
+      "model_id": "lmstudio-community/Phi-4-mini-reasoning-MLX-4bit",
+      "params": "mini",
+      "routing_label": "reasoning_cleanup_lane"
+    },
+    {
+      "model_id": "mlx-community/Phi-4-mini-instruct-4bit",
+      "params": "mini",
+      "routing_label": "coding_agent_probe"
+    },
+    {
+      "model_id": "lmstudio-community/Qwen3-VL-4B-Instruct-MLX-4bit",
+      "params": "4B",
+      "routing_label": "vlm_capability_expansion"
+    },
+    {
+      "model_id": "aufklarer/Qwen3-ASR-0.6B-MLX-4bit",
+      "params": "0.6B",
+      "routing_label": "asr_capability_expansion"
+    },
+    {
+      "model_id": "mlx-community/Qwen3.5-9B-MLX-4bit",
+      "params": "9B",
+      "routing_label": "edge_text_vlm_probe"
+    },
+    {
+      "model_id": "lmstudio-community/GLM-4.6V-Flash-MLX-4bit",
+      "params": "",
+      "routing_label": "edge_vlm_probe"
+    },
+    {
+      "model_id": "lmstudio-community/Qwen3-1.7B-MLX-8bit",
+      "params": "1.7B",
+      "routing_label": "cheap_baseline_control"
+    }
+  ]
+}

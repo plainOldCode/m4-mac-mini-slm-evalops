@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Local LLM EvalOps Dashboard</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 32px;
+        color: #172026;
+        background: #f7f8fa;
+      }
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 28px;
+        margin-bottom: 8px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border: 1px solid #d8dee4;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid #d8dee4;
+      }
+      th {
+        background: #eef2f5;
+      }
+      code {
+        background: #eef2f5;
+        padding: 2px 5px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Local LLM EvalOps</h1>
+      <p>Static dashboard shell. Point this page at a generated <code>runs/*/index.json</code> file in the next milestone.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Pass rate</td><td>Correctness across attempts</td></tr>
+          <tr><td>No-op rate</td><td>Backend refusal or weak candidate generation</td></tr>
+          <tr><td>Diff lines</td><td>Patch size and review burden</td></tr>
+          <tr><td>Elapsed seconds</td><td>Latency and cost proxy</td></tr>
+          <tr><td>Failure category</td><td>Actionable model/harness diagnosis</td></tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

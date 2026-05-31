@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-llm-evalops"
+version = "0.1.0"
+description = "Evaluation harness for local and cloud LLM coding agents"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+mlx = ["mlx-lm>=0.31.3"]
+
+[project.scripts]
+llm-evalops = "llm_evalops.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

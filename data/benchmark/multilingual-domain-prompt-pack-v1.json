@@ -1,0 +1,67 @@
+{
+  "name": "multilingual_domain_prompt_pack_v1",
+  "languages": [
+    {"code": "en", "name": "English"},
+    {"code": "ko", "name": "Korean"},
+    {"code": "ja", "name": "Japanese"},
+    {"code": "zh", "name": "Chinese"},
+    {"code": "es", "name": "Spanish"},
+    {"code": "ru", "name": "Russian"},
+    {"code": "fr", "name": "French"},
+    {"code": "de", "name": "German"},
+    {"code": "it", "name": "Italian"},
+    {"code": "pt", "name": "Portuguese"}
+  ],
+  "tasks": [
+    {
+      "domain": "physics",
+      "question": "What is the SI unit of force?",
+      "expected_canonical_answer": "newton"
+    },
+    {
+      "domain": "biology",
+      "question": "Which organelle is most directly responsible for ATP production in eukaryotic cells?",
+      "expected_canonical_answer": "mitochondria"
+    },
+    {
+      "domain": "earth_science",
+      "question": "What is the most abundant gas in Earth's atmosphere?",
+      "expected_canonical_answer": "nitrogen"
+    },
+    {
+      "domain": "chemistry",
+      "question": "What is the chemical formula for table salt?",
+      "expected_canonical_answer": "NaCl"
+    },
+    {
+      "domain": "math",
+      "question": "What is the derivative of x^2 with respect to x?",
+      "expected_canonical_answer": "2x"
+    },
+    {
+      "domain": "coding",
+      "question": "In Python, what expression returns the number of elements in a list named xs?",
+      "expected_canonical_answer": "len(xs)"
+    },
+    {
+      "domain": "current_affairs",
+      "question": "As of May 30, 2026, who is the Secretary-General of the United Nations?",
+      "expected_canonical_answer": "Antonio Guterres"
+    },
+    {
+      "domain": "economics",
+      "question": "In macroeconomics, what does GDP stand for?",
+      "expected_canonical_answer": "gross domestic product"
+    },
+    {
+      "domain": "finance",
+      "question": "In finance, what does ETF stand for?",
+      "expected_canonical_answer": "exchange-traded fund"
+    },
+    {
+      "domain": "logic",
+      "question": "If all mammals are animals and whales are mammals, are whales animals?",
+      "expected_canonical_answer": "yes"
+    }
+  ]
+}

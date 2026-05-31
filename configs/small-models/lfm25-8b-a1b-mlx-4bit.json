@@ -1,0 +1,24 @@
+{
+  "id": "lfm25-8b-a1b-mlx-4bit",
+  "display_name": "LiquidAI LFM2.5-8B-A1B MLX 4bit",
+  "role": "general local instruction model candidate",
+  "status": "controlled_adapter_ready",
+  "runtime": {
+    "family": "mlx",
+    "model": "LiquidAI/LFM2.5-8B-A1B-MLX-4bit",
+    "expected_host": "apple_silicon",
+    "minimum_memory_gb": 16,
+    "local_cache_size_gb": 4.5
+  },
+  "strengths_to_retest": [
+    "small local summarization",
+    "classification and extraction prompts",
+    "non-coding assistant tasks"
+  ],
+  "known_limits_from_first_smoke": [
+    "default chat-template generation exposed verbose thinking and did not reach a clean final answer within short token budgets",
+    "raw prompt mode degenerated into repeated tokens",
+    "not yet suitable as a coding-agent backend without prompt/template tuning"
+  ],
+  "live_backend": "lfm25-controlled-mlx"
+}
