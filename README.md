@@ -18,39 +18,49 @@ Composite score uses equal weight:
 ```
 
 Tool-calling tests use 12 tool-selection cases. The 100-prompt suite covers 10
-domains across 10 languages. Model size is Hugging Face repository storage
-(`usedStorage`) rounded to one decimal place.
+domains across 10 languages. OpenClaw Native checks whether the model can drive
+the real OpenClaw tool loop and create a verified `exec` side-effect marker.
+Model size is Hugging Face repository storage (`usedStorage`) rounded to one
+decimal place.
 
-| Rank | Model | Size | Composite | 100p Alias | 100p Strict | Tool Calling | Tool Sequence | Link |
-| ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| 1 | Qwen2.5 14B Instruct 4bit | 7.7 GB | 78.3 | 90/100 | 82/100 | 8/12 | 10/12 | [HF](https://huggingface.co/mlx-community/Qwen2.5-14B-Instruct-4bit) |
-| 2 | Ternary Bonsai 8B 2bit | 2.2 GB | 77.3 | 88/100 | 50/100 | 8/12 | 12/12 | [HF](https://huggingface.co/prism-ml/Ternary-Bonsai-8B-mlx-2bit) |
-| 3 | Mistral 7B Instruct v0.3 4bit | 3.8 GB | 77.3 | 88/100 | 59/100 | 8/12 | 10/12 | [HF](https://huggingface.co/mlx-community/Mistral-7B-Instruct-v0.3-4bit) |
-| 4 | Mistral Nemo Instruct 2407 4bit | 6.4 GB | 76.5 | 78/100 | 59/100 | 9/12 | 11/12 | [HF](https://huggingface.co/mlx-community/Mistral-Nemo-Instruct-2407-4bit) |
-| 5 | Qwen3 4B Instruct 2507 5bit | 2.6 GB | 74.2 | 90/100 | 53/100 | 7/12 | 9/12 | [HF](https://huggingface.co/lmstudio-community/Qwen3-4B-Instruct-2507-MLX-5bit) |
-| 6 | Qwen3 4B Instruct 2507 4bit, LM Studio | 2.1 GB | 73.2 | 88/100 | 55/100 | 7/12 | 10/12 | [HF](https://huggingface.co/lmstudio-community/Qwen3-4B-Instruct-2507-MLX-4bit) |
-| 7 | Qwen3 4B Instruct 2507 4bit, MLX Community | 2.1 GB | 72.7 | 87/100 | 54/100 | 7/12 | 10/12 | [HF](https://huggingface.co/mlx-community/Qwen3-4B-Instruct-2507-4bit) |
-| 8 | Qwen3 4B Instruct 2507 6bit | 3.1 GB | 72.2 | 86/100 | 48/100 | 7/12 | 9/12 | [HF](https://huggingface.co/lmstudio-community/Qwen3-4B-Instruct-2507-MLX-6bit) |
-| 9 | Qwen3-VL 4B Instruct 4bit | 2.9 GB | 70.7 | 83/100 | 51/100 | 7/12 | 10/12 | [HF](https://huggingface.co/lmstudio-community/Qwen3-VL-4B-Instruct-MLX-4bit) |
-| 10 | Qwen2.5 7B Instruct 4bit | 4.0 GB | 69.2 | 80/100 | 48/100 | 7/12 | 9/12 | [HF](https://huggingface.co/mlx-community/Qwen2.5-7B-Instruct-4bit) |
+| Rank | Model | Size | Composite | 100p Alias | 100p Strict | Tool Calling | Tool Sequence | OpenClaw Native | Link |
+| ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- |
+| 1 | Qwen2.5 14B Instruct 4bit | 7.7 GB | 78.3 | 90/100 | 82/100 | 8/12 | 10/12 | Fail | [HF](https://huggingface.co/mlx-community/Qwen2.5-14B-Instruct-4bit) |
+| 2 | Ternary Bonsai 8B 2bit | 2.2 GB | 77.3 | 88/100 | 50/100 | 8/12 | 12/12 | Pass* | [HF](https://huggingface.co/prism-ml/Ternary-Bonsai-8B-mlx-2bit) |
+| 3 | Mistral 7B Instruct v0.3 4bit | 3.8 GB | 77.3 | 88/100 | 59/100 | 8/12 | 10/12 | Fail | [HF](https://huggingface.co/mlx-community/Mistral-7B-Instruct-v0.3-4bit) |
+| 4 | Mistral Nemo Instruct 2407 4bit | 6.4 GB | 76.5 | 78/100 | 59/100 | 9/12 | 11/12 | Fail | [HF](https://huggingface.co/mlx-community/Mistral-Nemo-Instruct-2407-4bit) |
+| 5 | Qwen3 4B Instruct 2507 5bit | 2.6 GB | 74.2 | 90/100 | 53/100 | 7/12 | 9/12 | Pass | [HF](https://huggingface.co/lmstudio-community/Qwen3-4B-Instruct-2507-MLX-5bit) |
+| 6 | Qwen3 4B Instruct 2507 4bit, LM Studio | 2.1 GB | 73.2 | 88/100 | 55/100 | 7/12 | 10/12 | Pass | [HF](https://huggingface.co/lmstudio-community/Qwen3-4B-Instruct-2507-MLX-4bit) |
+| 7 | Qwen3 4B Instruct 2507 4bit, MLX Community | 2.1 GB | 72.7 | 87/100 | 54/100 | 7/12 | 10/12 | Pass | [HF](https://huggingface.co/mlx-community/Qwen3-4B-Instruct-2507-4bit) |
+| 8 | Qwen3 4B Instruct 2507 6bit | 3.1 GB | 72.2 | 86/100 | 48/100 | 7/12 | 9/12 | Pass | [HF](https://huggingface.co/lmstudio-community/Qwen3-4B-Instruct-2507-MLX-6bit) |
+| 9 | Qwen3-VL 4B Instruct 4bit | 2.9 GB | 70.7 | 83/100 | 51/100 | 7/12 | 10/12 | Pass | [HF](https://huggingface.co/lmstudio-community/Qwen3-VL-4B-Instruct-MLX-4bit) |
+| 10 | Qwen2.5 7B Instruct 4bit | 4.0 GB | 69.2 | 80/100 | 48/100 | 7/12 | 9/12 | Pass | [HF](https://huggingface.co/mlx-community/Qwen2.5-7B-Instruct-4bit) |
+
+`Pass*`: tool side effect was verified, but the follow-up assistant turn hit a
+Metal out-of-memory error after the tool ran. Treat as promising, not yet
+stable enough for an always-on default.
 
 Readout:
 
 - Quality leader: `Qwen2.5-14B-Instruct-4bit`. It has the strongest strict
   factual score and ties the best alias-normalized factual score, but it is
-  heavy for a 16 GB M4 Mac mini.
-- Practical balanced candidate: `Qwen3-4B-Instruct-2507-MLX-5bit`. It ties the
-  14B model at 90/100 alias-normalized factual score while staying much lighter;
-  its weaker 7/12 tool-calling score is the main tradeoff.
+  heavy for a 16 GB M4 Mac mini and failed the OpenClaw native tool execution
+  canary.
+- Practical OpenClaw candidate: `Qwen3-4B-Instruct-2507-MLX-5bit`. It ties the
+  14B model at 90/100 alias-normalized factual score while staying much lighter
+  and passes the real OpenClaw native tool execution canary; its weaker 7/12
+  tool-calling score is the main tradeoff.
 - Tool-calling leader: `Mistral-Nemo-Instruct-2407-4bit`. It scores 9/12 on the
   tool lane but drops on 100-prompt factual scoring.
 - Surprise candidate: `Ternary-Bonsai-8B-mlx-2bit`. It is compact, reaches
   88/100 alias-normalized factual score, and gets a perfect 12/12 tool sequence
-  score.
+  score. It also executed an OpenClaw native tool, but needs stability work
+  before always-on use.
 
 Primary reports:
 
 - [Composite ranking](reports/small-models/tool-calling-plus-100prompt-composite-2026-05-31.md)
+- [OpenClaw native tool execution](reports/small-models/openclaw-native-tool-execution-2026-05-31.md)
 - [All tool-calling candidates](reports/small-models/tool-calling-suite-all-candidates-2026-05-31.md)
 - [Tool leaders 100-prompt factual scoring](reports/small-models/multilingual-domain-suite-tool-leaders-alias-normalized-2026-05-31.md)
 - [Next14 MLX candidate scoring](reports/small-models/multilingual-domain-suite-next14-alias-normalized-2026-05-31.md)
