@@ -105,12 +105,10 @@ includes:
 - curated JSON and Markdown reports
 - a small static dashboard template
 - docs for failure taxonomy and design decisions
-- trace and live MLX adapters for selected small models
 
-Future adapters can wrap MLX server mode, Ollama, LM Studio, `codex exec`, or a
-mini-SWE-agent style shell loop. The primary target remains models that are
-plausible on the current M4 Mac mini; cloud/frontier backends are comparison
-baselines, not the center of the project.
+The primary target is Hugging Face MLX models that are plausible on the current
+M4 Mac mini. Coding-agent backends and trace replays are intentionally out of
+scope for this public benchmark snapshot.
 
 ## Storage Policy
 
@@ -146,37 +144,6 @@ llm-evalops run \
   --task examples/tasks/string_normalize \
   --backend scripted \
   --runs-dir runs/scripted-demo
-
-llm-evalops run \
-  --task examples/tasks/string_normalize \
-  --backend qwen25-coder-trace \
-  --runs-dir runs/qwen25-demo
-
-llm-evalops run \
-  --task examples/tasks/string_normalize \
-  --backend sushi-coder-trace \
-  --runs-dir runs/sushi-demo
-```
-
-Live MLX adapters are available after installing the optional dependency:
-
-```bash
-pip install -e '.[mlx]'
-
-LLMEVALOPS_MLX_TIMEOUT=240 llm-evalops run \
-  --task examples/tasks/string_normalize \
-  --backend qwen25-coder-mlx \
-  --runs-dir runs/qwen25-mlx-demo
-
-LLMEVALOPS_MLX_TIMEOUT=240 llm-evalops run \
-  --task examples/tasks/string_normalize \
-  --backend sushi-coder-mlx \
-  --runs-dir runs/sushi-mlx-demo
-
-LLMEVALOPS_MLX_TIMEOUT=240 llm-evalops run \
-  --task examples/tasks/string_normalize \
-  --backend lfm25-controlled-mlx \
-  --runs-dir runs/lfm25-controlled-demo
 ```
 
 For broad Hugging Face candidate sweeps, use the saved CSV catalog:
@@ -199,26 +166,6 @@ Expected result:
 
 - `noop` fails the demo tests.
 - `scripted` copies the solution file into the isolated attempt repo and passes.
-- `qwen25-coder-trace` and `sushi-coder-trace` replay public-safe small-model
-  candidate traces so model-comparison reports can be developed before live MLX
-  adapters are connected.
-
-## Small Model Layer
-
-This scaffold includes small-model profiles from the local-agent experiments:
-
-| Profile | Portfolio Label | Current Adapter |
-| --- | --- | --- |
-| Qwen2.5-Coder 14B MLX | bounded local TDD worker | `qwen25-coder-trace`, `qwen25-coder-mlx` |
-| Qwen3.5 Sushi-Coder-RL MLX | candidate artifact worker | `sushi-coder-trace`, `sushi-coder-mlx` |
-| LFM2.5-8B-A1B MLX 4bit | general instruction candidate | `lfm25-controlled-mlx` |
-
-See:
-
-- `configs/small-models/qwen25-coder-14b-mlx.json`
-- `configs/small-models/qwen35-sushi-coder-rl-mlx.json`
-- `docs/small-models/qwen25-coder.md`
-- `docs/small-models/sushi-coder.md`
 
 ## Benchmark Lanes
 
@@ -282,7 +229,6 @@ runs/                     Generated local runs; git-ignored
    `docs/model-candidates/hf-mlx-candidate-catalog-2026-05-30.md` and
    `docs/model-candidates/m4-mac-mini-mlx-candidates-2026-05-30.md`.
 4. Add attempt-scoped model cache directories and automatic post-test cleanup.
-5. Expand live MLX adapters with prompt/config snapshots and model-output artifacts.
-6. Add Apple Silicon runtime metrics where available.
-7. Generate aggregate HTML reports across many attempts.
-8. Publish a blog post: "Benchmarking small local models on an M4 Mac mini."
+5. Add Apple Silicon runtime metrics where available.
+6. Generate aggregate HTML reports across many attempts.
+7. Publish a blog post: "Benchmarking small local models on an M4 Mac mini."

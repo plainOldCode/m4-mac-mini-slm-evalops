@@ -51,13 +51,13 @@ important for the benchmark.
 
 ## Coding Candidates
 
-These belong in the coding/patch lane. Some are already integrated as trace or
-live backends.
+These belong in a future coding/patch lane and are not part of the current
+multilingual/domain + tool-calling leaderboard.
 
 | Model | Link | Storage | Notes |
 | --- | --- | ---: | --- |
 | Qwen2.5-Coder-7B Instruct MLX 4bit | https://huggingface.co/lmstudio-community/Qwen2.5-Coder-7B-Instruct-MLX-4bit | 4.30 GB | Better fit than 14B for 16 GB smoke tests. |
-| Qwen2.5-Coder-14B Instruct MLX 4bit | https://huggingface.co/lmstudio-community/Qwen2.5-Coder-14B-Instruct-MLX-4bit | 8.32 GB | Already timed out in naive live adapter; keep as edge candidate. |
+| Qwen2.5-Coder-14B Instruct MLX 4bit | https://huggingface.co/lmstudio-community/Qwen2.5-Coder-14B-Instruct-MLX-4bit | 8.32 GB | Edge coding candidate; likely heavy for 16 GB. |
 | Qwen2.5-Coder-7B Instruct community 4bit | https://huggingface.co/mlx-community/Qwen2.5-Coder-7B-Instruct-4bit | size TBD | Alternative community package. |
 | Qwen3-Coder-30B-A3B Instruct MLX 3bit | https://huggingface.co/mlx-community/Qwen3-Coder-30B-A3B-Instruct-3bit | size TBD | MoE coding edge candidate; likely later. |
 | Qwen3-Coder-30B-A3B Instruct MLX 4bit | https://huggingface.co/lmstudio-community/Qwen3-Coder-30B-A3B-Instruct-MLX-4bit | size TBD | MoE coding edge candidate; likely not first on 16 GB. |
@@ -155,7 +155,7 @@ for Mac Studio / GB10 / larger-memory comparisons.
 ## Notes
 
 - 14B 4-bit can fit on disk but may be too slow or memory-tight in practice on
-  16 GB, as seen with the first Qwen2.5-Coder-14B live smoke.
+  16 GB; measure runtime separately from load success.
 - 2-bit/3-bit models are important for this project because they may shift the
   useful frontier on the current machine, but output quality and protocol
   discipline must be measured separately from load success.

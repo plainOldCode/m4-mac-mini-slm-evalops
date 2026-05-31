@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "local-llm-evalops"
 version = "0.1.0"
-description = "Evaluation harness for local and cloud LLM coding agents"
+description = "Evaluation harness for M4 Mac mini local MLX language models"
 requires-python = ">=3.10"
 dependencies = []
 

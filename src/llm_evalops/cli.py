@@ -19,11 +19,6 @@ def main() -> int:
         choices=[
             "noop",
             "scripted",
-            "qwen25-coder-trace",
-            "sushi-coder-trace",
-            "qwen25-coder-mlx",
-            "sushi-coder-mlx",
-            "lfm25-controlled-mlx",
         ],
     )
     run_parser.add_argument("--runs-dir", required=True, type=Path)

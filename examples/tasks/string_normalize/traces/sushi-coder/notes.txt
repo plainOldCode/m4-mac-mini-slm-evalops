@@ -1,2 +1,0 @@
-Recorded small-model trace: Qwen3.5 Sushi-Coder-RL style candidate.
-Expected behavior: extraction-assisted candidate patch under harness ownership.

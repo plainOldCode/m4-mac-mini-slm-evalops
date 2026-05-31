@@ -1,2 +1,0 @@
-Recorded small-model trace: Qwen2.5-Coder 14B style candidate.
-Expected behavior: conservative correct implementation for a bounded function-level task.

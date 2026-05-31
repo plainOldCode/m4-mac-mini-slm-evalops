@@ -43,15 +43,9 @@ at once. A harness-owned loop keeps those responsibilities explicit.
 
 - `noop`: baseline failure and no-op detection
 - `scripted`: public-safe successful patch demonstration
-- `qwen25-coder-trace`: public-safe replay of a Qwen2.5-Coder style candidate
-- `sushi-coder-trace`: public-safe replay of a Sushi-Coder style candidate
-- `qwen25-coder-mlx`: live MLX call to `mlx-community/Qwen2.5-Coder-14B-Instruct-4bit`
-- `sushi-coder-mlx`: live MLX call to `bigatuna/Qwen3.5-9b-Sushi-Coder-RL-MLX`
-- `lfm25-controlled-mlx`: live LFM2.5 MLX call plus bounded deterministic post-processing
-- `codex_exec`: future adapter for frontier model patch attempts
-- `mlx`: future adapter for local MLX models
-- `ollama`: future adapter for local Ollama models
-- `mini_swe`: future adapter for shell-loop trajectory capture
+- `mlx_generate`: future direct generation adapter for local MLX models
+- `ollama_generate`: future adapter for local Ollama models
+- `lmstudio_api`: future adapter for LM Studio local server runs
 
 ## Benchmark Lanes
 

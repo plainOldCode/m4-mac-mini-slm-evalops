@@ -12,9 +12,9 @@ model is useful enough to keep in this local workflow?"
 The first model class is 3B-14B local models that can plausibly run through MLX
 or another local runtime on Apple Silicon:
 
-- Qwen-family coder models
-- Sushi/Qwen coder variants
-- LFM2.5-style general instruction models
+- general instruction models
+- multilingual/domain factual answering candidates
+- tool-calling and structured-output candidates
 - future 3B-9B summary/extraction models
 
 Larger models and cloud models are useful as comparison baselines, but they are
@@ -71,6 +71,7 @@ Example recommendation labels:
 
 - `keep_for_summary`
 - `keep_for_extraction`
-- `keep_for_coding_trace_only`
-- `controlled_semantic_signal_only`
+- `keep_for_tool_calling`
+- `keep_for_balanced_local_automation`
+- `route_to_reasoning_lane`
 - `reject_for_current_mac_mini`
