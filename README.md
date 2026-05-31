@@ -56,11 +56,17 @@ Readout:
   88/100 alias-normalized factual score, and gets a perfect 12/12 tool sequence
   score. It also executed an OpenClaw native tool, but needs stability work
   before always-on use.
+- Adapter-recoverable candidates: `Mistral-Nemo-Instruct-2407-4bit` and
+  `Mistral-7B-Instruct-v0.3-4bit` failed native OpenAI-style tool execution,
+  but a constrained text-intent adapter replay recovered the benchmark tool
+  side effect. `Qwen2.5-14B-Instruct-4bit` did not recover because its failure
+  was runtime memory pressure, not text/tool formatting.
 
 Primary reports:
 
 - [Composite ranking](reports/small-models/tool-calling-plus-100prompt-composite-2026-05-31.md)
 - [OpenClaw native tool execution](reports/small-models/openclaw-native-tool-execution-2026-05-31.md)
+- [OpenClaw tool adapter replay](reports/small-models/openclaw-tool-adapter-replay-2026-05-31.md)
 - [All tool-calling candidates](reports/small-models/tool-calling-suite-all-candidates-2026-05-31.md)
 - [Tool leaders 100-prompt factual scoring](reports/small-models/multilingual-domain-suite-tool-leaders-alias-normalized-2026-05-31.md)
 - [Next14 MLX candidate scoring](reports/small-models/multilingual-domain-suite-next14-alias-normalized-2026-05-31.md)

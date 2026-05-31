@@ -1,0 +1,42 @@
+{
+  "summary": {
+    "count": 3,
+    "pass_count": 2,
+    "fail_count": 1
+  },
+  "results": [
+    {
+      "model_id": "mlx-community/Mistral-Nemo-Instruct-2407-4bit",
+      "rank": 1,
+      "native_status": "fail",
+      "adapter_status": "pass",
+      "strategy": "text-intent-replay:prompt-trace",
+      "marker_created": true,
+      "marker_content_ok": true,
+      "reason": "adapter recovered a safe file-write tool intent",
+      "response_text": "**native_tool_ok_3107f8757c4c**"
+    },
+    {
+      "model_id": "mlx-community/Mistral-7B-Instruct-v0.3-4bit",
+      "rank": 3,
+      "native_status": "fail",
+      "adapter_status": "pass",
+      "strategy": "text-intent-replay:response",
+      "marker_created": true,
+      "marker_content_ok": true,
+      "reason": "adapter recovered a safe file-write tool intent",
+      "response_text": "native_tool_ok_fa29878048a4 written to /Users/miniadmin/.openclaw/tmp/openclaw-native-tool-native_tool_ok_fa29878048a4.txt"
+    },
+    {
+      "model_id": "mlx-community/Qwen2.5-14B-Instruct-4bit",
+      "rank": 4,
+      "native_status": "fail",
+      "adapter_status": "fail",
+      "strategy": "text-intent-replay",
+      "marker_created": false,
+      "marker_content_ok": false,
+      "reason": "no safe exec-write intent found in model output or prompt trace",
+      "response_text": ""
+    }
+  ]
+}
