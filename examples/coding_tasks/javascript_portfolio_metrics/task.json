@@ -1,0 +1,16 @@
+{
+  "id": "javascript_portfolio_metrics",
+  "stage": "v1_smoke",
+  "language": "javascript",
+  "title": "Compute portfolio metrics",
+  "description": "Implement summarizePortfolio(positions) for a small portfolio dashboard.",
+  "test_command": ["node", "tests/portfolio.test.js"],
+  "allowed_paths": ["src/portfolio.js"],
+  "instructions": [
+    "Edit only src/portfolio.js.",
+    "summarizePortfolio(positions) receives an array of {symbol, quantity, averagePrice, currentPrice}.",
+    "Return {marketValue, costBasis, profit, profitRatePct, winners}.",
+    "Round all numeric totals and percentages to two decimals.",
+    "winners must contain symbols whose currentPrice is greater than averagePrice, sorted alphabetically."
+  ]
+}

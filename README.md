@@ -75,6 +75,7 @@ Primary reports:
 - [Tool leaders 100-prompt factual scoring](reports/small-models/multilingual-domain-suite-tool-leaders-alias-normalized-2026-05-31.md)
 - [Next14 MLX candidate scoring](reports/small-models/multilingual-domain-suite-next14-alias-normalized-2026-05-31.md)
 - [M4 MLX candidate refresh](reports/small-models/m4-mac-mini-mlx-refresh-analysis-2026-05-31.md)
+- [Coding generation benchmark plan](docs/coding-generation-benchmark.md)
 
 ## Why This Exists
 
@@ -216,6 +217,34 @@ That pass keeps the strict canonical score intact, then adds a conservative
 alias-normalized score over the existing `parsed.json` artifacts. It counts
 notation and translated equivalents, while keeping acronym-only answers invalid
 for expansion prompts such as GDP and ETF.
+
+The coding-generation lane is intentionally separate from factual QA and
+tool-calling. It asks models to return complete replacement files as JSON,
+applies only allowlisted paths, and scores with deterministic local tests:
+
+```bash
+python scripts/run_coding_generation_suite.py \
+  --candidates data/benchmark/coding-generation-smoke-candidates-2026-06-01.json \
+  --runs-dir runs/coding-generation-smoke-2026-06-01 \
+  --report-json reports/small-models/coding-generation-smoke-2026-06-01.json \
+  --report-md reports/small-models/coding-generation-smoke-2026-06-01.md \
+  --limit 1
+```
+
+The planned progression is `v1_smoke` for Python/JavaScript/HTML-CSS,
+`v1_5_polyglot` for TypeScript/C/C++/Java/Rust, and `v2_frontend` for
+React/Vue/component-specific UI checks. See
+`docs/coding-generation-benchmark.md`.
+
+GPT comparison runs use the `codex-cli` backend so credentials stay outside the
+repository:
+
+```bash
+CODEX_CLI_AUTH_HOME=/Users/miniadmin/.codex \
+python scripts/run_coding_generation_suite.py \
+  --start 1 \
+  --limit 2
+```
 
 ## Portfolio Framing
 

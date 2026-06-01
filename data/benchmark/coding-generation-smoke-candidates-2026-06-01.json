@@ -1,0 +1,22 @@
+{
+  "candidates": [
+    {
+      "model_id": "lmstudio-community/Qwen3-4B-Instruct-2507-MLX-5bit",
+      "backend": "mlx",
+      "routing_label": "local-top-balanced",
+      "notes": "Current practical local M4 Mac mini candidate from factual + tool + OpenClaw-native evidence."
+    },
+    {
+      "model_id": "gpt-5.5",
+      "backend": "codex-cli",
+      "routing_label": "frontier-baseline",
+      "notes": "External frontier comparison through local Codex CLI OAuth auth home."
+    },
+    {
+      "model_id": "gpt-5.4-mini",
+      "backend": "codex-cli",
+      "routing_label": "cost-saving-baseline",
+      "notes": "External smaller GPT comparison through local Codex CLI OAuth auth home."
+    }
+  ]
+}

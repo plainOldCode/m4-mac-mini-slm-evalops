@@ -1,0 +1,16 @@
+{
+  "id": "html_css_status_card",
+  "stage": "v1_smoke",
+  "language": "html_css",
+  "title": "Build a status card",
+  "description": "Create static HTML/CSS for a compact local-model status card.",
+  "test_command": ["python3", "tests/check_status_card.py"],
+  "allowed_paths": ["index.html", "styles.css"],
+  "instructions": [
+    "Edit only index.html and styles.css.",
+    "The page must contain a card with data-testid=\"model-status-card\".",
+    "Include visible text for Qwen3 4B, OpenClaw Native, Pass, and 90/100.",
+    "Use a semantic heading and a list of metrics.",
+    "CSS must define .status-card, use display: grid or flex, include border-radius no larger than 8px, and include a responsive @media rule."
+  ]
+}

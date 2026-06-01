@@ -1,0 +1,232 @@
+{
+  "models": [
+    {
+      "model_id": "lmstudio-community/Qwen3-4B-Instruct-2507-MLX-5bit",
+      "backend": "mlx",
+      "routing_label": "local-top-balanced",
+      "task_count": 3,
+      "download_status": "ok",
+      "download_elapsed_seconds": 245.396,
+      "elapsed_seconds": 279.979,
+      "json_valid_count": 3,
+      "schema_valid_count": 3,
+      "changed_count": 3,
+      "tests_passed_count": 2,
+      "cache_bytes_before_cleanup": 5563891964,
+      "cleanup_status": "deleted",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_string_normalize",
+          "stage": "v1_smoke",
+          "language": "python",
+          "status": "ok",
+          "generation_elapsed_seconds": 6.034,
+          "test_elapsed_seconds": 0.029,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 16,
+          "applied_paths": [
+            "src/text_utils.py"
+          ],
+          "rejected_paths": [],
+          "error_tail": "F...\n======================================================================\nFAIL: test_collapse_separator_runs (test_text_utils.NormalizeKeyTests.test_collapse_separator_runs)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-smoke-2026-06-01/0001-lmstudio-community-Qwen3-4B-Instruct-2507-MLX-5bit/tasks/python_string_normalize/repo/tests/test_text_utils.py\", line 15, in test_collapse_separator_runs\n    self.assertEqual(normalize_key(\"HBM4E / Server-DRAM\"), \"hbm4e_server_dram\")\nAssertionError: 'hbm4e___server_dram' != 'hbm4e_server_dram'\n- hbm4e___server_dram\n?      --\n+ hbm4e_server_dram\n\n\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nFAILED (failures=1)\n"
+        },
+        {
+          "task_id": "javascript_portfolio_metrics",
+          "stage": "v1_smoke",
+          "language": "javascript",
+          "status": "ok",
+          "generation_elapsed_seconds": 10.355,
+          "test_elapsed_seconds": 0.046,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 28,
+          "applied_paths": [
+            "src/portfolio.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": "\nFetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]\nFetching 11 files: 100%|██████████| 11/11 [00:00<00:00, 37267.64it/s]\n"
+        },
+        {
+          "task_id": "html_css_status_card",
+          "stage": "v1_smoke",
+          "language": "html_css",
+          "status": "ok",
+          "generation_elapsed_seconds": 18.058,
+          "test_elapsed_seconds": 0.035,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 68,
+          "applied_paths": [
+            "index.html",
+            "styles.css"
+          ],
+          "rejected_paths": [],
+          "error_tail": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+        }
+      ]
+    },
+    {
+      "model_id": "gpt-5.5",
+      "backend": "codex-cli",
+      "routing_label": "frontier-baseline",
+      "task_count": 3,
+      "download_status": "not_required",
+      "download_elapsed_seconds": 0.0,
+      "elapsed_seconds": 37.879,
+      "json_valid_count": 3,
+      "schema_valid_count": 3,
+      "changed_count": 3,
+      "tests_passed_count": 3,
+      "cache_bytes_before_cleanup": 0,
+      "cleanup_status": "not_required",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_string_normalize",
+          "stage": "v1_smoke",
+          "language": "python",
+          "status": "ok",
+          "generation_elapsed_seconds": 11.752,
+          "test_elapsed_seconds": 0.065,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 12,
+          "applied_paths": [
+            "src/text_utils.py"
+          ],
+          "rejected_paths": [],
+          "error_tail": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "task_id": "javascript_portfolio_metrics",
+          "stage": "v1_smoke",
+          "language": "javascript",
+          "status": "ok",
+          "generation_elapsed_seconds": 9.332,
+          "test_elapsed_seconds": 0.079,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 39,
+          "applied_paths": [
+            "src/portfolio.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": "tions) {\n  return {\n    marketValue: positions.length,\n    costBasis: 0,\n    profit: 0,\n    profitRatePct: 0,\n    winners: [],\n  };\n}\n\nmodule.exports = { summarizePortfolio };\n\n```\n\n### repo/tests/portfolio.test.js\n```\nconst assert = require(\"node:assert/strict\");\nconst { summarizePortfolio } = require(\"../src/portfolio\");\n\nconst sample = [\n  { symbol: \"SKH\", quantity: 2, averagePrice: 1700000, currentPrice: 2330000 },\n  { symbol: \"SEC\", quantity: 10, averagePrice: 281000, currentPrice: 340000 },\n  { symbol: \"CASH\", quantity: 1, averagePrice: 1000000, currentPrice: 1000000 },\n];\n\nassert.deepEqual(summarizePortfolio(sample), {\n  marketValue: 9060000,\n  costBasis: 7210000,\n  profit: 1850000,\n  profitRatePct: 25.66,\n  winners: [\"SEC\", \"SKH\"],\n});\n\nassert.deepEqual(summarizePortfolio([]), {\n  marketValue: 0,\n  costBasis: 0,\n  profit: 0,\n  profitRatePct: 0,\n  winners: [],\n});\n\nconsole.log(\"portfolio metrics tests passed\");\n\n```\n\ncodex\n{\"files\":[{\"path\":\"src/portfolio.js\",\"content\":\"function roundToTwo(value) {\\n  return Math.round((value + Number.EPSILON) * 100) / 100;\\n}\\n\\nfunction summarizePortfolio(positions) {\\n  const totals = positions.reduce(\\n    (summary, position) => {\\n      summary.marketValue += position.quantity * position.currentPrice;\\n      summary.costBasis += position.quantity * position.averagePrice;\\n\\n      if (position.currentPrice > position.averagePrice) {\\n        summary.winners.push(position.symbol);\\n      }\\n\\n      return summary;\\n    },\\n    { marketValue: 0, costBasis: 0, winners: [] }\\n  );\\n\\n  const profit = totals.marketValue - totals.costBasis;\\n  const profitRatePct = totals.costBasis === 0 ? 0 : (profit / totals.costBasis) * 100;\\n\\n  return {\\n    marketValue: roundToTwo(totals.marketValue),\\n    costBasis: roundToTwo(totals.costBasis),\\n    profit: roundToTwo(profit),\\n    profitRatePct: roundToTwo(profitRatePct),\\n    winners: totals.winners.sort(),\\n  };\\n}\\n\\nmodule.exports = { summarizePortfolio };\\n\"}]}\ntokens used\n21,616\n"
+        },
+        {
+          "task_id": "html_css_status_card",
+          "stage": "v1_smoke",
+          "language": "html_css",
+          "status": "ok",
+          "generation_elapsed_seconds": 16.574,
+          "test_elapsed_seconds": 0.065,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 138,
+          "applied_paths": [
+            "index.html",
+            "styles.css"
+          ],
+          "rejected_paths": [],
+          "error_tail": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+        }
+      ]
+    },
+    {
+      "model_id": "gpt-5.4-mini",
+      "backend": "codex-cli",
+      "routing_label": "cost-saving-baseline",
+      "task_count": 3,
+      "download_status": "not_required",
+      "download_elapsed_seconds": 0.0,
+      "elapsed_seconds": 219.481,
+      "json_valid_count": 3,
+      "schema_valid_count": 3,
+      "changed_count": 3,
+      "tests_passed_count": 3,
+      "cache_bytes_before_cleanup": 0,
+      "cleanup_status": "not_required",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_string_normalize",
+          "stage": "v1_smoke",
+          "language": "python",
+          "status": "ok",
+          "generation_elapsed_seconds": 182.881,
+          "test_elapsed_seconds": 0.071,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 13,
+          "applied_paths": [
+            "src/text_utils.py"
+          ],
+          "rejected_paths": [],
+          "error_tail": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "task_id": "javascript_portfolio_metrics",
+          "stage": "v1_smoke",
+          "language": "javascript",
+          "status": "ok",
+          "generation_elapsed_seconds": 16.917,
+          "test_elapsed_seconds": 0.085,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 46,
+          "applied_paths": [
+            "src/portfolio.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": " positions.length,\n    costBasis: 0,\n    profit: 0,\n    profitRatePct: 0,\n    winners: [],\n  };\n}\n\nmodule.exports = { summarizePortfolio };\n\n```\n\n### repo/tests/portfolio.test.js\n```\nconst assert = require(\"node:assert/strict\");\nconst { summarizePortfolio } = require(\"../src/portfolio\");\n\nconst sample = [\n  { symbol: \"SKH\", quantity: 2, averagePrice: 1700000, currentPrice: 2330000 },\n  { symbol: \"SEC\", quantity: 10, averagePrice: 281000, currentPrice: 340000 },\n  { symbol: \"CASH\", quantity: 1, averagePrice: 1000000, currentPrice: 1000000 },\n];\n\nassert.deepEqual(summarizePortfolio(sample), {\n  marketValue: 9060000,\n  costBasis: 7210000,\n  profit: 1850000,\n  profitRatePct: 25.66,\n  winners: [\"SEC\", \"SKH\"],\n});\n\nassert.deepEqual(summarizePortfolio([]), {\n  marketValue: 0,\n  costBasis: 0,\n  profit: 0,\n  profitRatePct: 0,\n  winners: [],\n});\n\nconsole.log(\"portfolio metrics tests passed\");\n\n```\n\ncodex\n{\"files\":[{\"path\":\"src/portfolio.js\",\"content\":\"function round2(value) {\\n  return Math.round((value + Number.EPSILON) * 100) / 100;\\n}\\n\\nfunction summarizePortfolio(positions) {\\n  const list = Array.isArray(positions) ? positions : [];\\n\\n  let marketValue = 0;\\n  let costBasis = 0;\\n  const winners = [];\\n\\n  for (const position of list) {\\n    const quantity = position.quantity;\\n    const averagePrice = position.averagePrice;\\n    const currentPrice = position.currentPrice;\\n\\n    marketValue += quantity * currentPrice;\\n    costBasis += quantity * averagePrice;\\n\\n    if (currentPrice > averagePrice) {\\n      winners.push(position.symbol);\\n    }\\n  }\\n\\n  marketValue = round2(marketValue);\\n  costBasis = round2(costBasis);\\n  const profit = round2(marketValue - costBasis);\\n  const profitRatePct = costBasis === 0 ? 0 : round2((profit / costBasis) * 100);\\n\\n  return {\\n    marketValue,\\n    costBasis,\\n    profit,\\n    profitRatePct,\\n    winners: winners.sort((a, b) => a.localeCompare(b)),\\n  };\\n}\\n\\nmodule.exports = { summarizePortfolio };\\n\"}]}\ntokens used\n20,151\n"
+        },
+        {
+          "task_id": "html_css_status_card",
+          "stage": "v1_smoke",
+          "language": "html_css",
+          "status": "ok",
+          "generation_elapsed_seconds": 19.448,
+          "test_elapsed_seconds": 0.067,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 146,
+          "applied_paths": [
+            "index.html",
+            "styles.css"
+          ],
+          "rejected_paths": [],
+          "error_tail": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+        }
+      ]
+    }
+  ]
+}

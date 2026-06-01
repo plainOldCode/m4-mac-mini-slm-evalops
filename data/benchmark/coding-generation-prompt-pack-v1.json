@@ -1,0 +1,32 @@
+{
+  "name": "coding-generation-prompt-pack-v1",
+  "description": "Deterministic coding-generation benchmark plan for M4 Mac mini SLM EvalOps.",
+  "stages": [
+    {
+      "id": "v1_smoke",
+      "description": "Small, dependency-light tasks that can run on this Mac immediately.",
+      "task_dirs": [
+        "examples/coding_tasks/python_string_normalize",
+        "examples/coding_tasks/javascript_portfolio_metrics",
+        "examples/coding_tasks/html_css_status_card"
+      ]
+    },
+    {
+      "id": "v1_5_polyglot",
+      "description": "Planned compiled/polyglot extension. Needs local toolchain checks before enabling all tasks.",
+      "planned_languages": ["typescript", "c", "cpp", "java", "rust"],
+      "candidate_external_benches": [
+        "nuprl/MultiPL-E",
+        "Aider-AI/polyglot-benchmark"
+      ]
+    },
+    {
+      "id": "v2_frontend",
+      "description": "Planned UI/component extension for React, Vue, HTML, and CSS.",
+      "planned_languages": ["react", "vue", "html", "css"],
+      "candidate_external_benches": [
+        "WebPAI/DesignBench"
+      ]
+    }
+  ]
+}

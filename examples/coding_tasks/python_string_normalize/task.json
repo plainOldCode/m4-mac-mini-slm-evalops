@@ -1,0 +1,14 @@
+{
+  "id": "python_string_normalize",
+  "stage": "v1_smoke",
+  "language": "python",
+  "title": "Normalize portfolio labels",
+  "description": "Implement normalize_key(text) so portfolio labels become stable snake_case keys.",
+  "test_command": ["python3", "-m", "unittest", "discover", "-s", "tests"],
+  "allowed_paths": ["src/text_utils.py"],
+  "instructions": [
+    "Edit only src/text_utils.py.",
+    "normalize_key(text) must trim whitespace, lowercase ASCII letters, replace runs of non-alphanumeric characters with one underscore, and strip leading/trailing underscores.",
+    "It must return an empty string for labels that contain no alphanumeric characters."
+  ]
+}
