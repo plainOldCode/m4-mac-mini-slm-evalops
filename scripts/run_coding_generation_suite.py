@@ -329,9 +329,7 @@ def render_file(path: Path) -> str:
 
 
 def should_include_prompt_file(path: Path) -> bool:
-    if "__pycache__" in path.parts:
-        return False
-    if path.suffix in {".pyc", ".pyo"}:
+    if is_ignored_generated_path(path):
         return False
     return True
 
@@ -543,9 +541,26 @@ def apply_model_files(parsed: dict[str, Any], attempt_repo: Path, allowed_paths:
 def snapshot_files(root: Path) -> dict[str, str]:
     files: dict[str, str] = {}
     for path in sorted(root.rglob("*")):
-        if path.is_file() and "__pycache__" not in path.parts and path.suffix not in {".pyc", ".pyo"}:
+        if path.is_file() and not is_ignored_generated_path(path):
             files[str(path.relative_to(root))] = path.read_text(errors="replace")
     return files
+
+
+def is_ignored_generated_path(path: Path) -> bool:
+    ignored_parts = {
+        "__pycache__",
+        "target",
+        "node_modules",
+        ".pytest_cache",
+        ".mypy_cache",
+        ".ruff_cache",
+        ".git",
+    }
+    if any(part in ignored_parts for part in path.parts):
+        return True
+    if path.name in {"Cargo.lock", "package-lock.json", "tsconfig.tsbuildinfo"}:
+        return True
+    return path.suffix in {".pyc", ".pyo", ".o", ".rlib", ".rmeta"}
 
 
 def build_diff(before: dict[str, str], after: dict[str, str]) -> str:
