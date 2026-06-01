@@ -298,15 +298,6 @@ python scripts/run_coding_generation_suite.py \
   --limit 2
 ```
 
-## Portfolio Framing
-
-Use this line in a resume or project page:
-
-> Built an M4 Mac mini benchmark harness for small local language models. The
-> system runs isolated task attempts, evaluates strict output protocols, captures
-> MLX/Ollama-style backend artifacts, tracks latency and failure modes, and
-> produces reproducible model-selection reports.
-
 ## Repository Layout
 
 ```text
