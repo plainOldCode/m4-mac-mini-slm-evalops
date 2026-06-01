@@ -77,6 +77,47 @@ Primary reports:
 - [M4 MLX candidate refresh](reports/small-models/m4-mac-mini-mlx-refresh-analysis-2026-05-31.md)
 - [Coding generation benchmark plan](docs/coding-generation-benchmark.md)
 
+## Coding Generation Results
+
+Coding generation is scored separately from factual QA and tool calling. The
+lane asks models to emit complete replacement files as strict JSON, applies only
+allowlisted paths, then runs deterministic local checks across Python,
+TypeScript, JavaScript, Go, and Rust.
+
+The current compiler-backed `v1_5_polyglot` suite uses:
+
+- Python syntax and behavior checks
+- `tsc --strict --noEmit` for TypeScript
+- JavaScript unit tests for temporal drawdown logic
+- `go test ./...` for Go route contracts
+- `cargo test` for Rust `Result` contracts
+
+| Rank | Model | Pass | JSON | Schema | Readout |
+| ---: | --- | ---: | ---: | ---: | --- |
+| 1 | Qwen2.5-Coder 14B Instruct MLX 4bit | 5/5 | 5/5 | 5/5 | New local coding quality leader; passed Python, TypeScript, JavaScript, Go, and Rust. |
+| 2 | Qwen3 4B Instruct 2507 MLX 5bit | 3/5 | 5/5 | 5/5 | Lightweight always-on coding baseline; passed Python, TypeScript, and Go. |
+| 3 | Qwen2.5-Coder 7B Instruct MLX 4bit | 1/5 | 5/5 | 4/5 | Strong protocol adherence, but only the Go task passed. |
+| 4 | FastApply 7B v1.0 MLX 4bit | 0/5 | 5/5 | 5/5 | Excellent edit protocol, but not a general code generator; needs a separate patch-apply lane. |
+| 5 | DeepSeek-Coder V2 Lite Instruct MLX 4bit | 0/5 | 4/5 | 4/5 | Generated parseable edits, but no compiler-backed task passed. |
+
+Operational readout:
+
+- `lmstudio-community/Qwen2.5-Coder-14B-Instruct-MLX-4bit` is the quality
+  worker when latency and memory are acceptable.
+- `lmstudio-community/Qwen3-4B-Instruct-2507-MLX-5bit` remains the practical
+  lightweight coding baseline for the M4 Mac mini.
+- 7B and smaller coding-specialized models should be treated as constrained
+  patch candidates with compiler/test repair loops, not autonomous workers.
+- FastApply models should not be judged by this generation suite; they need a
+  dedicated patch-application benchmark.
+
+Primary coding reports:
+
+- [Next coding candidate analysis](reports/small-models/coding-generation-role-language-next-analysis-2026-06-01.md)
+- [Next coding candidate raw results](reports/small-models/coding-generation-role-language-next-2026-06-01.md)
+- [Compiler-backed baseline analysis](reports/small-models/coding-generation-role-language-compiled-analysis-2026-06-01.md)
+- [Compiler-backed baseline raw results](reports/small-models/coding-generation-role-language-compiled-2026-06-01.md)
+
 ## Why This Exists
 
 Small local models are easy to download and hard to trust. A useful local
