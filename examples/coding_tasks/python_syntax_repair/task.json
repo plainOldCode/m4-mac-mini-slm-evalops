@@ -1,0 +1,18 @@
+{
+  "id": "python_syntax_repair",
+  "stage": "v1_5_polyglot",
+  "language": "python",
+  "role": "syntax_repair",
+  "title": "Repair allocation parser syntax",
+  "description": "Fix a small Python module that has syntax and edge-case errors in an allocation parser.",
+  "test_command": ["python3", "-m", "unittest", "discover", "-s", "tests"],
+  "allowed_paths": ["src/allocation.py"],
+  "instructions": [
+    "Edit only src/allocation.py.",
+    "Keep the public function parse_allocations(lines).",
+    "Each non-empty line has the form SYMBOL:WEIGHT, where WEIGHT is a percent number.",
+    "Return a list of {symbol, weight_pct} dictionaries sorted by symbol.",
+    "Ignore blank lines and comment lines starting with #.",
+    "Raise ValueError for malformed lines or negative weights."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "go_router_contract",
+  "stage": "v1_5_polyglot",
+  "language": "go",
+  "role": "explain_route",
+  "title": "Choose an account route in Go",
+  "description": "Complete a small Go routing helper. This task uses dependency-light structural tests until a Go compiler lane is enabled.",
+  "test_command": ["python3", "tests/check_go_contract.py"],
+  "allowed_paths": ["src/router.go"],
+  "instructions": [
+    "Edit only src/router.go.",
+    "Keep package portfolio.",
+    "Define a RouteDecision struct with Account and Reason string fields.",
+    "Implement RouteForSymbol(symbol string) RouteDecision.",
+    "Symbols starting with 005930 or SEC route to account C.",
+    "Symbols starting with 000660 or SKH route to account D.",
+    "Unknown symbols route to WATCH with a reason explaining that no account matched."
+  ]
+}

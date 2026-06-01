@@ -1,0 +1,17 @@
+{
+  "id": "javascript_unit_patch",
+  "stage": "v1_5_polyglot",
+  "language": "javascript",
+  "role": "unit_patch",
+  "title": "Patch drawdown calculation",
+  "description": "Fix a JavaScript function so a small unit test passes without changing the API.",
+  "test_command": ["node", "tests/drawdown.test.js"],
+  "allowed_paths": ["src/drawdown.js"],
+  "instructions": [
+    "Edit only src/drawdown.js.",
+    "Keep the exported maxDrawdownPct(prices) function.",
+    "Return the maximum peak-to-trough drawdown percentage as a positive number.",
+    "Return 0 for an empty array, a single price, or a never-declining series.",
+    "Round the result to two decimals."
+  ]
+}

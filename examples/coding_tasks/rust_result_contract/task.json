@@ -1,0 +1,18 @@
+{
+  "id": "rust_result_contract",
+  "stage": "v1_5_polyglot",
+  "language": "rust",
+  "role": "result_contract",
+  "title": "Model a Rust parse result",
+  "description": "Complete a Rust helper with explicit Result-based error handling. This task uses structural tests until a Rust compiler lane is enabled.",
+  "test_command": ["python3", "tests/check_rust_contract.py"],
+  "allowed_paths": ["src/lib.rs"],
+  "instructions": [
+    "Edit only src/lib.rs.",
+    "Define a Holding struct with symbol: String and quantity: u32.",
+    "Implement pub fn parse_holding(input: &str) -> Result<Holding, String>.",
+    "Input format is SYMBOL:QUANTITY.",
+    "Trim whitespace, uppercase the symbol, reject empty symbols, reject missing colon, and reject invalid quantities.",
+    "Do not use unwrap or expect."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "candidates": [
+    {
+      "model_id": "lmstudio-community/Qwen3-4B-Instruct-2507-MLX-5bit",
+      "backend": "mlx",
+      "routing_label": "general-instruct-local-baseline",
+      "notes": "Current practical local automation baseline; included to test whether instruction-following beats coding specialization."
+    },
+    {
+      "model_id": "mlx-community/Qwen2.5-Coder-3B-Instruct-4bit",
+      "backend": "mlx",
+      "routing_label": "coding-slm-3b-challenger",
+      "notes": "Best coding-specific SLM from the v1 smoke sweep."
+    },
+    {
+      "model_id": "mlx-community/Qwen2.5-Coder-1.5B-Instruct-4bit",
+      "backend": "mlx",
+      "routing_label": "coding-slm-1.5b-protocol-baseline",
+      "notes": "Smallest Qwen coding candidate; useful to test whether protocol-following survives role/language tasks."
+    }
+  ]
+}

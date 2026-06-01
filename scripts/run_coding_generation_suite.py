@@ -25,6 +25,7 @@ class CodingTask:
     task_id: str
     stage: str
     language: str
+    role: str
     title: str
     description: str
     instructions: list[str]
@@ -38,6 +39,7 @@ class CodingTaskResult:
     task_id: str
     stage: str
     language: str
+    role: str
     status: str
     generation_elapsed_seconds: float
     test_elapsed_seconds: float
@@ -122,6 +124,7 @@ def load_tasks(prompt_pack: Path, stage_id: str) -> list[CodingTask]:
                 task_id=meta["id"],
                 stage=meta["stage"],
                 language=meta["language"],
+                role=meta.get("role", "generation"),
                 title=meta["title"],
                 description=meta["description"],
                 instructions=list(meta["instructions"]),
@@ -275,6 +278,7 @@ def run_task(
         task_id=task.task_id,
         stage=task.stage,
         language=task.language,
+        role=task.role,
         status=generation_status,
         generation_elapsed_seconds=generation_elapsed,
         test_elapsed_seconds=test_elapsed,
@@ -302,6 +306,7 @@ def render_prompt(task: CodingTask) -> str:
 
 Task: {task.title}
 Language: {task.language}
+Role: {task.role}
 Description: {task.description}
 
 Instructions:
@@ -559,6 +564,7 @@ def download_failed_result(task: CodingTask, status: str) -> CodingTaskResult:
         task_id=task.task_id,
         stage=task.stage,
         language=task.language,
+        role=task.role,
         status=f"download_{status}",
         generation_elapsed_seconds=0.0,
         test_elapsed_seconds=0.0,
@@ -634,13 +640,13 @@ def render_model_markdown(report: dict[str, Any]) -> str:
         f"- Download: {report.get('download_status', 'n/a')} in {report.get('download_elapsed_seconds', 0)}s",
         f"- Cache cleanup: {report.get('cleanup_status', 'n/a')}",
         "",
-        "| Task | Language | Status | JSON | Schema | Changed | Pass | Diff |",
-        "| --- | --- | --- | --- | --- | --- | --- | ---: |",
+        "| Task | Language | Role | Status | JSON | Schema | Changed | Pass | Diff |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | ---: |",
     ]
     for result in report["results"]:
         lines.append(
             "| "
-            f"{result['task_id']} | {result['language']} | {result['status']} | "
+            f"{result['task_id']} | {result['language']} | {result.get('role', 'generation')} | {result['status']} | "
             f"{yes_no(result['json_valid'])} | {yes_no(result['schema_valid'])} | "
             f"{yes_no(result['changed'])} | {yes_no(result['tests_passed'])} | "
             f"{result['diff_lines']} |"

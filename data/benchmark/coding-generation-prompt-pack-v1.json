@@ -13,8 +13,17 @@
     },
     {
       "id": "v1_5_polyglot",
-      "description": "Planned compiled/polyglot extension. Needs local toolchain checks before enabling all tasks.",
-      "planned_languages": ["typescript", "c", "cpp", "java", "rust"],
+      "description": "Dependency-light role/language suite for small-model capability mapping.",
+      "task_dirs": [
+        "examples/coding_tasks/python_syntax_repair",
+        "examples/coding_tasks/typescript_type_contract",
+        "examples/coding_tasks/javascript_unit_patch",
+        "examples/coding_tasks/go_router_contract",
+        "examples/coding_tasks/rust_result_contract"
+      ],
+      "languages": ["python", "typescript", "javascript", "go", "rust"],
+      "roles": ["syntax_repair", "type_contract", "unit_patch", "explain_route", "result_contract"],
+      "toolchain_note": "This first v1.5 suite is dependency-light. Go, Rust, and TypeScript tasks use structural contract tests so the suite can run before installing compilers.",
       "candidate_external_benches": [
         "nuprl/MultiPL-E",
         "Aider-AI/polyglot-benchmark"

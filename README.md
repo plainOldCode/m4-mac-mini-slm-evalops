@@ -231,10 +231,10 @@ python scripts/run_coding_generation_suite.py \
   --limit 1
 ```
 
-The planned progression is `v1_smoke` for Python/JavaScript/HTML-CSS,
-`v1_5_polyglot` for TypeScript/C/C++/Java/Rust, and `v2_frontend` for
-React/Vue/component-specific UI checks. See
-`docs/coding-generation-benchmark.md`.
+The progression is `v1_smoke` for Python/JavaScript/HTML-CSS,
+`v1_5_polyglot` for role/language fit across Python, TypeScript,
+JavaScript, Go, and Rust, and `v2_frontend` for React/Vue/component-specific
+UI checks. See `docs/coding-generation-benchmark.md`.
 
 GPT comparison runs use the `codex-cli` backend so credentials stay outside the
 repository:

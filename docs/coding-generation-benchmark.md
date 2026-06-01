@@ -9,8 +9,27 @@ do not depend on an LLM judge.
 | Stage | Scope | Purpose |
 | --- | --- | --- |
 | `v1_smoke` | Python, JavaScript, HTML/CSS | Fast sanity check across backend, scripting, and static UI output. |
-| `v1_5_polyglot` | TypeScript, C, C++, Java, Rust | Add compiled-language and type-system pressure. |
+| `v1_5_polyglot` | Python, TypeScript, JavaScript, Go, Rust | Map small-model role fit across common AI-coding languages. |
 | `v2_frontend` | React, Vue, HTML, CSS | Add component-generation and UI-contract checks. |
+
+`v1_5_polyglot` is dependency-light by design. Python and JavaScript tasks run
+real tests immediately. TypeScript, Go, and Rust tasks use structural contract
+checks until the local TypeScript, Go, and Rust toolchains are installed. A later
+`v1_6_compiled` lane can add true compiler checks without losing the fast smoke
+path.
+
+## Role Axes
+
+Small models should be judged by the work they can reliably own, not only by a
+single pass/fail coding score.
+
+| Role | Meaning |
+| --- | --- |
+| `syntax_repair` | Fix broken syntax and small edge-case behavior in an existing file. |
+| `type_contract` | Preserve explicit types, API shapes, and return contracts. |
+| `unit_patch` | Read a failing test and patch the implementation. |
+| `explain_route` | Encode a simple routing or classification rule in code. |
+| `result_contract` | Use explicit success/error return shapes instead of loose values. |
 
 ## Output Contract
 

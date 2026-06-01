@@ -1,0 +1,18 @@
+{
+  "id": "typescript_type_contract",
+  "stage": "v1_5_polyglot",
+  "language": "typescript",
+  "role": "type_contract",
+  "title": "Complete a TypeScript quote contract",
+  "description": "Fill in a TypeScript module so it exposes a strongly typed quote summary function.",
+  "test_command": ["node", "tests/check_typescript_contract.js"],
+  "allowed_paths": ["src/quoteSummary.ts"],
+  "instructions": [
+    "Edit only src/quoteSummary.ts.",
+    "Define and export a Quote interface with symbol, previousClose, and currentPrice fields.",
+    "Define and export a QuoteSummary interface with symbol, change, changePct, and direction fields.",
+    "Implement export function summarizeQuote(quote: Quote): QuoteSummary.",
+    "direction must be up, down, or flat.",
+    "Round change and changePct to two decimals."
+  ]
+}
