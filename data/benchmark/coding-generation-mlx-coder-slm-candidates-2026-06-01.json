@@ -1,0 +1,40 @@
+{
+  "candidates": [
+    {
+      "model_id": "mlx-community/Qwen2.5-Coder-1.5B-Instruct-4bit",
+      "backend": "mlx",
+      "routing_label": "qwen-coder-light-1.5b",
+      "notes": "Very small Qwen coding SLM baseline, around 0.87 GB repository storage."
+    },
+    {
+      "model_id": "mlx-community/Qwen2.5-Coder-3B-Instruct-4bit",
+      "backend": "mlx",
+      "routing_label": "qwen-coder-light-3b",
+      "notes": "Small Qwen coding SLM candidate, around 1.74 GB repository storage."
+    },
+    {
+      "model_id": "lmstudio-community/Qwen2.5-Coder-7B-Instruct-MLX-4bit",
+      "backend": "mlx",
+      "routing_label": "qwen-coder-practical-7b-lmstudio",
+      "notes": "Practical 7B coding candidate with higher HF downloads, around 4.30 GB repository storage."
+    },
+    {
+      "model_id": "mlx-community/starcoder2-3b-4bit",
+      "backend": "mlx",
+      "routing_label": "starcoder2-light-3b",
+      "notes": "Non-Qwen 3B coding baseline, around 1.92 GB repository storage."
+    },
+    {
+      "model_id": "mlx-community/deepseek-coder-1.3b-instruct-mlx",
+      "backend": "mlx",
+      "routing_label": "deepseek-coder-light-1.3b",
+      "notes": "Small older DeepSeek coding baseline, around 2.69 GB repository storage."
+    },
+    {
+      "model_id": "mlx-community/deepseek-coder-6.7b-instruct-hf-4bit-mlx",
+      "backend": "mlx",
+      "routing_label": "deepseek-coder-practical-6.7b",
+      "notes": "Heavier DeepSeek coding comparison candidate, around 3.98 GB repository storage."
+    }
+  ]
+}
