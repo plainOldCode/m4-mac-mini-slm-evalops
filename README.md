@@ -129,6 +129,40 @@ Primary coding reports:
 - [Compiler-backed baseline analysis](reports/small-models/coding-generation-role-language-compiled-analysis-2026-06-01.md)
 - [Compiler-backed baseline raw results](reports/small-models/coding-generation-role-language-compiled-2026-06-01.md)
 
+## Ollama Mac Mini Full-Suite Results
+
+The non-MLX pass evaluates Mac-mini-realistic Ollama models across all four
+operational lanes: 100-prompt factual QA, structured tool calling, OpenClaw
+native tool execution, and compiler-backed coding generation. Ollama JSON-mode
+is enabled for the structured JSON suites. `qwen3-coder:30b-a3b` is excluded
+because it is outside the 16 GB M4 Mac mini comfort zone for a full-suite run.
+
+| Rank | Model | 100p Alias | Tool Calling | OpenClaw Native | Coding | Readout |
+| ---: | --- | ---: | ---: | --- | ---: | --- |
+| 1 | `qwen2.5-coder:14b` | 94/100 | 9/12 | Fail | 4/5 | Best Ollama candidate; useful fallback coding worker, but not native OpenClaw-ready. |
+| 2 | `qwen2.5-coder:7b` | 87/100 | 7/12 | Fail | 2/5 | Better under Ollama JSON-mode than the MLX 7B result, still mid-tier. |
+| 3 | `qwen3:4b` | 90/100 | 3/12 | Fail | 1/5 | Good lightweight factual baseline, weak at tool selection and coding here. |
+| 4 | `llama3.1:8b` | 88/100 | 6/12 | Fail | 0/5 | General baseline only; not useful as a coding worker in this suite. |
+
+Operational readout:
+
+- The best Ollama result is still below the current MLX coding leader:
+  `lmstudio-community/Qwen2.5-Coder-14B-Instruct-MLX-4bit` reached 5/5 on the
+  compiler-backed coding suite, while Ollama `qwen2.5-coder:14b` reached 4/5.
+- None of the Ollama candidates passed the native OpenClaw tool execution
+  canary. The common failure mode was text that described or approximated a tool
+  call without emitting a valid structured invocation that OpenClaw executed.
+- Coding-specialized models helped most when JSON-mode structured output was
+  available, but specialization alone did not guarantee native-agent behavior.
+
+Primary Ollama reports:
+
+- [Ollama full-suite analysis](reports/small-models/ollama-mac-mini-full-suite-analysis-2026-06-01.md)
+- [Ollama 100-prompt factual scoring](reports/small-models/multilingual-domain-suite-ollama-mac-mini-alias-normalized-2026-06-01.md)
+- [Ollama tool calling](reports/small-models/tool-calling-suite-ollama-mac-mini-2026-06-01.md)
+- [Ollama OpenClaw native tool execution](reports/small-models/openclaw-native-tool-execution-ollama-mac-mini-2026-06-01.md)
+- [Ollama coding generation](reports/small-models/coding-generation-role-language-ollama-mac-mini-2026-06-01.md)
+
 ## Why This Exists
 
 Small local models are easy to download and hard to trust. A useful local

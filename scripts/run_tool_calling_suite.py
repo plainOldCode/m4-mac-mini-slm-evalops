@@ -13,6 +13,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
+from local_model_backends import backend_of, generate_ollama, pull_ollama_model
 from run_mlx_candidate_sweep import clean_reasoning_wrappers, directory_size, extract_json_object, safe_name
 from run_multilingual_prompt_suite import decode_maybe, tail
 
@@ -155,24 +156,31 @@ def run_model(
     attempt_dir.mkdir(parents=True)
     (attempt_dir / "candidate.json").write_text(json.dumps(candidate, indent=2, ensure_ascii=False))
 
+    backend = backend_of(candidate)
     cache_dir = attempt_dir / "model-cache"
-    cache_dir.mkdir()
     env = os.environ.copy()
-    env["HF_HOME"] = str(cache_dir / "hf-home")
-    env["HF_HUB_CACHE"] = str(cache_dir / "hf-home" / "hub")
-    env["TRANSFORMERS_CACHE"] = str(cache_dir / "transformers")
+    if backend == "mlx":
+        cache_dir.mkdir()
+        env["HF_HOME"] = str(cache_dir / "hf-home")
+        env["HF_HUB_CACHE"] = str(cache_dir / "hf-home" / "hub")
+        env["TRANSFORMERS_CACHE"] = str(cache_dir / "transformers")
 
     total_start = time.perf_counter()
-    download_status, download_elapsed, download_stdout, download_stderr = download_model(
-        candidate["model_id"], env, download_timeout
-    )
+    if backend == "ollama":
+        download_status, download_elapsed, download_stdout, download_stderr = pull_ollama_model(
+            candidate["model_id"], download_timeout
+        )
+    else:
+        download_status, download_elapsed, download_stdout, download_stderr = download_model(
+            candidate["model_id"], env, download_timeout
+        )
     (attempt_dir / "download_stdout.txt").write_text(download_stdout)
     (attempt_dir / "download_stderr.txt").write_text(download_stderr)
 
     results: list[ToolCaseResult] = []
     if download_status == "ok":
         for case in prompt_cases:
-            results.append(run_prompt_case(candidate["model_id"], case, attempt_dir, env, timeout, max_tokens))
+            results.append(run_prompt_case(candidate, case, attempt_dir, env, timeout, max_tokens))
     else:
         for case in prompt_cases:
             expected_names = [call["tool_name"] for call in case.expected_tool_calls]
@@ -198,19 +206,21 @@ def run_model(
                 )
             )
 
-    cache_bytes = directory_size(cache_dir)
-    cleanup_status = "not_started"
+    cache_bytes = directory_size(cache_dir) if cache_dir.exists() else 0
+    cleanup_status = "not_required" if backend == "ollama" else "not_started"
     cleanup_error = ""
-    try:
-        shutil.rmtree(cache_dir)
-        cleanup_status = "deleted"
-    except Exception as exc:  # noqa: BLE001
-        cleanup_status = "failed"
-        cleanup_error = repr(exc)
+    if cache_dir.exists():
+        try:
+            shutil.rmtree(cache_dir)
+            cleanup_status = "deleted"
+        except Exception as exc:  # noqa: BLE001
+            cleanup_status = "failed"
+            cleanup_error = repr(exc)
 
     elapsed = round(time.perf_counter() - total_start, 3)
     report = {
         "model_id": candidate["model_id"],
+        "backend": backend,
         "params": candidate.get("params", ""),
         "routing_label": candidate.get("routing_label", ""),
         "case_count": len(results),
@@ -264,18 +274,20 @@ def download_model(model_id: str, env: dict[str, str], timeout: int) -> tuple[st
 
 
 def run_prompt_case(
-    model_id: str,
+    candidate: dict[str, str],
     case: ToolCase,
     attempt_dir: Path,
     env: dict[str, str],
     timeout: int,
     max_tokens: int,
 ) -> ToolCaseResult:
+    model_id = candidate["model_id"]
+    backend = backend_of(candidate)
     case_dir = attempt_dir / "raw" / case.case_id
     case_dir.mkdir(parents=True)
     (case_dir / "prompt.json").write_text(json.dumps(asdict(case), indent=2, ensure_ascii=False))
     (case_dir / "prompt.txt").write_text(case.prompt)
-    command = [
+    command = ollama_command(model_id, case.prompt, max_tokens) if backend == "ollama" else [
         sys.executable,
         "-m",
         "mlx_lm",
@@ -298,11 +310,15 @@ def run_prompt_case(
     returncode: int | None = None
     status = "error"
     try:
-        completed = subprocess.run(command, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout, env=env)
-        stdout = completed.stdout or ""
-        stderr = completed.stderr or ""
-        returncode = completed.returncode
-        status = "ok" if completed.returncode == 0 and stdout.strip() else "failed"
+        if backend == "ollama":
+            stdout, status, stderr = generate_ollama(model_id, case.prompt, timeout, max_tokens)
+            returncode = 0 if status == "ok" else 1
+        else:
+            completed = subprocess.run(command, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout, env=env)
+            stdout = completed.stdout or ""
+            stderr = completed.stderr or ""
+            returncode = completed.returncode
+            status = "ok" if completed.returncode == 0 and stdout.strip() else "failed"
     except subprocess.TimeoutExpired as exc:
         status = "timeout"
         stdout = decode_maybe(exc.stdout)
@@ -340,6 +356,10 @@ def run_prompt_case(
     )
     (case_dir / "result.json").write_text(json.dumps(asdict(result), indent=2, ensure_ascii=False))
     return result
+
+
+def ollama_command(model_id: str, prompt: str, max_tokens: int) -> list[str]:
+    return ["ollama", "api", "generate", model_id, f"prompt_chars={len(prompt)}", f"num_predict={max_tokens}"]
 
 
 def score_case(parsed: Any, expected_calls: list[dict[str, Any]]) -> dict[str, Any]:

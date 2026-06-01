@@ -1,0 +1,40 @@
+{
+  "name": "ollama_mac_mini_candidates_2026_06_01",
+  "selection_policy": {
+    "host": "16GB M4 Mac mini",
+    "backend": "Ollama / local OpenAI-compatible HTTP where available",
+    "scope": "Non-MLX-capable first-pass models that are realistic to pull, run, and delete on the Mac mini.",
+    "excluded": [
+      {
+        "model_id": "qwen3-coder:30b-a3b",
+        "reason": "Too close to or above the comfort zone for a 16GB Mac mini full-suite run."
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "model_id": "qwen3:4b",
+      "backend": "ollama",
+      "routing_label": "ollama-qwen3-4b",
+      "notes": "General instruction baseline; compare against the MLX Qwen3 4B always-on baseline."
+    },
+    {
+      "model_id": "qwen2.5-coder:7b",
+      "backend": "ollama",
+      "routing_label": "ollama-qwen25-coder-7b",
+      "notes": "Coding-specialized 7B candidate; tests whether Ollama/GGUF packaging changes the weak MLX 7B result."
+    },
+    {
+      "model_id": "qwen2.5-coder:14b",
+      "backend": "ollama",
+      "routing_label": "ollama-qwen25-coder-14b",
+      "notes": "Quality coding worker candidate; compare with the MLX 14B leader."
+    },
+    {
+      "model_id": "llama3.1:8b",
+      "backend": "ollama",
+      "routing_label": "ollama-llama31-8b",
+      "notes": "General 8B instruction and tool-use baseline outside the Qwen family."
+    }
+  ]
+}

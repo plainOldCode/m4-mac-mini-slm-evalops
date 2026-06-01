@@ -16,6 +16,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
+from local_model_backends import generate_ollama, pull_ollama_model
 from run_mlx_candidate_sweep import directory_size, safe_name
 from run_multilingual_prompt_suite import decode_maybe, tail
 
@@ -162,10 +163,16 @@ def run_candidate(candidate: dict[str, str], tasks: list[CodingTask], candidate_
         )
         (candidate_dir / "download_stdout.txt").write_text(download_stdout)
         (candidate_dir / "download_stderr.txt").write_text(download_stderr)
+    elif backend == "ollama":
+        download_status, download_elapsed, download_stdout, download_stderr = pull_ollama_model(
+            candidate["model_id"], args.download_timeout
+        )
+        (candidate_dir / "download_stdout.txt").write_text(download_stdout)
+        (candidate_dir / "download_stderr.txt").write_text(download_stderr)
 
     results: list[CodingTaskResult] = []
     for task in tasks:
-        if backend == "mlx" and download_status != "ok":
+        if backend in {"mlx", "ollama"} and download_status != "ok":
             results.append(download_failed_result(task, download_status))
             continue
         results.append(run_task(candidate, task, candidate_dir, env, args))
@@ -358,6 +365,8 @@ def generate_output(
         return generate_codex_cli(candidate["model_id"], prompt, task_dir, args.timeout)
     if backend == "mlx":
         return generate_mlx(candidate["model_id"], prompt, env, args.timeout, args.max_tokens)
+    if backend == "ollama":
+        return generate_ollama(candidate["model_id"], prompt, args.timeout, args.max_tokens)
     return "", "error", f"unknown backend: {backend}"
 
 

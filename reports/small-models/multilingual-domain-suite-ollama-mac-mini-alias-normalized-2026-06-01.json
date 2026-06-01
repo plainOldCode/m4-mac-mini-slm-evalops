@@ -1,0 +1,4871 @@
+{
+  "runs_dir": "runs/multilingual-domain-suite-ollama-mac-mini-2026-06-01",
+  "top_n": 4,
+  "scoring_policy": {
+    "strict_match": "Existing exact normalized canonical_answer match.",
+    "alias_match": "Conservative alias match over canonical_answer first, then localized answer.",
+    "acronym_policy": "Acronym-only answers are not accepted for GDP or ETF expansion prompts."
+  },
+  "models": [
+    {
+      "model_id": "qwen2.5-coder:14b",
+      "prompt_count": 100,
+      "strict_canonical_match_count": 82,
+      "alias_normalized_match_count": 94,
+      "alias_lift_count": 12,
+      "json_valid_count": 100,
+      "schema_valid_count": 100,
+      "domain_alias_counts": {
+        "physics": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "biology": {
+          "alias_match": 10,
+          "strict_match": 6,
+          "total": 10
+        },
+        "earth_science": {
+          "alias_match": 6,
+          "strict_match": 5,
+          "total": 10
+        },
+        "chemistry": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "math": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "coding": {
+          "alias_match": 10,
+          "strict_match": 4,
+          "total": 10
+        },
+        "current_affairs": {
+          "alias_match": 9,
+          "strict_match": 9,
+          "total": 10
+        },
+        "economics": {
+          "alias_match": 9,
+          "strict_match": 8,
+          "total": 10
+        },
+        "finance": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "logic": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        }
+      },
+      "language_alias_counts": {
+        "en": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "ko": {
+          "alias_match": 9,
+          "strict_match": 8,
+          "total": 10
+        },
+        "ja": {
+          "alias_match": 9,
+          "strict_match": 8,
+          "total": 10
+        },
+        "zh": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "es": {
+          "alias_match": 10,
+          "strict_match": 9,
+          "total": 10
+        },
+        "ru": {
+          "alias_match": 10,
+          "strict_match": 9,
+          "total": 10
+        },
+        "fr": {
+          "alias_match": 9,
+          "strict_match": 7,
+          "total": 10
+        },
+        "de": {
+          "alias_match": 10,
+          "strict_match": 8,
+          "total": 10
+        },
+        "it": {
+          "alias_match": 7,
+          "strict_match": 5,
+          "total": 10
+        },
+        "pt": {
+          "alias_match": 10,
+          "strict_match": 8,
+          "total": 10
+        }
+      },
+      "rows": [
+        {
+          "case_id": "001-physics-en",
+          "domain": "physics",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "newton",
+          "answer": "The SI unit of force is the newton."
+        },
+        {
+          "case_id": "002-physics-ko",
+          "domain": "physics",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "newton",
+          "answer": "뉴턴"
+        },
+        {
+          "case_id": "003-physics-ja",
+          "domain": "physics",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "newton",
+          "answer": "ニュートン"
+        },
+        {
+          "case_id": "004-physics-zh",
+          "domain": "physics",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "newton",
+          "answer": "牛顿"
+        },
+        {
+          "case_id": "005-physics-es",
+          "domain": "physics",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "newton",
+          "answer": "El newton"
+        },
+        {
+          "case_id": "006-physics-ru",
+          "domain": "physics",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "Newton",
+          "answer": "Ньютон"
+        },
+        {
+          "case_id": "007-physics-fr",
+          "domain": "physics",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "newton",
+          "answer": "Le newton"
+        },
+        {
+          "case_id": "008-physics-de",
+          "domain": "physics",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "newton",
+          "answer": "Die SI-Einheit der Kraft ist das Newton."
+        },
+        {
+          "case_id": "009-physics-it",
+          "domain": "physics",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "newton",
+          "answer": "Il newton"
+        },
+        {
+          "case_id": "010-physics-pt",
+          "domain": "physics",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "newton",
+          "answer": "O newton"
+        },
+        {
+          "case_id": "011-biology-en",
+          "domain": "biology",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "Mitochondria are the primary organelles responsible for ATP production in eukaryotic cells through a process called oxidative phosphorylation."
+        },
+        {
+          "case_id": "012-biology-ko",
+          "domain": "biology",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "미토콘드리아"
+        },
+        {
+          "case_id": "013-biology-ja",
+          "domain": "biology",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "ミトコンドリア"
+        },
+        {
+          "case_id": "014-biology-zh",
+          "domain": "biology",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "线粒体"
+        },
+        {
+          "case_id": "015-biology-es",
+          "domain": "biology",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondrion",
+          "answer": "El mitocondria"
+        },
+        {
+          "case_id": "016-biology-ru",
+          "domain": "biology",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "Митохондрия"
+        },
+        {
+          "case_id": "017-biology-fr",
+          "domain": "biology",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "Le mitochondrion"
+        },
+        {
+          "case_id": "018-biology-de",
+          "domain": "biology",
+          "language": "de",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondrion",
+          "answer": "Das Mitochondrium"
+        },
+        {
+          "case_id": "019-biology-it",
+          "domain": "biology",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondrion",
+          "answer": "Il mitocondrio"
+        },
+        {
+          "case_id": "020-biology-pt",
+          "domain": "biology",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondrion",
+          "answer": "Mitocôndria"
+        },
+        {
+          "case_id": "021-earth_science-en",
+          "domain": "earth_science",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "nitrogen",
+          "answer": "The most abundant gas in Earth's atmosphere is nitrogen."
+        },
+        {
+          "case_id": "022-earth_science-ko",
+          "domain": "earth_science",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "air",
+          "answer": "공기"
+        },
+        {
+          "case_id": "023-earth_science-ja",
+          "domain": "earth_science",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "oxygen",
+          "answer": "酸素"
+        },
+        {
+          "case_id": "024-earth_science-zh",
+          "domain": "earth_science",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "nitrogen",
+          "answer": "氮气"
+        },
+        {
+          "case_id": "025-earth_science-es",
+          "domain": "earth_science",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "nitrogen",
+          "answer": "El gas más abundante en la atmósfera terrestre es el nitrógeno."
+        },
+        {
+          "case_id": "026-earth_science-ru",
+          "domain": "earth_science",
+          "language": "ru",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "Нитrogen"
+        },
+        {
+          "case_id": "027-earth_science-fr",
+          "domain": "earth_science",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "oxygen",
+          "answer": "L'oxygène"
+        },
+        {
+          "case_id": "028-earth_science-de",
+          "domain": "earth_science",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "Nitrogen",
+          "answer": "Niederschlagswasserstoff"
+        },
+        {
+          "case_id": "029-earth_science-it",
+          "domain": "earth_science",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "oxygen",
+          "answer": "Il gas più abbondante nell'atmosfera terrestre è l'ossigeno."
+        },
+        {
+          "case_id": "030-earth_science-pt",
+          "domain": "earth_science",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "nitrogen",
+          "answer": "O gás mais abundante na atmosfera da Terra é o nitrogênio."
+        },
+        {
+          "case_id": "031-chemistry-en",
+          "domain": "chemistry",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "Table salt is composed of sodium and chlorine atoms bonded together to form an ionic compound."
+        },
+        {
+          "case_id": "032-chemistry-ko",
+          "domain": "chemistry",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "소금의 화학식은 나트륨 클로라이드(NaCl)입니다."
+        },
+        {
+          "case_id": "033-chemistry-ja",
+          "domain": "chemistry",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "食塩の化学式はナトリウムクロロ化物です。"
+        },
+        {
+          "case_id": "034-chemistry-zh",
+          "domain": "chemistry",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "食盐的化学式是氯化钠。"
+        },
+        {
+          "case_id": "035-chemistry-es",
+          "domain": "chemistry",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "La fórmula química de la sal de mesa es NaCl."
+        },
+        {
+          "case_id": "036-chemistry-ru",
+          "domain": "chemistry",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "Натрия хлорид"
+        },
+        {
+          "case_id": "037-chemistry-fr",
+          "domain": "chemistry",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "La formule chimique du sel de table est NaCl."
+        },
+        {
+          "case_id": "038-chemistry-de",
+          "domain": "chemistry",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "NaCl"
+        },
+        {
+          "case_id": "039-chemistry-it",
+          "domain": "chemistry",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "La formula chimica del sale da cucina è NaCl."
+        },
+        {
+          "case_id": "040-chemistry-pt",
+          "domain": "chemistry",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "O sal de cozinha tem a fórmula química NaCl."
+        },
+        {
+          "case_id": "041-math-en",
+          "domain": "math",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "The derivative of x^2 with respect to x is 2x."
+        },
+        {
+          "case_id": "042-math-ko",
+          "domain": "math",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "x에 대한 x^2의 도함수는 2x입니다."
+        },
+        {
+          "case_id": "043-math-ja",
+          "domain": "math",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "044-math-zh",
+          "domain": "math",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "045-math-es",
+          "domain": "math",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "La derivada de x^2 con respecto a x es 2x."
+        },
+        {
+          "case_id": "046-math-ru",
+          "domain": "math",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "Производная функции x^2 по x равна 2x."
+        },
+        {
+          "case_id": "047-math-fr",
+          "domain": "math",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "La dérivée de x^2 par rapport à x est 2x."
+        },
+        {
+          "case_id": "048-math-de",
+          "domain": "math",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "Die Ableitung von x^2 nach x ist 2x."
+        },
+        {
+          "case_id": "049-math-it",
+          "domain": "math",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "La derivata di x^2 rispetto a x è 2x."
+        },
+        {
+          "case_id": "050-math-pt",
+          "domain": "math",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "A derivada de x ao quadrado em relação a x é 2x."
+        },
+        {
+          "case_id": "051-coding-en",
+          "domain": "coding",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "The expression that returns the number of elements in a list named xs is len(xs)."
+        },
+        {
+          "case_id": "052-coding-ko",
+          "domain": "coding",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "053-coding-ja",
+          "domain": "coding",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "054-coding-zh",
+          "domain": "coding",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "055-coding-es",
+          "domain": "coding",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "La expresión que devuelve el número de elementos de una lista llamada xs en Python es len(xs)."
+        },
+        {
+          "case_id": "056-coding-ru",
+          "domain": "coding",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "Длина списка xs в Python может быть получена с помощью функции len(xs)."
+        },
+        {
+          "case_id": "057-coding-fr",
+          "domain": "coding",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "058-coding-de",
+          "domain": "coding",
+          "language": "de",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "059-coding-it",
+          "domain": "coding",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "060-coding-pt",
+          "domain": "coding",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "061-current_affairs-en",
+          "domain": "current_affairs",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "As of May 30, 2026, the Secretary-General of the United Nations is António Guterres."
+        },
+        {
+          "case_id": "062-current_affairs-ko",
+          "domain": "current_affairs",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "유엔 사무총장은 안테노니오 에스코바 콜레아입니다."
+        },
+        {
+          "case_id": "063-current_affairs-ja",
+          "domain": "current_affairs",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "アンダーソン・アンナ"
+        },
+        {
+          "case_id": "064-current_affairs-zh",
+          "domain": "current_affairs",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "Antonio Guterres",
+          "answer": "安东尼奥·古特雷斯"
+        },
+        {
+          "case_id": "065-current_affairs-es",
+          "domain": "current_affairs",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "El Secretario General de las Naciones Unidas en la fecha de 30 de mayo de 2026 será António Guterres."
+        },
+        {
+          "case_id": "066-current_affairs-ru",
+          "domain": "current_affairs",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "Antonio Guterres",
+          "answer": "Антонио Гутерес"
+        },
+        {
+          "case_id": "067-current_affairs-fr",
+          "domain": "current_affairs",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "Antonio Guterres",
+          "answer": "António Guterres"
+        },
+        {
+          "case_id": "068-current_affairs-de",
+          "domain": "current_affairs",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "Antonio Guterres",
+          "answer": "Der Generalsekretär der Vereinten Nationen am 30. Mai 2026 wird Antonio Guterres sein."
+        },
+        {
+          "case_id": "069-current_affairs-it",
+          "domain": "current_affairs",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "UN Secretary-General",
+          "answer": "Non è stato annunciato il Segretario generale delle Nazioni Unite per il 30 maggio 2026."
+        },
+        {
+          "case_id": "070-current_affairs-pt",
+          "domain": "current_affairs",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "O Secretário-Geral das Nações Unidas em 30 de maio de 2026 será António Guterres."
+        },
+        {
+          "case_id": "071-economics-en",
+          "domain": "economics",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross Domestic Product",
+          "answer": "GDP stands for Gross Domestic Product. It is a measure of the total value of all final goods and services produced within a country in a given period."
+        },
+        {
+          "case_id": "072-economics-ko",
+          "domain": "economics",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross Domestic Product",
+          "answer": "GDP는 국내총생산을 의미합니다."
+        },
+        {
+          "case_id": "073-economics-ja",
+          "domain": "economics",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross Domestic Product",
+          "answer": "国内総生産"
+        },
+        {
+          "case_id": "074-economics-zh",
+          "domain": "economics",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross Domestic Product",
+          "answer": "国内生产总值"
+        },
+        {
+          "case_id": "075-economics-es",
+          "domain": "economics",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross Domestic Product",
+          "answer": "El Producto Interno Bruto (PIB) es una medida que representa el valor monetario total de todos los bienes y servicios finalizados producidos en un país durante un período específico, generalmente un año."
+        },
+        {
+          "case_id": "076-economics-ru",
+          "domain": "economics",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross Domestic Product",
+          "answer": "GDP - это валовой внутренний продукт, который отражает общий объем товаров и услуг, произведенных в стране за определенный период времени."
+        },
+        {
+          "case_id": "077-economics-fr",
+          "domain": "economics",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "Le PIB (Produit Intérieur Brut) est une mesure de la valeur totale des biens et services produits au sein d'un pays sur une période donnée."
+        },
+        {
+          "case_id": "078-economics-de",
+          "domain": "economics",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross Domestic Product",
+          "answer": "GDP steht für Bruttosozialprodukt."
+        },
+        {
+          "case_id": "079-economics-it",
+          "domain": "economics",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "Il PIB (Prodotto Interno Bruto) è un indicatore economico che rappresenta il valore monetario totale di tutti i beni e servizi prodotti all'interno di uno stato o regione in un determinato periodo di tempo."
+        },
+        {
+          "case_id": "080-economics-pt",
+          "domain": "economics",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross Domestic Product",
+          "answer": "GDP é o Produto Interno Bruto, que representa o valor monetário total de todos os bens e serviços finalizados produzidos por um país em um determinado período de tempo."
+        },
+        {
+          "case_id": "081-finance-en",
+          "domain": "finance",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "ETF stands for Exchange-Traded Fund."
+        },
+        {
+          "case_id": "082-finance-ko",
+          "domain": "finance",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "ETF는 'Exchange-Traded Fund'의 약자입니다."
+        },
+        {
+          "case_id": "083-finance-ja",
+          "domain": "finance",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "投資信託ファンド"
+        },
+        {
+          "case_id": "084-finance-zh",
+          "domain": "finance",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "ETF 代表交易所交易基金。"
+        },
+        {
+          "case_id": "085-finance-es",
+          "domain": "finance",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "Un ETF es una unidad de inversión que representa una parte de un índice o un activo subyacente."
+        },
+        {
+          "case_id": "086-finance-ru",
+          "domain": "finance",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "ETF - это акционный инвестиционный фонд."
+        },
+        {
+          "case_id": "087-finance-fr",
+          "domain": "finance",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "ETF signifie Étiquette à Trois Lettres ou plus précisément Exchange-Traded Fund en anglais."
+        },
+        {
+          "case_id": "088-finance-de",
+          "domain": "finance",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "ETF steht für Exchange-Traded Fund."
+        },
+        {
+          "case_id": "089-finance-it",
+          "domain": "finance",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "ETF sta per Exchange-Traded Fund, un tipo di fondo comune elencato su borsa."
+        },
+        {
+          "case_id": "090-finance-pt",
+          "domain": "finance",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "ETF significa 'Exchange-Traded Fund', que é um tipo de fundo de investimento negociado em bolsa de valores."
+        },
+        {
+          "case_id": "091-logic-en",
+          "domain": "logic",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Yes, whales are animals because they are mammals and all mammals are animals."
+        },
+        {
+          "case_id": "092-logic-ko",
+          "domain": "logic",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "고래는 동물입니다."
+        },
+        {
+          "case_id": "093-logic-ja",
+          "domain": "logic",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "はい、クジラは動物です。"
+        },
+        {
+          "case_id": "094-logic-zh",
+          "domain": "logic",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "是"
+        },
+        {
+          "case_id": "095-logic-es",
+          "domain": "logic",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Sí, las ballenas son animales."
+        },
+        {
+          "case_id": "096-logic-ru",
+          "domain": "logic",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Да"
+        },
+        {
+          "case_id": "097-logic-fr",
+          "domain": "logic",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Oui, les baleines sont des animaux."
+        },
+        {
+          "case_id": "098-logic-de",
+          "domain": "logic",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "Ja, Wale sind Tiere."
+        },
+        {
+          "case_id": "099-logic-it",
+          "domain": "logic",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "Sì, le balene sono animali."
+        },
+        {
+          "case_id": "100-logic-pt",
+          "domain": "logic",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Sim, as baleias são animais."
+        }
+      ]
+    },
+    {
+      "model_id": "qwen2.5-coder:7b",
+      "prompt_count": 100,
+      "strict_canonical_match_count": 69,
+      "alias_normalized_match_count": 87,
+      "alias_lift_count": 18,
+      "json_valid_count": 100,
+      "schema_valid_count": 100,
+      "domain_alias_counts": {
+        "physics": {
+          "alias_match": 10,
+          "strict_match": 3,
+          "total": 10
+        },
+        "biology": {
+          "alias_match": 9,
+          "strict_match": 9,
+          "total": 10
+        },
+        "earth_science": {
+          "alias_match": 4,
+          "strict_match": 2,
+          "total": 10
+        },
+        "chemistry": {
+          "alias_match": 9,
+          "strict_match": 9,
+          "total": 10
+        },
+        "math": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "coding": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "current_affairs": {
+          "alias_match": 7,
+          "strict_match": 7,
+          "total": 10
+        },
+        "economics": {
+          "alias_match": 9,
+          "strict_match": 3,
+          "total": 10
+        },
+        "finance": {
+          "alias_match": 9,
+          "strict_match": 6,
+          "total": 10
+        },
+        "logic": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        }
+      },
+      "language_alias_counts": {
+        "en": {
+          "alias_match": 10,
+          "strict_match": 7,
+          "total": 10
+        },
+        "ko": {
+          "alias_match": 8,
+          "strict_match": 5,
+          "total": 10
+        },
+        "ja": {
+          "alias_match": 8,
+          "strict_match": 5,
+          "total": 10
+        },
+        "zh": {
+          "alias_match": 10,
+          "strict_match": 8,
+          "total": 10
+        },
+        "es": {
+          "alias_match": 9,
+          "strict_match": 7,
+          "total": 10
+        },
+        "ru": {
+          "alias_match": 7,
+          "strict_match": 6,
+          "total": 10
+        },
+        "fr": {
+          "alias_match": 8,
+          "strict_match": 8,
+          "total": 10
+        },
+        "de": {
+          "alias_match": 10,
+          "strict_match": 9,
+          "total": 10
+        },
+        "it": {
+          "alias_match": 9,
+          "strict_match": 7,
+          "total": 10
+        },
+        "pt": {
+          "alias_match": 8,
+          "strict_match": 7,
+          "total": 10
+        }
+      },
+      "rows": [
+        {
+          "case_id": "001-physics-en",
+          "domain": "physics",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "Newton",
+          "answer": "The SI unit of force is the Newton."
+        },
+        {
+          "case_id": "002-physics-ko",
+          "domain": "physics",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "뉴턴"
+        },
+        {
+          "case_id": "003-physics-ja",
+          "domain": "physics",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "ニュートン"
+        },
+        {
+          "case_id": "004-physics-zh",
+          "domain": "physics",
+          "language": "zh",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "牛顿"
+        },
+        {
+          "case_id": "005-physics-es",
+          "domain": "physics",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "La unidad SI de la fuerza es el newton."
+        },
+        {
+          "case_id": "006-physics-ru",
+          "domain": "physics",
+          "language": "ru",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "Ньютон"
+        },
+        {
+          "case_id": "007-physics-fr",
+          "domain": "physics",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "newton",
+          "answer": "La unité SI de la force est le newton."
+        },
+        {
+          "case_id": "008-physics-de",
+          "domain": "physics",
+          "language": "de",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "Die SI-Einheit der Kraft ist Newton."
+        },
+        {
+          "case_id": "009-physics-it",
+          "domain": "physics",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "La unità SI della forza è il newton."
+        },
+        {
+          "case_id": "010-physics-pt",
+          "domain": "physics",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "newton",
+          "answer": "A unidade SI de força é o newton."
+        },
+        {
+          "case_id": "011-biology-en",
+          "domain": "biology",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "mitochondria"
+        },
+        {
+          "case_id": "012-biology-ko",
+          "domain": "biology",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "진핵세포에서 ATP 생산을 가장 직접적으로 담당하는 세포소기관은 루테린입니다."
+        },
+        {
+          "case_id": "013-biology-ja",
+          "domain": "biology",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": " mitochondria"
+        },
+        {
+          "case_id": "014-biology-zh",
+          "domain": "biology",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "线粒体"
+        },
+        {
+          "case_id": "015-biology-es",
+          "domain": "biology",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "La mitocondria"
+        },
+        {
+          "case_id": "016-biology-ru",
+          "domain": "biology",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "Комплекс I цитоплasmической мембраны"
+        },
+        {
+          "case_id": "017-biology-fr",
+          "domain": "biology",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "La mitochondrie"
+        },
+        {
+          "case_id": "018-biology-de",
+          "domain": "biology",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "Der Krebszyklus"
+        },
+        {
+          "case_id": "019-biology-it",
+          "domain": "biology",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "La mitochondria è l'organello più direttamente responsabile della produzione di ATP nelle cellule eucariotiche."
+        },
+        {
+          "case_id": "020-biology-pt",
+          "domain": "biology",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "chloroplast",
+          "answer": "A citoplasma verde"
+        },
+        {
+          "case_id": "021-earth_science-en",
+          "domain": "earth_science",
+          "language": "en",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "Nitrogen"
+        },
+        {
+          "case_id": "022-earth_science-ko",
+          "domain": "earth_science",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "amino acids",
+          "answer": "아미노산"
+        },
+        {
+          "case_id": "023-earth_science-ja",
+          "domain": "earth_science",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "H2",
+          "answer": "水素"
+        },
+        {
+          "case_id": "024-earth_science-zh",
+          "domain": "earth_science",
+          "language": "zh",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "氮气"
+        },
+        {
+          "case_id": "025-earth_science-es",
+          "domain": "earth_science",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "Oxygen",
+          "answer": "El gas más abundante en la atmósfera terrestre es el oxígeno."
+        },
+        {
+          "case_id": "026-earth_science-ru",
+          "domain": "earth_science",
+          "language": "ru",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "O2",
+          "answer": "Кислород"
+        },
+        {
+          "case_id": "027-earth_science-fr",
+          "domain": "earth_science",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "O2",
+          "answer": "L'oxygène"
+        },
+        {
+          "case_id": "028-earth_science-de",
+          "domain": "earth_science",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "Nitrogen",
+          "answer": "Das Gas, das in der Erdatmosphäre am häufigsten vorkommt, ist Stickstoff."
+        },
+        {
+          "case_id": "029-earth_science-it",
+          "domain": "earth_science",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "Oxygen",
+          "answer": "Il gas più abbondante nell'atmosfera terrestre è l'ossigeno."
+        },
+        {
+          "case_id": "030-earth_science-pt",
+          "domain": "earth_science",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "nitrogen",
+          "answer": "O gás mais abundante na atmosfera da Terra é o nitrogênio."
+        },
+        {
+          "case_id": "031-chemistry-en",
+          "domain": "chemistry",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "NaCl"
+        },
+        {
+          "case_id": "032-chemistry-ko",
+          "domain": "chemistry",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "나트륨염"
+        },
+        {
+          "case_id": "033-chemistry-ja",
+          "domain": "chemistry",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "塩"
+        },
+        {
+          "case_id": "034-chemistry-zh",
+          "domain": "chemistry",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "食盐的化学式是NaCl。"
+        },
+        {
+          "case_id": "035-chemistry-es",
+          "domain": "chemistry",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "La fórmula química de la sal de mesa es NaCl."
+        },
+        {
+          "case_id": "036-chemistry-ru",
+          "domain": "chemistry",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "Соль поваренная"
+        },
+        {
+          "case_id": "037-chemistry-fr",
+          "domain": "chemistry",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "La formule chimique du sel de table est NaCl."
+        },
+        {
+          "case_id": "038-chemistry-de",
+          "domain": "chemistry",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "NaCl"
+        },
+        {
+          "case_id": "039-chemistry-it",
+          "domain": "chemistry",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "La formula chimica del sale da cucina è NaCl."
+        },
+        {
+          "case_id": "040-chemistry-pt",
+          "domain": "chemistry",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "KCl",
+          "answer": "O sal de cozinha é composto por sódio clorato de potássio, cuja fórmula química é KCl."
+        },
+        {
+          "case_id": "041-math-en",
+          "domain": "math",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "042-math-ko",
+          "domain": "math",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "x^2의 도함수는 2x입니다."
+        },
+        {
+          "case_id": "043-math-ja",
+          "domain": "math",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "xの2乗を微分すると、2倍のxになります。"
+        },
+        {
+          "case_id": "044-math-zh",
+          "domain": "math",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "x的平方对x的导数是2x。"
+        },
+        {
+          "case_id": "045-math-es",
+          "domain": "math",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "La derivada de x^2 con respecto a x es 2x."
+        },
+        {
+          "case_id": "046-math-ru",
+          "domain": "math",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "Производная x^2 по x равна 2x."
+        },
+        {
+          "case_id": "047-math-fr",
+          "domain": "math",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "La dérivée de x^2 par rapport à x est 2x."
+        },
+        {
+          "case_id": "048-math-de",
+          "domain": "math",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "Die Ableitung von x^2 nach x ist 2x."
+        },
+        {
+          "case_id": "049-math-it",
+          "domain": "math",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "La derivata di x^2 rispetto a x è 2x."
+        },
+        {
+          "case_id": "050-math-pt",
+          "domain": "math",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "A derivada de x^2 em relação a x é 2x."
+        },
+        {
+          "case_id": "051-coding-en",
+          "domain": "coding",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "052-coding-ko",
+          "domain": "coding",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "xs의 길이를 반환합니다."
+        },
+        {
+          "case_id": "053-coding-ja",
+          "domain": "coding",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "054-coding-zh",
+          "domain": "coding",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "055-coding-es",
+          "domain": "coding",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "La función len(xs) devuelve el número de elementos de la lista xs."
+        },
+        {
+          "case_id": "056-coding-ru",
+          "domain": "coding",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "Длина списка xs в Python"
+        },
+        {
+          "case_id": "057-coding-fr",
+          "domain": "coding",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "La longueur de la liste xs est donnée par len(xs)."
+        },
+        {
+          "case_id": "058-coding-de",
+          "domain": "coding",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "Die Länge der Liste xs wird durch len(xs) berechnet."
+        },
+        {
+          "case_id": "059-coding-it",
+          "domain": "coding",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "La lunghezza della lista xs"
+        },
+        {
+          "case_id": "060-coding-pt",
+          "domain": "coding",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "061-current_affairs-en",
+          "domain": "current_affairs",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "António Guterres"
+        },
+        {
+          "case_id": "062-current_affairs-ko",
+          "domain": "current_affairs",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "Yoon Seok-yeol",
+          "answer": "윤석열"
+        },
+        {
+          "case_id": "063-current_affairs-ja",
+          "domain": "current_affairs",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "Antony Gaiter",
+          "answer": "アンタニー・ゲイル"
+        },
+        {
+          "case_id": "064-current_affairs-zh",
+          "domain": "current_affairs",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "安东尼奥·古特雷斯"
+        },
+        {
+          "case_id": "065-current_affairs-es",
+          "domain": "current_affairs",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "António Guterres"
+        },
+        {
+          "case_id": "066-current_affairs-ru",
+          "domain": "current_affairs",
+          "language": "ru",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "Antón Gensic",
+          "answer": "Антон Генсик"
+        },
+        {
+          "case_id": "067-current_affairs-fr",
+          "domain": "current_affairs",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "António Guterres"
+        },
+        {
+          "case_id": "068-current_affairs-de",
+          "domain": "current_affairs",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "António Guterres"
+        },
+        {
+          "case_id": "069-current_affairs-it",
+          "domain": "current_affairs",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "António Guterres"
+        },
+        {
+          "case_id": "070-current_affairs-pt",
+          "domain": "current_affairs",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "António Guterres"
+        },
+        {
+          "case_id": "071-economics-en",
+          "domain": "economics",
+          "language": "en",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "Gross Domestic Product"
+        },
+        {
+          "case_id": "072-economics-ko",
+          "domain": "economics",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "국내총생산"
+        },
+        {
+          "case_id": "073-economics-ja",
+          "domain": "economics",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "国内総生産"
+        },
+        {
+          "case_id": "074-economics-zh",
+          "domain": "economics",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross Domestic Product",
+          "answer": "国内生产总值"
+        },
+        {
+          "case_id": "075-economics-es",
+          "domain": "economics",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "Producto Interno Bruto"
+        },
+        {
+          "case_id": "076-economics-ru",
+          "domain": "economics",
+          "language": "ru",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "GDP - это валовая внутренняя продукция."
+        },
+        {
+          "case_id": "077-economics-fr",
+          "domain": "economics",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross Domestic Product",
+          "answer": "Le Produit Intérieur Brut (GDP) est la valeur totale des biens et services produits dans un pays pendant une période donnée."
+        },
+        {
+          "case_id": "078-economics-de",
+          "domain": "economics",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross Domestic Product",
+          "answer": "GDP steht für Bruttoinlandsprodukt."
+        },
+        {
+          "case_id": "079-economics-it",
+          "domain": "economics",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "Il GDP (Gross Domestic Product) è l'indicatore del valore totale di tutti i beni e servizi prodotti in un paese durante un periodo specifico."
+        },
+        {
+          "case_id": "080-economics-pt",
+          "domain": "economics",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "Produto Interno Bruto"
+        },
+        {
+          "case_id": "081-finance-en",
+          "domain": "finance",
+          "language": "en",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "Exchange-Traded Fund"
+        },
+        {
+          "case_id": "082-finance-ko",
+          "domain": "finance",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "ETF는 Exchange Traded Fund의 약자입니다."
+        },
+        {
+          "case_id": "083-finance-ja",
+          "domain": "finance",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "Exchange Traded Fund"
+        },
+        {
+          "case_id": "084-finance-zh",
+          "domain": "finance",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "交易所交易基金"
+        },
+        {
+          "case_id": "085-finance-es",
+          "domain": "finance",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "Un ETF es un fondo de inversión que representa una porción del mercado financiero."
+        },
+        {
+          "case_id": "086-finance-ru",
+          "domain": "finance",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "ETF - это фонд индексный, торгующийся на бирже."
+        },
+        {
+          "case_id": "087-finance-fr",
+          "domain": "finance",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "Un fonds d'investissement tracker (ETF) est un titre dérivé qui représente une part équivalente des actifs sous-jacents qu'il suit."
+        },
+        {
+          "case_id": "088-finance-de",
+          "domain": "finance",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "ETF steht für Exchange-Traded Fund (Handelsfonds)."
+        },
+        {
+          "case_id": "089-finance-it",
+          "domain": "finance",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "Un ETF è un'unità di investimento flessibile che rappresenta una porzione del mercato azionario."
+        },
+        {
+          "case_id": "090-finance-pt",
+          "domain": "finance",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "Um ETF é um fundo de investimento negociado em bolsa que segue o desempenho de uma determinada carteira de ativos."
+        },
+        {
+          "case_id": "091-logic-en",
+          "domain": "logic",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "Yes"
+        },
+        {
+          "case_id": "092-logic-ko",
+          "domain": "logic",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "고래는 동물입니다."
+        },
+        {
+          "case_id": "093-logic-ja",
+          "domain": "logic",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "クジラは動物です。"
+        },
+        {
+          "case_id": "094-logic-zh",
+          "domain": "logic",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "是"
+        },
+        {
+          "case_id": "095-logic-es",
+          "domain": "logic",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Sí"
+        },
+        {
+          "case_id": "096-logic-ru",
+          "domain": "logic",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Да"
+        },
+        {
+          "case_id": "097-logic-fr",
+          "domain": "logic",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "Oui"
+        },
+        {
+          "case_id": "098-logic-de",
+          "domain": "logic",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Ja, Wale sind Tiere."
+        },
+        {
+          "case_id": "099-logic-it",
+          "domain": "logic",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Sì"
+        },
+        {
+          "case_id": "100-logic-pt",
+          "domain": "logic",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "Sim, as baleias são animais."
+        }
+      ]
+    },
+    {
+      "model_id": "qwen3:4b",
+      "prompt_count": 100,
+      "strict_canonical_match_count": 61,
+      "alias_normalized_match_count": 90,
+      "alias_lift_count": 29,
+      "json_valid_count": 100,
+      "schema_valid_count": 100,
+      "domain_alias_counts": {
+        "physics": {
+          "alias_match": 10,
+          "strict_match": 1,
+          "total": 10
+        },
+        "biology": {
+          "alias_match": 10,
+          "strict_match": 7,
+          "total": 10
+        },
+        "earth_science": {
+          "alias_match": 9,
+          "strict_match": 1,
+          "total": 10
+        },
+        "chemistry": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "math": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "coding": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "current_affairs": {
+          "alias_match": 7,
+          "strict_match": 7,
+          "total": 10
+        },
+        "economics": {
+          "alias_match": 7,
+          "strict_match": 1,
+          "total": 10
+        },
+        "finance": {
+          "alias_match": 7,
+          "strict_match": 5,
+          "total": 10
+        },
+        "logic": {
+          "alias_match": 10,
+          "strict_match": 9,
+          "total": 10
+        }
+      },
+      "language_alias_counts": {
+        "en": {
+          "alias_match": 10,
+          "strict_match": 9,
+          "total": 10
+        },
+        "ko": {
+          "alias_match": 8,
+          "strict_match": 7,
+          "total": 10
+        },
+        "ja": {
+          "alias_match": 8,
+          "strict_match": 5,
+          "total": 10
+        },
+        "zh": {
+          "alias_match": 10,
+          "strict_match": 5,
+          "total": 10
+        },
+        "es": {
+          "alias_match": 9,
+          "strict_match": 6,
+          "total": 10
+        },
+        "ru": {
+          "alias_match": 10,
+          "strict_match": 7,
+          "total": 10
+        },
+        "fr": {
+          "alias_match": 9,
+          "strict_match": 5,
+          "total": 10
+        },
+        "de": {
+          "alias_match": 7,
+          "strict_match": 6,
+          "total": 10
+        },
+        "it": {
+          "alias_match": 9,
+          "strict_match": 5,
+          "total": 10
+        },
+        "pt": {
+          "alias_match": 10,
+          "strict_match": 6,
+          "total": 10
+        }
+      },
+      "rows": [
+        {
+          "case_id": "001-physics-en",
+          "domain": "physics",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "newton",
+          "answer": "The SI unit of force is the newton."
+        },
+        {
+          "case_id": "002-physics-ko",
+          "domain": "physics",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "뉴턴"
+        },
+        {
+          "case_id": "003-physics-ja",
+          "domain": "physics",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "ニュートン"
+        },
+        {
+          "case_id": "004-physics-zh",
+          "domain": "physics",
+          "language": "zh",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "牛顿"
+        },
+        {
+          "case_id": "005-physics-es",
+          "domain": "physics",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "Newton"
+        },
+        {
+          "case_id": "006-physics-ru",
+          "domain": "physics",
+          "language": "ru",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "Ньютон"
+        },
+        {
+          "case_id": "007-physics-fr",
+          "domain": "physics",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "newton"
+        },
+        {
+          "case_id": "008-physics-de",
+          "domain": "physics",
+          "language": "de",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "Newton"
+        },
+        {
+          "case_id": "009-physics-it",
+          "domain": "physics",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "newton"
+        },
+        {
+          "case_id": "010-physics-pt",
+          "domain": "physics",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "newton"
+        },
+        {
+          "case_id": "011-biology-en",
+          "domain": "biology",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "mitochondria"
+        },
+        {
+          "case_id": "012-biology-ko",
+          "domain": "biology",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "미토콘드리아"
+        },
+        {
+          "case_id": "013-biology-ja",
+          "domain": "biology",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "ミトコンドリア"
+        },
+        {
+          "case_id": "014-biology-zh",
+          "domain": "biology",
+          "language": "zh",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondrion",
+          "answer": "线粒体"
+        },
+        {
+          "case_id": "015-biology-es",
+          "domain": "biology",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "La mitocondria"
+        },
+        {
+          "case_id": "016-biology-ru",
+          "domain": "biology",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "Митохондрия"
+        },
+        {
+          "case_id": "017-biology-fr",
+          "domain": "biology",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondrion",
+          "answer": "Le mitochondrion"
+        },
+        {
+          "case_id": "018-biology-de",
+          "domain": "biology",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "Das mitochondrium"
+        },
+        {
+          "case_id": "019-biology-it",
+          "domain": "biology",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondrion",
+          "answer": "Il mitocondrio"
+        },
+        {
+          "case_id": "020-biology-pt",
+          "domain": "biology",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "Mitocôndria"
+        },
+        {
+          "case_id": "021-earth_science-en",
+          "domain": "earth_science",
+          "language": "en",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N₂",
+          "answer": "Nitrogen"
+        },
+        {
+          "case_id": "022-earth_science-ko",
+          "domain": "earth_science",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "nitrogen",
+          "answer": "지구 대기에서 가장 많은 기체는 질소입니다."
+        },
+        {
+          "case_id": "023-earth_science-ja",
+          "domain": "earth_science",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N₂",
+          "answer": "窒素"
+        },
+        {
+          "case_id": "024-earth_science-zh",
+          "domain": "earth_science",
+          "language": "zh",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N₂",
+          "answer": "氮气"
+        },
+        {
+          "case_id": "025-earth_science-es",
+          "domain": "earth_science",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N₂",
+          "answer": "El gas más abundante en la atmósfera terrestre es el nitrógeno"
+        },
+        {
+          "case_id": "026-earth_science-ru",
+          "domain": "earth_science",
+          "language": "ru",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "Нитроген"
+        },
+        {
+          "case_id": "027-earth_science-fr",
+          "domain": "earth_science",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N₂",
+          "answer": "Néon"
+        },
+        {
+          "case_id": "028-earth_science-de",
+          "domain": "earth_science",
+          "language": "de",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "Na",
+          "answer": "Natrium"
+        },
+        {
+          "case_id": "029-earth_science-it",
+          "domain": "earth_science",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N₂",
+          "answer": "Nitrogenio"
+        },
+        {
+          "case_id": "030-earth_science-pt",
+          "domain": "earth_science",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N₂",
+          "answer": "Nitrogênio"
+        },
+        {
+          "case_id": "031-chemistry-en",
+          "domain": "chemistry",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "NaCl"
+        },
+        {
+          "case_id": "032-chemistry-ko",
+          "domain": "chemistry",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "식탁용 소금은 NaCl로 이루어진 화학식입니다."
+        },
+        {
+          "case_id": "033-chemistry-ja",
+          "domain": "chemistry",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "塩化ナトリウム"
+        },
+        {
+          "case_id": "034-chemistry-zh",
+          "domain": "chemistry",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "食盐的化学式是氯化钠"
+        },
+        {
+          "case_id": "035-chemistry-es",
+          "domain": "chemistry",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "La sal de mesa es NaCl"
+        },
+        {
+          "case_id": "036-chemistry-ru",
+          "domain": "chemistry",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "Химическая формула поваренной соли — NaCl"
+        },
+        {
+          "case_id": "037-chemistry-fr",
+          "domain": "chemistry",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "NaCl"
+        },
+        {
+          "case_id": "038-chemistry-de",
+          "domain": "chemistry",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "Natriumchlorid"
+        },
+        {
+          "case_id": "039-chemistry-it",
+          "domain": "chemistry",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "NaCl"
+        },
+        {
+          "case_id": "040-chemistry-pt",
+          "domain": "chemistry",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "NaCl"
+        },
+        {
+          "case_id": "041-math-en",
+          "domain": "math",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "042-math-ko",
+          "domain": "math",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "x^2의 도함수는 2x입니다."
+        },
+        {
+          "case_id": "043-math-ja",
+          "domain": "math",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "xの2乗を微分すると2x"
+        },
+        {
+          "case_id": "044-math-zh",
+          "domain": "math",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "x的平方对x的导数是2x"
+        },
+        {
+          "case_id": "045-math-es",
+          "domain": "math",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "046-math-ru",
+          "domain": "math",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "047-math-fr",
+          "domain": "math",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "048-math-de",
+          "domain": "math",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "049-math-it",
+          "domain": "math",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "050-math-pt",
+          "domain": "math",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "051-coding-en",
+          "domain": "coding",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "052-coding-ko",
+          "domain": "coding",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "xs의 길이를 반환하는 표현식은 len(xs)입니다."
+        },
+        {
+          "case_id": "053-coding-ja",
+          "domain": "coding",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "リストxsの要素数を返す式はlen(xs)です。"
+        },
+        {
+          "case_id": "054-coding-zh",
+          "domain": "coding",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "在 Python 中，要获取列表 xs 的元素数量，可以使用 len(xs) 表达式。"
+        },
+        {
+          "case_id": "055-coding-es",
+          "domain": "coding",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "056-coding-ru",
+          "domain": "coding",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "Длина списка xs может быть найдена с помощью len(xs)"
+        },
+        {
+          "case_id": "057-coding-fr",
+          "domain": "coding",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "058-coding-de",
+          "domain": "coding",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "Die Anzahl der Elemente einer Liste namens xs kann mit len(xs) bestimmt werden."
+        },
+        {
+          "case_id": "059-coding-it",
+          "domain": "coding",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "La lunghezza della lista xs si ottiene con len(xs)"
+        },
+        {
+          "case_id": "060-coding-pt",
+          "domain": "coding",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "061-current_affairs-en",
+          "domain": "current_affairs",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "As of May 30, 2026, who is the Secretary-General of the United Nations?"
+        },
+        {
+          "case_id": "062-current_affairs-ko",
+          "domain": "current_affairs",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "not yet determined",
+          "answer": "2026년 5월 30일 기준 유엔 사무총장은 아직 결정되지 않은 상태입니다."
+        },
+        {
+          "case_id": "063-current_affairs-ja",
+          "domain": "current_affairs",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "Agnes Callard",
+          "answer": "2026年5月30日時点の国連事務総長は、アグネス・バーチャル（Agnes Callard）です。"
+        },
+        {
+          "case_id": "064-current_affairs-zh",
+          "domain": "current_affairs",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "截至2026年5月30日，联合国秘书长是古特雷斯"
+        },
+        {
+          "case_id": "065-current_affairs-es",
+          "domain": "current_affairs",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "A fecha de 30 de mayo de 2026, el Secretario General de las Naciones Unidas es António Guterres"
+        },
+        {
+          "case_id": "066-current_affairs-ru",
+          "domain": "current_affairs",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "Антонио Гутеррес"
+        },
+        {
+          "case_id": "067-current_affairs-fr",
+          "domain": "current_affairs",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "À ce jour, le Secrétaire général des Nations Unies est António Guterres"
+        },
+        {
+          "case_id": "068-current_affairs-de",
+          "domain": "current_affairs",
+          "language": "de",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "unknown",
+          "answer": "Der Generalsekretär der Vereinten Nationen am 30. Mai 2026 ist noch nicht bekannt."
+        },
+        {
+          "case_id": "069-current_affairs-it",
+          "domain": "current_affairs",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "Il Segretario generale delle Nazioni Unite al 30 maggio 2026 è António Guterres"
+        },
+        {
+          "case_id": "070-current_affairs-pt",
+          "domain": "current_affairs",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "António Guterres"
+        },
+        {
+          "case_id": "071-economics-en",
+          "domain": "economics",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross Domestic Product",
+          "answer": "Gross Domestic Product"
+        },
+        {
+          "case_id": "072-economics-ko",
+          "domain": "economics",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "국가의 총생산가치"
+        },
+        {
+          "case_id": "073-economics-ja",
+          "domain": "economics",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "GDPは国内生産総額の略です"
+        },
+        {
+          "case_id": "074-economics-zh",
+          "domain": "economics",
+          "language": "zh",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "国内生产总值"
+        },
+        {
+          "case_id": "075-economics-es",
+          "domain": "economics",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "El Producto Interno Bruto (PIB) es el valor total de todos los bienes y servicios producidos dentro de un país en un período específico."
+        },
+        {
+          "case_id": "076-economics-ru",
+          "domain": "economics",
+          "language": "ru",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "В макроэкономике GDP означает валовой внутренний продукт"
+        },
+        {
+          "case_id": "077-economics-fr",
+          "domain": "economics",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "Le Produit Intérieur Brut"
+        },
+        {
+          "case_id": "078-economics-de",
+          "domain": "economics",
+          "language": "de",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross National Product",
+          "answer": "GDP steht für Grossnationalprodukt"
+        },
+        {
+          "case_id": "079-economics-it",
+          "domain": "economics",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "Il prodotto interno lordo"
+        },
+        {
+          "case_id": "080-economics-pt",
+          "domain": "economics",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "Produto Interno Bruto"
+        },
+        {
+          "case_id": "081-finance-en",
+          "domain": "finance",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "Exchange-Traded Fund"
+        },
+        {
+          "case_id": "082-finance-ko",
+          "domain": "finance",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "exchange-traded fund",
+          "answer": "에프티에이티"
+        },
+        {
+          "case_id": "083-finance-ja",
+          "domain": "finance",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETP",
+          "answer": "金融でETFは「上場投資信託」の略です"
+        },
+        {
+          "case_id": "084-finance-zh",
+          "domain": "finance",
+          "language": "zh",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "交易所交易基金"
+        },
+        {
+          "case_id": "085-finance-es",
+          "domain": "finance",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "Un fondo de inversión que invierte en una variedad de activos"
+        },
+        {
+          "case_id": "086-finance-ru",
+          "domain": "finance",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-traded fund",
+          "answer": "ETF — это инвестиционный фонд, который индексирует определенный рынок или активы"
+        },
+        {
+          "case_id": "087-finance-fr",
+          "domain": "finance",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "Un fonds d'investissement à émission multiple"
+        },
+        {
+          "case_id": "088-finance-de",
+          "domain": "finance",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-Traded Fund",
+          "answer": "ETF steht für Exchange-Traded Fund"
+        },
+        {
+          "case_id": "089-finance-it",
+          "domain": "finance",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "Un'istituzione finanziaria che investe in una serie di azioni o obbligazioni"
+        },
+        {
+          "case_id": "090-finance-pt",
+          "domain": "finance",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "Exchange-traded fund",
+          "answer": "Um fundo de investimento que segue um índice de mercado"
+        },
+        {
+          "case_id": "091-logic-en",
+          "domain": "logic",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Yes"
+        },
+        {
+          "case_id": "092-logic-ko",
+          "domain": "logic",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "네, 고래는 동물입니다."
+        },
+        {
+          "case_id": "093-logic-ja",
+          "domain": "logic",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "はい"
+        },
+        {
+          "case_id": "094-logic-zh",
+          "domain": "logic",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "是的，鲸鱼是动物"
+        },
+        {
+          "case_id": "095-logic-es",
+          "domain": "logic",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Sí, las ballenas son animales"
+        },
+        {
+          "case_id": "096-logic-ru",
+          "domain": "logic",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "Да, киты являются животными"
+        },
+        {
+          "case_id": "097-logic-fr",
+          "domain": "logic",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Oui, les baleines sont des animaux."
+        },
+        {
+          "case_id": "098-logic-de",
+          "domain": "logic",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Ja, Wale sind Tiere."
+        },
+        {
+          "case_id": "099-logic-it",
+          "domain": "logic",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "Sì, le balene sono animali"
+        },
+        {
+          "case_id": "100-logic-pt",
+          "domain": "logic",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "true",
+          "answer": "Sim"
+        }
+      ]
+    },
+    {
+      "model_id": "llama3.1:8b",
+      "prompt_count": 100,
+      "strict_canonical_match_count": 45,
+      "alias_normalized_match_count": 88,
+      "alias_lift_count": 43,
+      "json_valid_count": 100,
+      "schema_valid_count": 99,
+      "domain_alias_counts": {
+        "physics": {
+          "alias_match": 10,
+          "strict_match": 0,
+          "total": 10
+        },
+        "biology": {
+          "alias_match": 10,
+          "strict_match": 4,
+          "total": 10
+        },
+        "earth_science": {
+          "alias_match": 10,
+          "strict_match": 0,
+          "total": 10
+        },
+        "chemistry": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "math": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "coding": {
+          "alias_match": 10,
+          "strict_match": 10,
+          "total": 10
+        },
+        "current_affairs": {
+          "alias_match": 8,
+          "strict_match": 5,
+          "total": 10
+        },
+        "economics": {
+          "alias_match": 7,
+          "strict_match": 0,
+          "total": 10
+        },
+        "finance": {
+          "alias_match": 7,
+          "strict_match": 0,
+          "total": 10
+        },
+        "logic": {
+          "alias_match": 6,
+          "strict_match": 6,
+          "total": 10
+        }
+      },
+      "language_alias_counts": {
+        "en": {
+          "alias_match": 10,
+          "strict_match": 5,
+          "total": 10
+        },
+        "ko": {
+          "alias_match": 8,
+          "strict_match": 5,
+          "total": 10
+        },
+        "ja": {
+          "alias_match": 9,
+          "strict_match": 4,
+          "total": 10
+        },
+        "zh": {
+          "alias_match": 8,
+          "strict_match": 6,
+          "total": 10
+        },
+        "es": {
+          "alias_match": 10,
+          "strict_match": 4,
+          "total": 10
+        },
+        "ru": {
+          "alias_match": 8,
+          "strict_match": 5,
+          "total": 10
+        },
+        "fr": {
+          "alias_match": 9,
+          "strict_match": 3,
+          "total": 10
+        },
+        "de": {
+          "alias_match": 8,
+          "strict_match": 5,
+          "total": 10
+        },
+        "it": {
+          "alias_match": 10,
+          "strict_match": 5,
+          "total": 10
+        },
+        "pt": {
+          "alias_match": 8,
+          "strict_match": 3,
+          "total": 10
+        }
+      },
+      "rows": [
+        {
+          "case_id": "001-physics-en",
+          "domain": "physics",
+          "language": "en",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "Newtons"
+        },
+        {
+          "case_id": "002-physics-ko",
+          "domain": "physics",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "뉴턴"
+        },
+        {
+          "case_id": "003-physics-ja",
+          "domain": "physics",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "フライコト"
+        },
+        {
+          "case_id": "004-physics-zh",
+          "domain": "physics",
+          "language": "zh",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "牛顿（N）"
+        },
+        {
+          "case_id": "005-physics-es",
+          "domain": "physics",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N (newton)",
+          "answer": "N"
+        },
+        {
+          "case_id": "006-physics-ru",
+          "domain": "physics",
+          "language": "ru",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "Ньютон"
+        },
+        {
+          "case_id": "007-physics-fr",
+          "domain": "physics",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "Le newton (N)"
+        },
+        {
+          "case_id": "008-physics-de",
+          "domain": "physics",
+          "language": "de",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "Newton (N)"
+        },
+        {
+          "case_id": "009-physics-it",
+          "domain": "physics",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "Newton (N)"
+        },
+        {
+          "case_id": "010-physics-pt",
+          "domain": "physics",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "newton",
+          "actual_canonical_answer": "N",
+          "answer": "Newton (N)"
+        },
+        {
+          "case_id": "011-biology-en",
+          "domain": "biology",
+          "language": "en",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondrion",
+          "answer": "Mitochondria"
+        },
+        {
+          "case_id": "012-biology-ko",
+          "domain": "biology",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "하는 총울 었세요"
+        },
+        {
+          "case_id": "013-biology-ja",
+          "domain": "biology",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "ミトコンドリア",
+          "answer": "バースャトは常泤台、給源です"
+        },
+        {
+          "case_id": "014-biology-zh",
+          "domain": "biology",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "线粒体"
+        },
+        {
+          "case_id": "015-biology-es",
+          "domain": "biology",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondrion",
+          "answer": "Mitocóndrion"
+        },
+        {
+          "case_id": "016-biology-ru",
+          "domain": "biology",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "Mitochondria",
+          "answer": "Митохондрия"
+        },
+        {
+          "case_id": "017-biology-fr",
+          "domain": "biology",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "Mitochondrion",
+          "answer": "Le mitochondrien"
+        },
+        {
+          "case_id": "018-biology-de",
+          "domain": "biology",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondria",
+          "answer": "Mitochondrie"
+        },
+        {
+          "case_id": "019-biology-it",
+          "domain": "biology",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "mitochondrion",
+          "answer": "Mitocondrio"
+        },
+        {
+          "case_id": "020-biology-pt",
+          "domain": "biology",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "mitochondria",
+          "actual_canonical_answer": "Mitochondrion (Mito)",
+          "answer": "mitocôndria"
+        },
+        {
+          "case_id": "021-earth_science-en",
+          "domain": "earth_science",
+          "language": "en",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "Nitrogen"
+        },
+        {
+          "case_id": "022-earth_science-ko",
+          "domain": "earth_science",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "질소"
+        },
+        {
+          "case_id": "023-earth_science-ja",
+          "domain": "earth_science",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "バースタカは一剃でが害ります"
+        },
+        {
+          "case_id": "024-earth_science-zh",
+          "domain": "earth_science",
+          "language": "zh",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "吉尺大医久海到利的其子图。"
+        },
+        {
+          "case_id": "025-earth_science-es",
+          "domain": "earth_science",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "El gas más abundante en la atmósfera terrestre es el nitrógeno."
+        },
+        {
+          "case_id": "026-earth_science-ru",
+          "domain": "earth_science",
+          "language": "ru",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "Азот"
+        },
+        {
+          "case_id": "027-earth_science-fr",
+          "domain": "earth_science",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "L'azote (N2) est le gaz le plus abondant dans l'atmosphère terrestre."
+        },
+        {
+          "case_id": "028-earth_science-de",
+          "domain": "earth_science",
+          "language": "de",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "Nitrogen"
+        },
+        {
+          "case_id": "029-earth_science-it",
+          "domain": "earth_science",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "L'azoto"
+        },
+        {
+          "case_id": "030-earth_science-pt",
+          "domain": "earth_science",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "nitrogen",
+          "actual_canonical_answer": "N2",
+          "answer": "Nitrogênio"
+        },
+        {
+          "case_id": "031-chemistry-en",
+          "domain": "chemistry",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "sodium chloride"
+        },
+        {
+          "case_id": "032-chemistry-ko",
+          "domain": "chemistry",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "나트륨 클로라이드 (NaCl)"
+        },
+        {
+          "case_id": "033-chemistry-ja",
+          "domain": "chemistry",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "フイストのブケンター、プログルレカー、NaCl"
+        },
+        {
+          "case_id": "034-chemistry-zh",
+          "domain": "chemistry",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "NaCl"
+        },
+        {
+          "case_id": "035-chemistry-es",
+          "domain": "chemistry",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "NaCl"
+        },
+        {
+          "case_id": "036-chemistry-ru",
+          "domain": "chemistry",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "Химическая формула поваренной соли NaCl."
+        },
+        {
+          "case_id": "037-chemistry-fr",
+          "domain": "chemistry",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "NaCl"
+        },
+        {
+          "case_id": "038-chemistry-de",
+          "domain": "chemistry",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "NaCl"
+        },
+        {
+          "case_id": "039-chemistry-it",
+          "domain": "chemistry",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "Sodio cloruro"
+        },
+        {
+          "case_id": "040-chemistry-pt",
+          "domain": "chemistry",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "NaCl",
+          "actual_canonical_answer": "NaCl",
+          "answer": "Sódio cloruro"
+        },
+        {
+          "case_id": "041-math-en",
+          "domain": "math",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "042-math-ko",
+          "domain": "math",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "x의 도함수는 2x입니다."
+        },
+        {
+          "case_id": "043-math-ja",
+          "domain": "math",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "044-math-zh",
+          "domain": "math",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "045-math-es",
+          "domain": "math",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "2x"
+        },
+        {
+          "case_id": "046-math-ru",
+          "domain": "math",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "Дифференциал x^2 по x равен 2x."
+        },
+        {
+          "case_id": "047-math-fr",
+          "domain": "math",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "La dérivée de x^2 par rapport à x est 2x."
+        },
+        {
+          "case_id": "048-math-de",
+          "domain": "math",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "Die Ableitung von x^2 nach x ist 2x."
+        },
+        {
+          "case_id": "049-math-it",
+          "domain": "math",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "La derivata di x^2 rispetto a x è 2x."
+        },
+        {
+          "case_id": "050-math-pt",
+          "domain": "math",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "2x",
+          "actual_canonical_answer": "2x",
+          "answer": "A derivada de x^2 em relação a x é 2x."
+        },
+        {
+          "case_id": "051-coding-en",
+          "domain": "coding",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "052-coding-ko",
+          "domain": "coding",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "053-coding-ja",
+          "domain": "coding",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "054-coding-zh",
+          "domain": "coding",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "055-coding-es",
+          "domain": "coding",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "056-coding-ru",
+          "domain": "coding",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "057-coding-fr",
+          "domain": "coding",
+          "language": "fr",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "058-coding-de",
+          "domain": "coding",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "059-coding-it",
+          "domain": "coding",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "060-coding-pt",
+          "domain": "coding",
+          "language": "pt",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "len(xs)",
+          "actual_canonical_answer": "len(xs)",
+          "answer": "len(xs)"
+        },
+        {
+          "case_id": "061-current_affairs-en",
+          "domain": "current_affairs",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "António Guterres"
+        },
+        {
+          "case_id": "062-current_affairs-ko",
+          "domain": "current_affairs",
+          "language": "ko",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "안토니오 구테레스"
+        },
+        {
+          "case_id": "063-current_affairs-ja",
+          "domain": "current_affairs",
+          "language": "ja",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "アントニオ・グテーレス"
+        },
+        {
+          "case_id": "064-current_affairs-zh",
+          "domain": "current_affairs",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "安东尼奥·古特雷斯"
+        },
+        {
+          "case_id": "065-current_affairs-es",
+          "domain": "current_affairs",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "A.Guterres",
+          "answer": "António Guterres"
+        },
+        {
+          "case_id": "066-current_affairs-ru",
+          "domain": "current_affairs",
+          "language": "ru",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "SG/SM/... (номер сообщения)",
+          "answer": "Генеральный секретарь ООН"
+        },
+        {
+          "case_id": "067-current_affairs-fr",
+          "domain": "current_affairs",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres (jusqu'à présent)",
+          "answer": "Le Secrétaire général des Nations Unies au 30 mai 2026 n'est pas encore connu."
+        },
+        {
+          "case_id": "068-current_affairs-de",
+          "domain": "current_affairs",
+          "language": "de",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "A.Guterres",
+          "answer": "António Guterres"
+        },
+        {
+          "case_id": "069-current_affairs-it",
+          "domain": "current_affairs",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "António Guterres",
+          "answer": "Il segretario generale delle Nazioni Unite al 30 maggio 2026 sarà ancora António Guterres."
+        },
+        {
+          "case_id": "070-current_affairs-pt",
+          "domain": "current_affairs",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "Antonio Guterres",
+          "actual_canonical_answer": "UN SG",
+          "answer": "O nome do Secretário-Geral das Nações Unidas em 30 de maio de 2026 não está disponível."
+        },
+        {
+          "case_id": "071-economics-en",
+          "domain": "economics",
+          "language": "en",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "Gross Domestic Product"
+        },
+        {
+          "case_id": "072-economics-ko",
+          "domain": "economics",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "국내총생산"
+        },
+        {
+          "case_id": "073-economics-ja",
+          "domain": "economics",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "Gross Domestic Product (GDP)",
+          "answer": "総生産"
+        },
+        {
+          "case_id": "074-economics-zh",
+          "domain": "economics",
+          "language": "zh",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "国民生产总值"
+        },
+        {
+          "case_id": "075-economics-es",
+          "domain": "economics",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "El PIB (Producto Interno Bruto) es la medida del valor de todos los bienes y servicios producidos dentro de un país en un período determinado."
+        },
+        {
+          "case_id": "076-economics-ru",
+          "domain": "economics",
+          "language": "ru",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "ВВП (Гross Domestic Product) - это общий объем произведенных в стране товаров и услуг за определенный период времени."
+        },
+        {
+          "case_id": "077-economics-fr",
+          "domain": "economics",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "Le Produit Intérieur Brut est la somme de tous les biens et services produits par un pays en une année."
+        },
+        {
+          "case_id": "078-economics-de",
+          "domain": "economics",
+          "language": "de",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GNP (Gross National Product)",
+          "answer": "Gesamtnettoprodukt"
+        },
+        {
+          "case_id": "079-economics-it",
+          "domain": "economics",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "Il Prodotto Interno Lordo è la misura del valore di tutti i beni e servizi prodotti all'interno di un paese in un determinato periodo."
+        },
+        {
+          "case_id": "080-economics-pt",
+          "domain": "economics",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "gross domestic product",
+          "actual_canonical_answer": "GDP",
+          "answer": "O Produto Interno Bruto (PIB) é a soma de todos os bens e serviços produzidos dentro de um país em um ano determinado."
+        },
+        {
+          "case_id": "081-finance-en",
+          "domain": "finance",
+          "language": "en",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "Exchange Traded Fund"
+        },
+        {
+          "case_id": "082-finance-ko",
+          "domain": "finance",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "지수펀드"
+        },
+        {
+          "case_id": "083-finance-ja",
+          "domain": "finance",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "Exchange Traded Fund"
+        },
+        {
+          "case_id": "084-finance-zh",
+          "domain": "finance",
+          "language": "zh",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "交易型开放式指数基金"
+        },
+        {
+          "case_id": "085-finance-es",
+          "domain": "finance",
+          "language": "es",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "Un ETF (Exchange-Traded Fund) es un tipo de inversión que se comporta como una acción pero que contiene una cartera diversificada de activos."
+        },
+        {
+          "case_id": "086-finance-ru",
+          "domain": "finance",
+          "language": "ru",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF (Exchange-Traded Fund)",
+          "answer": "ETF - обменные фонды"
+        },
+        {
+          "case_id": "087-finance-fr",
+          "domain": "finance",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF (Exchange-Traded Fund)",
+          "answer": "Un ETF est un instrument financier qui permet de diversifier son portefeuille en investissant dans plusieurs actifs à la fois."
+        },
+        {
+          "case_id": "088-finance-de",
+          "domain": "finance",
+          "language": "de",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "Ein Exchange-Traded-Fonds ist ein Investmentfonds, der an einer Börse gehandelt wird."
+        },
+        {
+          "case_id": "089-finance-it",
+          "domain": "finance",
+          "language": "it",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF",
+          "answer": "Un ETF (Exchange-Traded Fund) è un tipo di investimento che consente di acquistare una porzione di un indice o di un portafoglio azionario."
+        },
+        {
+          "case_id": "090-finance-pt",
+          "domain": "finance",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "exchange-traded fund",
+          "actual_canonical_answer": "ETF (Exchange-Traded Fund)",
+          "answer": "ETF é um tipo de investimento que segue um índice ou uma carteira de ativos específicos."
+        },
+        {
+          "case_id": "091-logic-en",
+          "domain": "logic",
+          "language": "en",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "Yes"
+        },
+        {
+          "case_id": "092-logic-ko",
+          "domain": "logic",
+          "language": "ko",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "고래는 동물이다.",
+          "answer": "구골 불세요"
+        },
+        {
+          "case_id": "093-logic-ja",
+          "domain": "logic",
+          "language": "ja",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "All mammals are animals, and whales are mammals, so whales are animals.",
+          "answer": "私は常人を合る"
+        },
+        {
+          "case_id": "094-logic-zh",
+          "domain": "logic",
+          "language": "zh",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "yes",
+          "answer": "是的"
+        },
+        {
+          "case_id": "095-logic-es",
+          "domain": "logic",
+          "language": "es",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "Sí, las ballenas son animales."
+        },
+        {
+          "case_id": "096-logic-ru",
+          "domain": "logic",
+          "language": "ru",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "Да, киты являются животными."
+        },
+        {
+          "case_id": "097-logic-fr",
+          "domain": "logic",
+          "language": "fr",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Animals",
+          "answer": "Oui, les baleines sont des animaux."
+        },
+        {
+          "case_id": "098-logic-de",
+          "domain": "logic",
+          "language": "de",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "Ja"
+        },
+        {
+          "case_id": "099-logic-it",
+          "domain": "logic",
+          "language": "it",
+          "strict_match": true,
+          "alias_match": true,
+          "alias_source": "canonical_answer",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "Yes",
+          "answer": "Sì, le balene sono animali."
+        },
+        {
+          "case_id": "100-logic-pt",
+          "domain": "logic",
+          "language": "pt",
+          "strict_match": false,
+          "alias_match": false,
+          "alias_source": "none",
+          "expected_canonical_answer": "yes",
+          "actual_canonical_answer": "∀x (M(x) → A(x)) ∧ B ∈ M ⇒ B ∈ A",
+          "answer": "Sim, as baleias são animais."
+        }
+      ]
+    }
+  ]
+}

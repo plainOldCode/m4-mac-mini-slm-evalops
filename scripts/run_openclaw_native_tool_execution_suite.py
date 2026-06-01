@@ -14,6 +14,7 @@ from pathlib import Path
 from urllib.error import URLError
 from urllib.request import Request, urlopen
 
+from local_model_backends import backend_of, pull_ollama_model
 from run_mlx_candidate_sweep import directory_size, safe_name
 from run_multilingual_prompt_suite import tail
 
@@ -63,11 +64,10 @@ def main() -> int:
     parser.add_argument("--keep-cache", action="store_true")
     args = parser.parse_args()
 
-    if not MLX_SERVER.exists():
-        raise SystemExit(f"mlx_lm.server not found: {MLX_SERVER}")
-
     candidates = json.loads(args.candidates.read_text())["candidates"]
     selected = candidates[args.start : args.start + args.limit]
+    if any(backend_of(candidate) != "ollama" for candidate in selected) and not MLX_SERVER.exists():
+        raise SystemExit(f"mlx_lm.server not found: {MLX_SERVER}")
     args.runs_dir.mkdir(parents=True, exist_ok=True)
     args.report_json.parent.mkdir(parents=True, exist_ok=True)
 
@@ -83,7 +83,7 @@ def main() -> int:
         port = args.base_port + offset
         attempt_dir = args.runs_dir / f"{rank:02d}-{safe_name(model_id)}"
         result = run_candidate(
-            model_id=model_id,
+            candidate=candidate,
             rank=rank,
             port=port,
             attempt_dir=attempt_dir,
@@ -123,7 +123,7 @@ def append_jsonl(path: Path, row: dict[str, object]) -> None:
 
 def run_candidate(
     *,
-    model_id: str,
+    candidate: dict[str, str],
     rank: int,
     port: int,
     attempt_dir: Path,
@@ -132,14 +132,17 @@ def run_candidate(
     max_tokens: int,
     keep_cache: bool,
 ) -> NativeToolResult:
+    model_id = candidate["model_id"]
+    backend = backend_of(candidate)
     if attempt_dir.exists():
         shutil.rmtree(attempt_dir)
     attempt_dir.mkdir(parents=True)
 
-    provider_id = f"mlx-native-{rank:02d}"
+    provider_id = f"{backend}-native-{rank:02d}"
     cache_dir = attempt_dir / "model-cache"
-    cache_dir.mkdir(parents=True)
-    (cache_dir / "hf-home" / "hub").mkdir(parents=True, exist_ok=True)
+    if backend == "mlx":
+        cache_dir.mkdir(parents=True)
+        (cache_dir / "hf-home" / "hub").mkdir(parents=True, exist_ok=True)
     server_log_path = attempt_dir / "mlx-server.log"
     marker_token = f"native_tool_ok_{uuid.uuid4().hex[:12]}"
     marker_path = Path(tempfile.gettempdir()) / f"openclaw-native-tool-{marker_token}.txt"
@@ -147,41 +150,54 @@ def run_candidate(
         marker_path.unlink()
 
     server_env = os.environ.copy()
-    server_env["HF_HOME"] = str(cache_dir / "hf-home")
-    server_env["HF_HUB_CACHE"] = str(cache_dir / "hf-home" / "hub")
-    server_env["TRANSFORMERS_CACHE"] = str(cache_dir / "transformers")
-
-    command = [
-        str(MLX_SERVER),
-        "--model",
-        model_id,
-        "--host",
-        "127.0.0.1",
-        "--port",
-        str(port),
-        "--max-tokens",
-        str(max_tokens),
-        "--log-level",
-        "INFO",
-    ]
+    command: list[str] = []
+    if backend == "mlx":
+        server_env["HF_HOME"] = str(cache_dir / "hf-home")
+        server_env["HF_HUB_CACHE"] = str(cache_dir / "hf-home" / "hub")
+        server_env["TRANSFORMERS_CACHE"] = str(cache_dir / "transformers")
+        command = [
+            str(MLX_SERVER),
+            "--model",
+            model_id,
+            "--host",
+            "127.0.0.1",
+            "--port",
+            str(port),
+            "--max-tokens",
+            str(max_tokens),
+            "--log-level",
+            "INFO",
+        ]
 
     start = time.perf_counter()
     server_start = start
     server_proc: subprocess.Popen[bytes] | None = None
-    log_handle = server_log_path.open("wb")
+    log_handle = server_log_path.open("wb") if backend == "mlx" else None
     try:
-        server_proc = subprocess.Popen(
-            command,
-            cwd=str(WORKSPACE),
-            env=server_env,
-            stdout=log_handle,
-            stderr=subprocess.STDOUT,
-        )
-        wait_ready(port, server_proc, ready_timeout)
-        warm_model(port, model_id, ready_timeout)
+        if backend == "ollama":
+            pull_status, _, pull_stdout, pull_stderr = pull_ollama_model(model_id, ready_timeout)
+            (attempt_dir / "ollama_pull_stdout.txt").write_text(pull_stdout, encoding="utf-8")
+            (attempt_dir / "ollama_pull_stderr.txt").write_text(pull_stderr, encoding="utf-8")
+            if pull_status != "ok":
+                raise RuntimeError(f"ollama pull failed: {pull_status}")
+            wait_ollama_ready(ready_timeout)
+            warm_model(11434, model_id, ready_timeout)
+            base_url = "http://127.0.0.1:11434/v1"
+        else:
+            assert log_handle is not None
+            server_proc = subprocess.Popen(
+                command,
+                cwd=str(WORKSPACE),
+                env=server_env,
+                stdout=log_handle,
+                stderr=subprocess.STDOUT,
+            )
+            wait_ready(port, server_proc, ready_timeout)
+            warm_model(port, model_id, ready_timeout)
+            base_url = f"http://127.0.0.1:{port}/v1"
         server_start_seconds = round(time.perf_counter() - server_start, 3)
 
-        config_path = write_temp_openclaw_config(provider_id, model_id, port, max_tokens)
+        config_path = write_temp_openclaw_config(provider_id, model_id, base_url, max_tokens)
         prompt = (
             "Use the exec tool to run exactly this shell command, then reply with one short sentence: "
             f"/bin/sh -lc 'printf {marker_token} > {marker_path}'"
@@ -229,7 +245,7 @@ def run_candidate(
             model_id=model_id,
             rank=rank,
             provider_id=provider_id,
-            port=port,
+            port=11434 if backend == "ollama" else port,
             status=status,
             marker_created=marker_created,
             marker_content_ok=marker_content_ok,
@@ -243,16 +259,16 @@ def run_candidate(
             compaction_count=int_or_none(agent_meta.get("compactionCount")),
             response_text=response_text,
             error_tail=error_tail,
-            server_log=tail(server_log_path.read_text(errors="replace")),
-            cache_bytes_before_cleanup=directory_size(cache_dir),
-            cleanup_status=cleanup_cache(cache_dir, keep_cache),
+            server_log=tail(server_log_path.read_text(errors="replace")) if server_log_path.exists() else "",
+            cache_bytes_before_cleanup=directory_size(cache_dir) if cache_dir.exists() else 0,
+            cleanup_status=cleanup_cache(cache_dir, keep_cache) if cache_dir.exists() else "not_required",
         )
     except Exception as exc:  # noqa: BLE001
         return NativeToolResult(
             model_id=model_id,
             rank=rank,
             provider_id=provider_id,
-            port=port,
+            port=11434 if backend == "ollama" else port,
             status="error",
             marker_created=marker_path.exists(),
             marker_content_ok=False,
@@ -267,8 +283,8 @@ def run_candidate(
             response_text="",
             error_tail=repr(exc),
             server_log=tail(server_log_path.read_text(errors="replace")) if server_log_path.exists() else "",
-            cache_bytes_before_cleanup=directory_size(cache_dir),
-            cleanup_status=cleanup_cache(cache_dir, keep_cache),
+            cache_bytes_before_cleanup=directory_size(cache_dir) if cache_dir.exists() else 0,
+            cleanup_status=cleanup_cache(cache_dir, keep_cache) if cache_dir.exists() else "not_required",
         )
     finally:
         if server_proc and server_proc.poll() is None:
@@ -278,7 +294,8 @@ def run_candidate(
             except subprocess.TimeoutExpired:
                 server_proc.kill()
                 server_proc.wait(timeout=20)
-        log_handle.close()
+        if log_handle:
+            log_handle.close()
 
 
 def wait_ready(port: int, proc: subprocess.Popen[bytes], timeout: int) -> None:
@@ -300,6 +317,23 @@ def wait_ready(port: int, proc: subprocess.Popen[bytes], timeout: int) -> None:
     raise TimeoutError(f"server not ready at {url}: {last_error}")
 
 
+def wait_ollama_ready(timeout: int) -> None:
+    deadline = time.time() + timeout
+    url = "http://127.0.0.1:11434/v1/models"
+    last_error = "not attempted"
+    while time.time() < deadline:
+        try:
+            with urlopen(url, timeout=2) as response:
+                if response.status == 200:
+                    return
+        except URLError as exc:
+            last_error = repr(exc)
+        except TimeoutError as exc:
+            last_error = repr(exc)
+        time.sleep(1)
+    raise TimeoutError(f"ollama server not ready at {url}: {last_error}")
+
+
 def warm_model(port: int, model_id: str, timeout: int) -> None:
     """Force first model load/download before the OpenClaw agent timeout starts."""
     payload = {
@@ -318,11 +352,11 @@ def warm_model(port: int, model_id: str, timeout: int) -> None:
             raise RuntimeError(f"warmup failed status={response.status}")
 
 
-def write_temp_openclaw_config(provider_id: str, model_id: str, port: int, max_tokens: int) -> Path:
+def write_temp_openclaw_config(provider_id: str, model_id: str, base_url: str, max_tokens: int) -> Path:
     data = json.loads(OPENCLAW_CONFIG.read_text())
     key = f"{provider_id}/{model_id}"
     data.setdefault("models", {}).setdefault("providers", {})[provider_id] = {
-        "baseUrl": f"http://127.0.0.1:{port}/v1",
+        "baseUrl": base_url,
         "apiKey": "local",
         "api": "openai-completions",
         "contextWindow": 32768,
@@ -406,9 +440,9 @@ def write_reports(summary_path: Path, report_json: Path, report_md: Path) -> Non
     }
     report_json.write_text(json.dumps({"summary": totals, "results": rows}, indent=2, ensure_ascii=False))
     lines = [
-        "# OpenClaw Native Tool Execution Suite - 2026-05-31",
+        "# OpenClaw Native Tool Execution Suite",
         "",
-        "This suite checks whether each MLX model can drive OpenClaw's actual native tool loop.",
+        "This suite checks whether each local model can drive OpenClaw's actual native tool loop.",
         "Pass means the model caused OpenClaw to execute the `exec` tool and create a nonce marker file.",
         "",
         f"Summary: {totals['pass_count']}/{totals['count']} pass, {totals['fail_count']} fail, {totals['error_count']} error.",
