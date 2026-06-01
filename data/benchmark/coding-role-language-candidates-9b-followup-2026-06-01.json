@@ -1,0 +1,22 @@
+{
+  "candidates": [
+    {
+      "model_id": "bigatuna/Qwen3.5-9b-Sushi-Coder-RL-MLX",
+      "backend": "mlx",
+      "routing_label": "sushi-coder-rl-9b",
+      "notes": "Qwen3.5 9B code/RL candidate. HF repository storage observed on 2026-06-01: about 5.56 GB."
+    },
+    {
+      "model_id": "tongrow/MLX-Qwopus3.5-9B-Coder-oQ4-fp16-mtp",
+      "backend": "mlx",
+      "routing_label": "qwopus-9b-coder-o4",
+      "notes": "Qwopus3.5 9B coder quant. HF repository storage observed on 2026-06-01: about 5.82 GB."
+    },
+    {
+      "model_id": "nightmedia/Qwen3.5-9B-Claude-Deckard-Agent-Coder-Heretic-qx86-hi-mlx",
+      "backend": "mlx",
+      "routing_label": "qwen35-9b-agent-coder-merge",
+      "notes": "Agent/coder merge candidate. Lower-confidence merge, but sized for a 9B follow-up check. HF repository storage observed on 2026-06-01: about 8.95 GB."
+    }
+  ]
+}

@@ -96,9 +96,10 @@ The current compiler-backed `v1_5_polyglot` suite uses:
 | ---: | --- | ---: | ---: | ---: | --- |
 | 1 | Qwen2.5-Coder 14B Instruct MLX 4bit | 5/5 | 5/5 | 5/5 | New local coding quality leader; passed Python, TypeScript, JavaScript, Go, and Rust. |
 | 2 | Qwen3 4B Instruct 2507 MLX 5bit | 3/5 | 5/5 | 5/5 | Lightweight always-on coding baseline; passed Python, TypeScript, and Go. |
-| 3 | Qwen2.5-Coder 7B Instruct MLX 4bit | 1/5 | 5/5 | 4/5 | Strong protocol adherence, but only the Go task passed. |
-| 4 | FastApply 7B v1.0 MLX 4bit | 0/5 | 5/5 | 5/5 | Excellent edit protocol, but not a general code generator; needs a separate patch-apply lane. |
-| 5 | DeepSeek-Coder V2 Lite Instruct MLX 4bit | 0/5 | 4/5 | 4/5 | Generated parseable edits, but no compiler-backed task passed. |
+| 3 | Qwen3.5 9B Sushi-Coder-RL MLX | 3/5 | 3/5 | 3/5 | Interesting 9B challenger; passed TypeScript, JavaScript, and Go, but protocol reliability is weaker than Qwen3 4B. |
+| 4 | Qwen2.5-Coder 7B Instruct MLX 4bit | 1/5 | 5/5 | 4/5 | Strong protocol adherence, but only the Go task passed. |
+| 5 | FastApply 7B v1.0 MLX 4bit | 0/5 | 5/5 | 5/5 | Excellent edit protocol, but not a general code generator; needs a separate patch-apply lane. |
+| 6 | DeepSeek-Coder V2 Lite Instruct MLX 4bit | 0/5 | 4/5 | 4/5 | Generated parseable edits, but no compiler-backed task passed. |
 
 Operational readout:
 
@@ -106,13 +107,23 @@ Operational readout:
   worker when latency and memory are acceptable.
 - `lmstudio-community/Qwen3-4B-Instruct-2507-MLX-5bit` remains the practical
   lightweight coding baseline for the M4 Mac mini.
+- `bigatuna/Qwen3.5-9b-Sushi-Coder-RL-MLX` matched Qwen3 4B on pass count, but
+  not on machine-readable edit reliability. Keep it as a challenger, not a
+  replacement.
 - 7B and smaller coding-specialized models should be treated as constrained
   patch candidates with compiler/test repair loops, not autonomous workers.
+- Qwopus 9B and the 9B agent/coder merge failed the direct JSON edit protocol
+  and are not useful in this lane.
 - FastApply models should not be judged by this generation suite; they need a
   dedicated patch-application benchmark.
+- Qwen3-Coder 30B A3B 4bit is skipped for this M4 16 GB setup; its storage size
+  is too close to physical memory to justify testing after the 14B model reached
+  5/5.
 
 Primary coding reports:
 
+- [9B follow-up analysis](reports/small-models/coding-generation-role-language-9b-followup-analysis-2026-06-01.md)
+- [9B follow-up raw results](reports/small-models/coding-generation-role-language-9b-followup-2026-06-01.md)
 - [Next coding candidate analysis](reports/small-models/coding-generation-role-language-next-analysis-2026-06-01.md)
 - [Next coding candidate raw results](reports/small-models/coding-generation-role-language-next-2026-06-01.md)
 - [Compiler-backed baseline analysis](reports/small-models/coding-generation-role-language-compiled-analysis-2026-06-01.md)
