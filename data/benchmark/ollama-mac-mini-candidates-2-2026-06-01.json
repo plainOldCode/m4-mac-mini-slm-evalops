@@ -1,0 +1,72 @@
+{
+  "name": "ollama_mac_mini_candidates_2_2026_06_01",
+  "selection_policy": {
+    "host": "16GB M4 Mac mini",
+    "backend": "Ollama / local OpenAI-compatible HTTP where available",
+    "scope": "Second-pass non-MLX candidates with tool, factual, and coding plausibility on the Mac mini.",
+    "excluded": [
+      {
+        "model_id": "qwen3-coder:30b-a3b",
+        "reason": "Too large for a full 100-prompt + tool + OpenClaw + coding suite on a 16GB Mac mini."
+      },
+      {
+        "model_id": "devstral:24b",
+        "reason": "Too heavy for this full-suite pass; keep as a single-smoke edge candidate only."
+      },
+      {
+        "model_id": "mistral-small:24b",
+        "reason": "Too heavy for this full-suite pass on the current host."
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "model_id": "mistral-nemo:12b",
+      "backend": "ollama",
+      "routing_label": "ollama-mistral-nemo-12b",
+      "notes": "Non-Qwen tool-calling challenger; related MLX family was strong on tool selection."
+    },
+    {
+      "model_id": "qwen2.5:14b",
+      "backend": "ollama",
+      "routing_label": "ollama-qwen25-14b",
+      "notes": "General Qwen2.5 14B comparison against the Qwen2.5-Coder 14B Ollama result."
+    },
+    {
+      "model_id": "qwen3:8b",
+      "backend": "ollama",
+      "routing_label": "ollama-qwen3-8b",
+      "notes": "General Qwen3 8B candidate; tests whether 4B weaknesses improve without jumping to 14B."
+    },
+    {
+      "model_id": "gemma3:12b",
+      "backend": "ollama",
+      "routing_label": "ollama-gemma3-12b",
+      "notes": "General factual and instruction-following comparison outside Qwen/Mistral."
+    },
+    {
+      "model_id": "granite3-dense:8b",
+      "backend": "ollama",
+      "routing_label": "ollama-granite3-dense-8b",
+      "notes": "IBM Granite dense candidate with tool/RAG/code positioning."
+    },
+    {
+      "model_id": "cogito:8b",
+      "backend": "ollama",
+      "routing_label": "ollama-cogito-8b",
+      "notes": "Tool-support candidate from the Ollama ecosystem."
+    },
+    {
+      "model_id": "phi4-mini",
+      "backend": "ollama",
+      "routing_label": "ollama-phi4-mini",
+      "notes": "Small reasoning/coding-adjacent comparison candidate."
+    },
+    {
+      "model_id": "deepseek-coder-v2:16b",
+      "backend": "ollama",
+      "routing_label": "ollama-deepseek-coder-v2-16b",
+      "notes": "Coding-specialized edge candidate; expected to be heavy on a 16GB Mac mini."
+    }
+  ]
+}

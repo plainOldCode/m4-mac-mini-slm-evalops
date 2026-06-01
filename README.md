@@ -158,10 +158,23 @@ Operational readout:
 Primary Ollama reports:
 
 - [Ollama full-suite analysis](reports/small-models/ollama-mac-mini-full-suite-analysis-2026-06-01.md)
+- [Ollama second-queue analysis](reports/small-models/ollama-mac-mini-second-queue-analysis-2026-06-01.md)
 - [Ollama 100-prompt factual scoring](reports/small-models/multilingual-domain-suite-ollama-mac-mini-alias-normalized-2026-06-01.md)
 - [Ollama tool calling](reports/small-models/tool-calling-suite-ollama-mac-mini-2026-06-01.md)
 - [Ollama OpenClaw native tool execution](reports/small-models/openclaw-native-tool-execution-ollama-mac-mini-2026-06-01.md)
 - [Ollama coding generation](reports/small-models/coding-generation-role-language-ollama-mac-mini-2026-06-01.md)
+
+Second-queue readout:
+
+- `gemma3:12b` reached `100/100` alias-normalized factual score and `12/12`
+  tool sequence selection, but coding remained `2/5`.
+- `qwen3:8b` was the best balanced 8B candidate: `90/100` factual,
+  `9/12` tool calling, and `3/5` coding.
+- `cogito:8b` was the best structured tool planner in the second queue at
+  `10/12`, but it was weaker on factual strict scoring and coding.
+- `deepseek-coder-v2:16b` ran successfully but did not justify its size:
+  `86/100` factual, `6/12` tool calling, and `2/5` coding.
+- No second-queue Ollama model passed the OpenClaw native tool execution canary.
 
 ## Why This Exists
 

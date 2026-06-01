@@ -1,0 +1,948 @@
+{
+  "models": [
+    {
+      "model_id": "mistral-nemo:12b",
+      "backend": "ollama",
+      "routing_label": "ollama-mistral-nemo-12b",
+      "task_count": 5,
+      "download_status": "ok",
+      "download_elapsed_seconds": 0.836,
+      "elapsed_seconds": 95.218,
+      "json_valid_count": 5,
+      "schema_valid_count": 5,
+      "changed_count": 5,
+      "tests_passed_count": 1,
+      "cache_bytes_before_cleanup": 0,
+      "cleanup_status": "not_required",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_syntax_repair",
+          "stage": "v1_5_polyglot",
+          "language": "python",
+          "role": "syntax_repair",
+          "status": "ok",
+          "generation_elapsed_seconds": 14.826,
+          "test_elapsed_seconds": 0.068,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 21,
+          "applied_paths": [
+            "src/allocation.py"
+          ],
+          "rejected_paths": [],
+          "error_tail": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "task_id": "typescript_type_contract",
+          "stage": "v1_5_polyglot",
+          "language": "typescript",
+          "role": "type_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 26.953,
+          "test_elapsed_seconds": 0.5,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 41,
+          "applied_paths": [
+            "src/quoteSummary.ts"
+          ],
+          "rejected_paths": [],
+          "error_tail": "valops/runs/coding-generation-role-language-ollama-mac-mini-2-2026-06-01/0001-mistral-nemo-12b/tasks/typescript_type_contract/repo/tests/check_typescript_contract.js:20:8)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: '\\n' +\n    'export interface Quote {\\n' +\n    '  symbol: string;\\n' +\n    '  previousClose: number;\\n' +\n    '  currentPrice: number;\\n' +\n    '}\\n' +\n    '\\n' +\n    'export interface QuoteSummary {\\n' +\n    '  symbol: string;\\n' +\n    '  change: number;\\n' +\n    '  changePct: number;\\n' +\n    \"  direction: 'up' | 'down' | 'flat';\\n\" +\n    '}\\n' +\n    '\\n' +\n    'function roundToTwoDecimals(num: number): number {\\n' +\n    '  return Math.round(num * 100) / 100;\\n' +\n    '}\\n' +\n    '\\n' +\n    'export function summarizeQuote(quote: Quote): QuoteSummary {\\n' +\n    '  const change = quote.currentPrice - quote.previousClose;\\n' +\n    '  const changePct = roundToTwoDecimals((change / quote.previousClose) * 100);\\n' +\n    \"  let direction: 'up' | 'down' | 'flat';\\n\" +\n    '  if (change > 0) {\\n' +\n    \"    direction = 'up';\\n\" +\n    '  } else if (change < 0) {\\n' +\n    \"    direction = 'down';\\n\" +\n    '  } else {\\n' +\n    \"    direction = 'flat';\\n\" +\n    '  }\\n' +\n    '  return {\\n' +\n    '    symbol: quote.symbol,\\n' +\n    '    change: roundToTwoDecimals(change),\\n' +\n    '    changePct,\\n' +\n    '    direction,\\n' +\n    '  };\\n' +\n    '}\\n',\n  expected: /previousClose\\s*===\\s*0|previousClose\\s*!==\\s*0|previousClose\\s*==\\s*0/,\n  operator: 'match',\n  diff: 'simple'\n}\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "javascript_unit_patch",
+          "stage": "v1_5_polyglot",
+          "language": "javascript",
+          "role": "unit_patch",
+          "status": "ok",
+          "generation_elapsed_seconds": 14.384,
+          "test_elapsed_seconds": 0.085,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 22,
+          "applied_paths": [
+            "src/drawdown.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": "node:internal/assert/utils:146\n  throw error;\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'9.09' !== 0\n\n    at Object.<anonymous> (/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-ollama-mac-mini-2-2026-06-01/0001-mistral-nemo-12b/tasks/javascript_unit_patch/repo/tests/drawdown.test.js:6:8)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: '9.09',\n  expected: 0,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "go_router_contract",
+          "stage": "v1_5_polyglot",
+          "language": "go",
+          "role": "explain_route",
+          "status": "ok",
+          "generation_elapsed_seconds": 17.82,
+          "test_elapsed_seconds": 1.128,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 26,
+          "applied_paths": [
+            "src/router.go"
+          ],
+          "rejected_paths": [],
+          "error_tail": ""
+        },
+        {
+          "task_id": "rust_result_contract",
+          "stage": "v1_5_polyglot",
+          "language": "rust",
+          "role": "result_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 17.7,
+          "test_elapsed_seconds": 0.88,
+          "returncode": 101,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 18,
+          "applied_paths": [
+            "src/lib.rs"
+          ],
+          "rejected_paths": [],
+          "error_tail": "warning: fields `symbol` and `quantity` are never read\n --> src/lib.rs:2:5\n  |\n1 | pub struct Holding {\n  |            ------- fields in this struct\n2 |     symbol: String,\n  |     ^^^^^^\n3 |     quantity: u32,\n  |     ^^^^^^^^\n  |\n  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nerror[E0616]: field `symbol` of struct `Holding` is private\n --> tests/parse_holding.rs:6:24\n  |\n6 |     assert_eq!(holding.symbol, \"SKH\");\n  |                        ^^^^^^ private field\n\nerror[E0616]: field `quantity` of struct `Holding` is private\n --> tests/parse_holding.rs:7:24\n  |\n7 |     assert_eq!(holding.quantity, 20);\n  |                        ^^^^^^^^ private field\n\nFor more information about this error, try `rustc --explain E0616`.\nerror: could not compile `rust_result_contract` (test \"parse_holding\") due to 2 previous errors\n"
+        }
+      ]
+    },
+    {
+      "model_id": "qwen2.5:14b",
+      "backend": "ollama",
+      "routing_label": "ollama-qwen25-14b",
+      "task_count": 5,
+      "download_status": "ok",
+      "download_elapsed_seconds": 0.815,
+      "elapsed_seconds": 130.995,
+      "json_valid_count": 5,
+      "schema_valid_count": 3,
+      "changed_count": 4,
+      "tests_passed_count": 2,
+      "cache_bytes_before_cleanup": 0,
+      "cleanup_status": "not_required",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_syntax_repair",
+          "stage": "v1_5_polyglot",
+          "language": "python",
+          "role": "syntax_repair",
+          "status": "ok",
+          "generation_elapsed_seconds": 20.954,
+          "test_elapsed_seconds": 0.066,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 22,
+          "applied_paths": [
+            "src/allocation.py"
+          ],
+          "rejected_paths": [],
+          "error_tail": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "task_id": "typescript_type_contract",
+          "stage": "v1_5_polyglot",
+          "language": "typescript",
+          "role": "type_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 32.224,
+          "test_elapsed_seconds": 0.499,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 33,
+          "applied_paths": [
+            "src/quoteSummary.ts"
+          ],
+          "rejected_paths": [],
+          "error_tail": "1)\n    at execFileSync (node:child_process:961:15)\n    at Object.<anonymous> (/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-ollama-mac-mini-2-2026-06-01/0002-qwen2-5-14b/tasks/typescript_type_contract/repo/tests/check_typescript_contract.js:7:1)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19) {\n  status: 2,\n  signal: null,\n  output: [\n    null,\n    Buffer(109) [Uint8Array] [\n      115, 114,  99,  47, 113, 117, 111, 116, 101,  83, 117, 109,\n      109,  97, 114, 121,  46, 116, 115,  40,  49,  44,  50,  51,\n       41,  58,  32, 101, 114, 114, 111, 114,  32,  84,  83,  50,\n       51,  48,  55,  58,  32,  67,  97, 110, 110, 111, 116,  32,\n      102, 105, 110, 100,  32, 109, 111, 100, 117, 108, 101,  32,\n       39, 108, 111, 100,  97, 115, 104,  39,  32, 111, 114,  32,\n      105, 116, 115,  32,  99, 111, 114, 114, 101, 115, 112, 111,\n      110, 100, 105, 110, 103,  32, 116, 121, 112, 101,  32, 100,\n      101,  99, 108,  97,\n      ... 9 more items\n    ],\n    Buffer(0) [Uint8Array] []\n  ],\n  pid: 27517,\n  stdout: Buffer(109) [Uint8Array] [\n    115, 114,  99,  47, 113, 117, 111, 116, 101,  83, 117, 109,\n    109,  97, 114, 121,  46, 116, 115,  40,  49,  44,  50,  51,\n     41,  58,  32, 101, 114, 114, 111, 114,  32,  84,  83,  50,\n     51,  48,  55,  58,  32,  67,  97, 110, 110, 111, 116,  32,\n    102, 105, 110, 100,  32, 109, 111, 100, 117, 108, 101,  32,\n     39, 108, 111, 100,  97, 115, 104,  39,  32, 111, 114,  32,\n    105, 116, 115,  32,  99, 111, 114, 114, 101, 115, 112, 111,\n    110, 100, 105, 110, 103,  32, 116, 121, 112, 101,  32, 100,\n    101,  99, 108,  97,\n    ... 9 more items\n  ],\n  stderr: Buffer(0) [Uint8Array] []\n}\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "javascript_unit_patch",
+          "stage": "v1_5_polyglot",
+          "language": "javascript",
+          "role": "unit_patch",
+          "status": "ok",
+          "generation_elapsed_seconds": 22.484,
+          "test_elapsed_seconds": 0.083,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 21,
+          "applied_paths": [
+            "src/drawdown.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": ""
+        },
+        {
+          "task_id": "go_router_contract",
+          "stage": "v1_5_polyglot",
+          "language": "go",
+          "role": "explain_route",
+          "status": "ok",
+          "generation_elapsed_seconds": 25.252,
+          "test_elapsed_seconds": 0.0,
+          "returncode": null,
+          "json_valid": true,
+          "schema_valid": false,
+          "changed": false,
+          "tests_passed": false,
+          "diff_lines": 0,
+          "applied_paths": [],
+          "rejected_paths": [
+            "repo/src/router.go"
+          ],
+          "error_tail": ""
+        },
+        {
+          "task_id": "rust_result_contract",
+          "stage": "v1_5_polyglot",
+          "language": "rust",
+          "role": "result_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 28.575,
+          "test_elapsed_seconds": 0.0,
+          "returncode": null,
+          "json_valid": true,
+          "schema_valid": false,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 19,
+          "applied_paths": [
+            "src/lib.rs"
+          ],
+          "rejected_paths": [],
+          "error_tail": "Each file entry must contain string path and content."
+        }
+      ]
+    },
+    {
+      "model_id": "qwen3:8b",
+      "backend": "ollama",
+      "routing_label": "ollama-qwen3-8b",
+      "task_count": 5,
+      "download_status": "ok",
+      "download_elapsed_seconds": 0.835,
+      "elapsed_seconds": 80.919,
+      "json_valid_count": 5,
+      "schema_valid_count": 5,
+      "changed_count": 5,
+      "tests_passed_count": 3,
+      "cache_bytes_before_cleanup": 0,
+      "cleanup_status": "not_required",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_syntax_repair",
+          "stage": "v1_5_polyglot",
+          "language": "python",
+          "role": "syntax_repair",
+          "status": "ok",
+          "generation_elapsed_seconds": 13.468,
+          "test_elapsed_seconds": 0.067,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 24,
+          "applied_paths": [
+            "src/allocation.py"
+          ],
+          "rejected_paths": [],
+          "error_tail": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "task_id": "typescript_type_contract",
+          "stage": "v1_5_polyglot",
+          "language": "typescript",
+          "role": "type_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 19.494,
+          "test_elapsed_seconds": 0.494,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 43,
+          "applied_paths": [
+            "src/quoteSummary.ts"
+          ],
+          "rejected_paths": [],
+          "error_tail": ""
+        },
+        {
+          "task_id": "javascript_unit_patch",
+          "stage": "v1_5_polyglot",
+          "language": "javascript",
+          "role": "unit_patch",
+          "status": "ok",
+          "generation_elapsed_seconds": 13.497,
+          "test_elapsed_seconds": 0.089,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 30,
+          "applied_paths": [
+            "src/drawdown.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": ""
+        },
+        {
+          "task_id": "go_router_contract",
+          "stage": "v1_5_polyglot",
+          "language": "go",
+          "role": "explain_route",
+          "status": "ok",
+          "generation_elapsed_seconds": 15.132,
+          "test_elapsed_seconds": 1.089,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 27,
+          "applied_paths": [
+            "src/router.go"
+          ],
+          "rejected_paths": [],
+          "error_tail": ""
+        },
+        {
+          "task_id": "rust_result_contract",
+          "stage": "v1_5_polyglot",
+          "language": "rust",
+          "role": "result_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 16.05,
+          "test_elapsed_seconds": 0.664,
+          "returncode": 101,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 37,
+          "applied_paths": [
+            "src/lib.rs"
+          ],
+          "rejected_paths": [],
+          "error_tail": "warning: unused import: `std::str::FromStr`\n --> src/lib.rs:1:5\n  |\n1 | use std::str::FromStr;\n  |     ^^^^^^^^^^^^^^^^^\n  |\n  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default\n\nerror[E0308]: mismatched types\n  --> src/lib.rs:15:28\n   |\n15 |     let parts: Vec<&str> = input.split_once(':').ok_or(\"missing colon\").unwrap();\n   |                ---------   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `Vec<&str>`, found `(&str, &str)`\n   |                |\n   |                expected due to this\n   |\n   = note: expected struct `Vec<&str>`\n               found tuple `(&str, &str)`\n\nerror[E0308]: mismatched types\n  --> src/lib.rs:16:9\n   |\n16 |     let (symbol_part, quantity_part) = parts;\n   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^   ----- this expression has type `Vec<&str>`\n   |         |\n   |         expected `Vec<&str>`, found `(_, _)`\n   |\n   = note: expected struct `Vec<&str>`\n               found tuple `(_, _)`\n\nFor more information about this error, try `rustc --explain E0308`.\nerror: could not compile `rust_result_contract` (lib) due to 2 previous errors; 1 warning emitted\nerror: could not compile `rust_result_contract` (lib test) due to 2 previous errors; 1 warning emitted\n"
+        }
+      ]
+    },
+    {
+      "model_id": "gemma3:12b",
+      "backend": "ollama",
+      "routing_label": "ollama-gemma3-12b",
+      "task_count": 5,
+      "download_status": "ok",
+      "download_elapsed_seconds": 0.799,
+      "elapsed_seconds": 123.4,
+      "json_valid_count": 5,
+      "schema_valid_count": 5,
+      "changed_count": 5,
+      "tests_passed_count": 2,
+      "cache_bytes_before_cleanup": 0,
+      "cleanup_status": "not_required",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_syntax_repair",
+          "stage": "v1_5_polyglot",
+          "language": "python",
+          "role": "syntax_repair",
+          "status": "ok",
+          "generation_elapsed_seconds": 19.715,
+          "test_elapsed_seconds": 0.068,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 25,
+          "applied_paths": [
+            "src/allocation.py"
+          ],
+          "rejected_paths": [],
+          "error_tail": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "task_id": "typescript_type_contract",
+          "stage": "v1_5_polyglot",
+          "language": "typescript",
+          "role": "type_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 28.362,
+          "test_elapsed_seconds": 0.511,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 40,
+          "applied_paths": [
+            "src/quoteSummary.ts"
+          ],
+          "rejected_paths": [],
+          "error_tail": " at Object.<anonymous> (/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-ollama-mac-mini-2-2026-06-01/0004-gemma3-12b/tasks/typescript_type_contract/repo/tests/check_typescript_contract.js:19:8)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: 'export interface Quote { \\n' +\n    '  symbol: string;\\n' +\n    '  previousClose: number;\\n' +\n    '  currentPrice: number;\\n' +\n    '}\\n' +\n    '\\n' +\n    'export interface QuoteSummary { \\n' +\n    '  symbol: string;\\n' +\n    '  change: number;\\n' +\n    '  changePct: number;\\n' +\n    \"  direction: 'up' | 'down' | 'flat';\\n\" +\n    '}\\n' +\n    '\\n' +\n    'export function summarizeQuote(quote: Quote): QuoteSummary {\\n' +\n    '  const change = quote.currentPrice - quote.previousClose;\\n' +\n    '  const changePct = (change / quote.previousClose) * 100;\\n' +\n    '\\n' +\n    \"  let direction: 'up' | 'down' | 'flat';\\n\" +\n    '  if (quote.previousClose === 0) {\\n' +\n    \"    direction = 'flat';\\n\" +\n    '  } else if (change > 0) {\\n' +\n    \"    direction = 'up';\\n\" +\n    '  } else if (change < 0) {\\n' +\n    \"    direction = 'down';\\n\" +\n    '  } else {\\n' +\n    \"    direction = 'flat';\\n\" +\n    '  }\\n' +\n    '\\n' +\n    '  return {\\n' +\n    '    symbol: quote.symbol,\\n' +\n    '    change: parseFloat(change.toFixed(2)),\\n' +\n    '    changePct: parseFloat(changePct.toFixed(2)),\\n' +\n    '    direction,\\n' +\n    '  };\\n' +\n    '}\\n',\n  expected: /Math\\.round/,\n  operator: 'match',\n  diff: 'simple'\n}\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "javascript_unit_patch",
+          "stage": "v1_5_polyglot",
+          "language": "javascript",
+          "role": "unit_patch",
+          "status": "ok",
+          "generation_elapsed_seconds": 18.977,
+          "test_elapsed_seconds": 0.086,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 22,
+          "applied_paths": [
+            "src/drawdown.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": ""
+        },
+        {
+          "task_id": "go_router_contract",
+          "stage": "v1_5_polyglot",
+          "language": "go",
+          "role": "explain_route",
+          "status": "ok",
+          "generation_elapsed_seconds": 25.658,
+          "test_elapsed_seconds": 1.041,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 25,
+          "applied_paths": [
+            "src/router.go"
+          ],
+          "rejected_paths": [],
+          "error_tail": ""
+        },
+        {
+          "task_id": "rust_result_contract",
+          "stage": "v1_5_polyglot",
+          "language": "rust",
+          "role": "result_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 27.816,
+          "test_elapsed_seconds": 0.334,
+          "returncode": 101,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 28,
+          "applied_paths": [
+            "src/lib.rs"
+          ],
+          "rejected_paths": [],
+          "error_tail": "error[E0765]: unterminated double quote string\n  --> src/lib.rs:23:17\n   |\n23 |         format!(\"Invalid quantity: {}\\n{}\n   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^\n\nFor more information about this error, try `rustc --explain E0765`.\nerror: could not compile `rust_result_contract` (lib) due to 1 previous error\nerror: could not compile `rust_result_contract` (lib test) due to 1 previous error\n"
+        }
+      ]
+    },
+    {
+      "model_id": "granite3-dense:8b",
+      "backend": "ollama",
+      "routing_label": "ollama-granite3-dense-8b",
+      "task_count": 5,
+      "download_status": "ok",
+      "download_elapsed_seconds": 0.838,
+      "elapsed_seconds": 75.871,
+      "json_valid_count": 5,
+      "schema_valid_count": 5,
+      "changed_count": 5,
+      "tests_passed_count": 0,
+      "cache_bytes_before_cleanup": 0,
+      "cleanup_status": "not_required",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_syntax_repair",
+          "stage": "v1_5_polyglot",
+          "language": "python",
+          "role": "syntax_repair",
+          "status": "ok",
+          "generation_elapsed_seconds": 10.444,
+          "test_elapsed_seconds": 0.068,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 13,
+          "applied_paths": [
+            "src/allocation.py"
+          ],
+          "rejected_paths": [],
+          "error_tail": "E\n======================================================================\nERROR: test_allocation (unittest.loader._FailedTest.test_allocation)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_allocation\nTraceback (most recent call last):\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.13_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/unittest/loader.py\", line 396, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/homebrew/Cellar/python@3.12/3.12.13_2/Frameworks/Python.framework/Versions/3.12/lib/python3.12/unittest/loader.py\", line 339, in _get_module_from_name\n    __import__(name)\n  File \"/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-ollama-mac-mini-2-2026-06-01/0005-granite3-dense-8b/tasks/python_syntax_repair/repo/tests/test_allocation.py\", line 7, in <module>\n    from src.allocation import parse_allocations\n  File \"/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-ollama-mac-mini-2-2026-06-01/0005-granite3-dense-8b/tasks/python_syntax_repair/repo/src/allocation.py\", line 7\n    symbol, raw_weight = text.split(:)\n                                    ^\nSyntaxError: invalid syntax\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n"
+        },
+        {
+          "task_id": "typescript_type_contract",
+          "stage": "v1_5_polyglot",
+          "language": "typescript",
+          "role": "type_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 18.605,
+          "test_elapsed_seconds": 0.495,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 36,
+          "applied_paths": [
+            "src/quoteSummary.ts"
+          ],
+          "rejected_paths": [],
+          "error_tail": " at execFileSync (node:child_process:961:15)\n    at Object.<anonymous> (/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-ollama-mac-mini-2-2026-06-01/0005-granite3-dense-8b/tasks/typescript_type_contract/repo/tests/check_typescript_contract.js:7:1)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19) {\n  status: 2,\n  signal: null,\n  output: [\n    null,\n    Buffer(107) [Uint8Array] [\n      115, 114,  99,  47, 113, 117, 111, 116, 101,  83, 117, 109,\n      109,  97, 114, 121,  46, 116, 115,  40,  50,  57,  44,  53,\n       41,  58,  32, 101, 114, 114, 111, 114,  32,  84,  83,  50,\n       51,  50,  50,  58,  32,  84, 121, 112, 101,  32,  39, 115,\n      116, 114, 105, 110, 103,  39,  32, 105, 115,  32, 110, 111,\n      116,  32,  97, 115, 115, 105, 103, 110,  97,  98, 108, 101,\n       32, 116, 111,  32, 116, 121, 112, 101,  32,  39,  34, 102,\n      108,  97, 116,  34,  32, 124,  32,  34, 117, 112,  34,  32,\n      124,  32,  34, 100,\n      ... 7 more items\n    ],\n    Buffer(0) [Uint8Array] []\n  ],\n  pid: 28292,\n  stdout: Buffer(107) [Uint8Array] [\n    115, 114,  99,  47, 113, 117, 111, 116, 101,  83, 117, 109,\n    109,  97, 114, 121,  46, 116, 115,  40,  50,  57,  44,  53,\n     41,  58,  32, 101, 114, 114, 111, 114,  32,  84,  83,  50,\n     51,  50,  50,  58,  32,  84, 121, 112, 101,  32,  39, 115,\n    116, 114, 105, 110, 103,  39,  32, 105, 115,  32, 110, 111,\n    116,  32,  97, 115, 115, 105, 103, 110,  97,  98, 108, 101,\n     32, 116, 111,  32, 116, 121, 112, 101,  32,  39,  34, 102,\n    108,  97, 116,  34,  32, 124,  32,  34, 117, 112,  34,  32,\n    124,  32,  34, 100,\n    ... 7 more items\n  ],\n  stderr: Buffer(0) [Uint8Array] []\n}\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "javascript_unit_patch",
+          "stage": "v1_5_polyglot",
+          "language": "javascript",
+          "role": "unit_patch",
+          "status": "ok",
+          "generation_elapsed_seconds": 12.642,
+          "test_elapsed_seconds": 0.085,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 22,
+          "applied_paths": [
+            "src/drawdown.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": "node:internal/assert/utils:146\n  throw error;\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'9.09' !== 0\n\n    at Object.<anonymous> (/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-ollama-mac-mini-2-2026-06-01/0005-granite3-dense-8b/tasks/javascript_unit_patch/repo/tests/drawdown.test.js:6:8)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: '9.09',\n  expected: 0,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "go_router_contract",
+          "stage": "v1_5_polyglot",
+          "language": "go",
+          "role": "explain_route",
+          "status": "ok",
+          "generation_elapsed_seconds": 15.576,
+          "test_elapsed_seconds": 1.059,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 24,
+          "applied_paths": [
+            "src/router.go"
+          ],
+          "rejected_paths": [],
+          "error_tail": ""
+        },
+        {
+          "task_id": "rust_result_contract",
+          "stage": "v1_5_polyglot",
+          "language": "rust",
+          "role": "result_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 15.396,
+          "test_elapsed_seconds": 0.627,
+          "returncode": 101,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 19,
+          "applied_paths": [
+            "src/lib.rs"
+          ],
+          "rejected_paths": [],
+          "error_tail": "mat\");\n    |                --- ^^^^^^^^^^^^^^^^ expected `String`, found `&str`\n    |                |\n    |                arguments to this enum variant are incorrect\n    |\nhelp: the type constructed contains `&'static str` due to the type of the argument passed\n   --> src/lib.rs:6:16\n    |\n  6 |         return Err(\"invalid format\");\n    |                ^^^^----------------^\n    |                    |\n    |                    this argument influences the type of `Err`\nnote: tuple variant defined here\n   --> /opt/homebrew/Cellar/rust/1.95.0/lib/rustlib/src/rust/library/core/src/result.rs:566:5\n    |\n566 |     Err(#[stable(feature = \"rust1\", since = \"1.0.0\")] E),\n    |     ^^^\nhelp: try using a conversion method\n    |\n  6 |         return Err(\"invalid format\".to_string());\n    |                                    ++++++++++++\n\nerror[E0308]: mismatched types\n   --> src/lib.rs:10:20\n    |\n 10 |         return Err(\"empty symbol\");\n    |                --- ^^^^^^^^^^^^^^ expected `String`, found `&str`\n    |                |\n    |                arguments to this enum variant are incorrect\n    |\nhelp: the type constructed contains `&'static str` due to the type of the argument passed\n   --> src/lib.rs:10:16\n    |\n 10 |         return Err(\"empty symbol\");\n    |                ^^^^--------------^\n    |                    |\n    |                    this argument influences the type of `Err`\nnote: tuple variant defined here\n   --> /opt/homebrew/Cellar/rust/1.95.0/lib/rustlib/src/rust/library/core/src/result.rs:566:5\n    |\n566 |     Err(#[stable(feature = \"rust1\", since = \"1.0.0\")] E),\n    |     ^^^\nhelp: try using a conversion method\n    |\n 10 |         return Err(\"empty symbol\".to_string());\n    |                                  ++++++++++++\n\nFor more information about this error, try `rustc --explain E0308`.\nerror: could not compile `rust_result_contract` (lib) due to 4 previous errors\nerror: could not compile `rust_result_contract` (lib test) due to 4 previous errors\n"
+        }
+      ]
+    },
+    {
+      "model_id": "cogito:8b",
+      "backend": "ollama",
+      "routing_label": "ollama-cogito-8b",
+      "task_count": 5,
+      "download_status": "ok",
+      "download_elapsed_seconds": 0.826,
+      "elapsed_seconds": 72.67,
+      "json_valid_count": 5,
+      "schema_valid_count": 5,
+      "changed_count": 5,
+      "tests_passed_count": 2,
+      "cache_bytes_before_cleanup": 0,
+      "cleanup_status": "not_required",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_syntax_repair",
+          "stage": "v1_5_polyglot",
+          "language": "python",
+          "role": "syntax_repair",
+          "status": "ok",
+          "generation_elapsed_seconds": 10.418,
+          "test_elapsed_seconds": 0.066,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 19,
+          "applied_paths": [
+            "src/allocation.py"
+          ],
+          "rejected_paths": [],
+          "error_tail": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "task_id": "typescript_type_contract",
+          "stage": "v1_5_polyglot",
+          "language": "typescript",
+          "role": "type_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 17.807,
+          "test_elapsed_seconds": 0.49,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 34,
+          "applied_paths": [
+            "src/quoteSummary.ts"
+          ],
+          "rejected_paths": [],
+          "error_tail": ""
+        },
+        {
+          "task_id": "javascript_unit_patch",
+          "stage": "v1_5_polyglot",
+          "language": "javascript",
+          "role": "unit_patch",
+          "status": "ok",
+          "generation_elapsed_seconds": 7.825,
+          "test_elapsed_seconds": 0.083,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 15,
+          "applied_paths": [
+            "src/drawdown.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": "node:internal/assert/utils:146\n  throw error;\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'0.09' !== 0\n\n    at Object.<anonymous> (/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-ollama-mac-mini-2-2026-06-01/0006-cogito-8b/tasks/javascript_unit_patch/repo/tests/drawdown.test.js:6:8)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: '0.09',\n  expected: 0,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "go_router_contract",
+          "stage": "v1_5_polyglot",
+          "language": "go",
+          "role": "explain_route",
+          "status": "ok",
+          "generation_elapsed_seconds": 13.317,
+          "test_elapsed_seconds": 0.089,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 22,
+          "applied_paths": [
+            "src/router.go"
+          ],
+          "rejected_paths": [],
+          "error_tail": "# local-llm-evalops/go-router-contract/src [local-llm-evalops/go-router-contract/src.test]\nsrc/router.go:10:10: undefined: strings\nsrc/router.go:12:10: undefined: strings\n"
+        },
+        {
+          "task_id": "rust_result_contract",
+          "stage": "v1_5_polyglot",
+          "language": "rust",
+          "role": "result_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 21.566,
+          "test_elapsed_seconds": 0.151,
+          "returncode": 101,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 36,
+          "applied_paths": [
+            "src/lib.rs"
+          ],
+          "rejected_paths": [],
+          "error_tail": "error[E0599]: no method named `split_whitespace` found for tuple `(&str, &str)` in the current scope\n  --> src/lib.rs:17:74\n   |\n17 |     let parts: Vec<&str> = input.split_once(':').ok_or(\"Missing colon\")?.split_whitespace().collect();\n   |                                                                          ^^^^^^^^^^^^^^^^ method not found in `(&str, &str)`\n   |\nhelp: some of the expressions' fields have a method of the same name\n   |\n17 |     let parts: Vec<&str> = input.split_once(':').ok_or(\"Missing colon\")?.0.split_whitespace().collect();\n   |                                                                          ++\n17 |     let parts: Vec<&str> = input.split_once(':').ok_or(\"Missing colon\")?.1.split_whitespace().collect();\n   |                                                                          ++\n\nFor more information about this error, try `rustc --explain E0599`.\nerror: could not compile `rust_result_contract` (lib) due to 1 previous error\nerror: could not compile `rust_result_contract` (lib test) due to 1 previous error\n"
+        }
+      ]
+    },
+    {
+      "model_id": "phi4-mini",
+      "backend": "ollama",
+      "routing_label": "ollama-phi4-mini",
+      "task_count": 5,
+      "download_status": "ok",
+      "download_elapsed_seconds": 0.854,
+      "elapsed_seconds": 67.184,
+      "json_valid_count": 5,
+      "schema_valid_count": 5,
+      "changed_count": 5,
+      "tests_passed_count": 1,
+      "cache_bytes_before_cleanup": 0,
+      "cleanup_status": "not_required",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_syntax_repair",
+          "stage": "v1_5_polyglot",
+          "language": "python",
+          "role": "syntax_repair",
+          "status": "ok",
+          "generation_elapsed_seconds": 8.678,
+          "test_elapsed_seconds": 0.067,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 22,
+          "applied_paths": [
+            "src/allocation.py"
+          ],
+          "rejected_paths": [],
+          "error_tail": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "task_id": "typescript_type_contract",
+          "stage": "v1_5_polyglot",
+          "language": "typescript",
+          "role": "type_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 15.226,
+          "test_elapsed_seconds": 0.19,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 35,
+          "applied_paths": [
+            "src/quoteSummary.ts"
+          ],
+          "rejected_paths": [],
+          "error_tail": "\n    at execFileSync (node:child_process:961:15)\n    at Object.<anonymous> (/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-ollama-mac-mini-2-2026-06-01/0007-phi4-mini/tasks/typescript_type_contract/repo/tests/check_typescript_contract.js:7:1)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19) {\n  status: 2,\n  signal: null,\n  output: [\n    null,\n    Buffer(392) [Uint8Array] [\n      115, 114,  99,  47, 113, 117, 111, 116, 101,  83, 117, 109,\n      109,  97, 114, 121,  46, 116, 115,  40,  49,  44,  49,  41,\n       58,  32, 101, 114, 114, 111, 114,  32,  84,  83,  49,  49,\n       50,  55,  58,  32,  73, 110, 118,  97, 108, 105, 100,  32,\n       99, 104,  97, 114,  97,  99, 116, 101, 114,  46,  10, 115,\n      114,  99,  47, 113, 117, 111, 116, 101,  83, 117, 109, 109,\n       97, 114, 121,  46, 116, 115,  40,  49,  44,  50,  41,  58,\n       32, 101, 114, 114, 111, 114,  32,  84,  83,  49,  52,  51,\n       53,  58,  32,  85,\n      ... 292 more items\n    ],\n    Buffer(0) [Uint8Array] []\n  ],\n  pid: 28677,\n  stdout: Buffer(392) [Uint8Array] [\n    115, 114,  99,  47, 113, 117, 111, 116, 101,  83, 117, 109,\n    109,  97, 114, 121,  46, 116, 115,  40,  49,  44,  49,  41,\n     58,  32, 101, 114, 114, 111, 114,  32,  84,  83,  49,  49,\n     50,  55,  58,  32,  73, 110, 118,  97, 108, 105, 100,  32,\n     99, 104,  97, 114,  97,  99, 116, 101, 114,  46,  10, 115,\n    114,  99,  47, 113, 117, 111, 116, 101,  83, 117, 109, 109,\n     97, 114, 121,  46, 116, 115,  40,  49,  44,  50,  41,  58,\n     32, 101, 114, 114, 111, 114,  32,  84,  83,  49,  52,  51,\n     53,  58,  32,  85,\n    ... 292 more items\n  ],\n  stderr: Buffer(0) [Uint8Array] []\n}\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "javascript_unit_patch",
+          "stage": "v1_5_polyglot",
+          "language": "javascript",
+          "role": "unit_patch",
+          "status": "ok",
+          "generation_elapsed_seconds": 9.76,
+          "test_elapsed_seconds": 0.085,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 27,
+          "applied_paths": [
+            "src/drawdown.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": "node:internal/assert/utils:146\n  throw error;\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n105 !== 0\n\n    at Object.<anonymous> (/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-ollama-mac-mini-2-2026-06-01/0007-phi4-mini/tasks/javascript_unit_patch/repo/tests/drawdown.test.js:6:8)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 105,\n  expected: 0,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "go_router_contract",
+          "stage": "v1_5_polyglot",
+          "language": "go",
+          "role": "explain_route",
+          "status": "ok",
+          "generation_elapsed_seconds": 17.937,
+          "test_elapsed_seconds": 0.094,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 44,
+          "applied_paths": [
+            "src/router.go"
+          ],
+          "rejected_paths": [],
+          "error_tail": "# local-llm-evalops/go-router-contract/src [local-llm-evalops/go-router-contract/src.test]\nsrc/router.go:13:1: syntax error: non-declaration statement outside function body\nsrc/router.go:14:1: syntax error: non-declaration statement outside function body\nsrc/router.go:19:84: syntax error: unexpected newline in composite literal; possibly missing comma or }\nsrc/router.go:20:2: syntax error: unexpected keyword type at end of statement\nsrc/router.go:34:6: syntax error: unexpected name RouteForSymbol, expected (\nsrc/router.go:35:41: string not terminated\nsrc/router.go:39:2: syntax error: unexpected EOF in argument list; possibly missing comma or )\n"
+        },
+        {
+          "task_id": "rust_result_contract",
+          "stage": "v1_5_polyglot",
+          "language": "rust",
+          "role": "result_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 14.157,
+          "test_elapsed_seconds": 0.109,
+          "returncode": 101,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 37,
+          "applied_paths": [
+            "src/lib.rs"
+          ],
+          "rejected_paths": [],
+          "error_tail": "error: unknown start of token: `\n --> src/lib.rs:1:1\n  |\n1 | ```rust\n  | ^^^\n  |\n  = note: character appears 2 more times\nhelp: Unicode character '`' (Grave Accent) looks like ''' (Single Quote), but it is not\n  |\n1 - ```rust\n1 + '''rust\n  |\n\nerror: unknown start of token: `\n  --> src/lib.rs:32:1\n   |\n32 | ```\n   | ^^^\n   |\n   = note: character appears 2 more times\nhelp: Unicode character '`' (Grave Accent) looks like ''' (Single Quote), but it is not\n   |\n32 - ```\n32 + '''\n   |\n\nerror: expected one of `!` or `::`, found keyword `pub`\n --> src/lib.rs:2:1\n  |\n1 | ```rust\n  |        - expected one of `!` or `::`\n2 | pub struct Holding {\n  | ^^^ unexpected token\n\nerror: could not compile `rust_result_contract` (lib) due to 3 previous errors\nerror: could not compile `rust_result_contract` (lib test) due to 3 previous errors\n"
+        }
+      ]
+    },
+    {
+      "model_id": "deepseek-coder-v2:16b",
+      "backend": "ollama",
+      "routing_label": "ollama-deepseek-coder-v2-16b",
+      "task_count": 5,
+      "download_status": "ok",
+      "download_elapsed_seconds": 0.834,
+      "elapsed_seconds": 43.124,
+      "json_valid_count": 5,
+      "schema_valid_count": 5,
+      "changed_count": 5,
+      "tests_passed_count": 2,
+      "cache_bytes_before_cleanup": 0,
+      "cleanup_status": "not_required",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_syntax_repair",
+          "stage": "v1_5_polyglot",
+          "language": "python",
+          "role": "syntax_repair",
+          "status": "ok",
+          "generation_elapsed_seconds": 5.983,
+          "test_elapsed_seconds": 0.066,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 18,
+          "applied_paths": [
+            "src/allocation.py"
+          ],
+          "rejected_paths": [],
+          "error_tail": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "task_id": "typescript_type_contract",
+          "stage": "v1_5_polyglot",
+          "language": "typescript",
+          "role": "type_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 9.899,
+          "test_elapsed_seconds": 0.489,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 37,
+          "applied_paths": [
+            "src/quoteSummary.ts"
+          ],
+          "rejected_paths": [],
+          "error_tail": ""
+        },
+        {
+          "task_id": "javascript_unit_patch",
+          "stage": "v1_5_polyglot",
+          "language": "javascript",
+          "role": "unit_patch",
+          "status": "ok",
+          "generation_elapsed_seconds": 6.274,
+          "test_elapsed_seconds": 0.088,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 26,
+          "applied_paths": [
+            "src/drawdown.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": "/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-ollama-mac-mini-2-2026-06-01/0008-deepseek-coder-v2-16b/tasks/javascript_unit_patch/repo/tests/drawdown.test.js:4\nassert.equal(maxDrawdownPct([]), 0);\n             ^\n\nTypeError: maxDrawdownPct is not a function\n    at Object.<anonymous> (/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-ollama-mac-mini-2-2026-06-01/0008-deepseek-coder-v2-16b/tasks/javascript_unit_patch/repo/tests/drawdown.test.js:4:14)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "go_router_contract",
+          "stage": "v1_5_polyglot",
+          "language": "go",
+          "role": "explain_route",
+          "status": "ok",
+          "generation_elapsed_seconds": 9.803,
+          "test_elapsed_seconds": 0.115,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 26,
+          "applied_paths": [
+            "src/router.go"
+          ],
+          "rejected_paths": [],
+          "error_tail": "# local-llm-evalops/go-router-contract/src [local-llm-evalops/go-router-contract/src.test]\nsrc/router.go:12:14: undefined: strings\nsrc/router.go:14:10: undefined: strings\nsrc/router.go:16:10: undefined: strings\n"
+        },
+        {
+          "task_id": "rust_result_contract",
+          "stage": "v1_5_polyglot",
+          "language": "rust",
+          "role": "result_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 7.95,
+          "test_elapsed_seconds": 1.576,
+          "returncode": 101,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 22,
+          "applied_paths": [
+            "src/lib.rs"
+          ],
+          "rejected_paths": [],
+          "error_tail": "error: test failed, to rerun pass `--test parse_holding`\n"
+        }
+      ]
+    }
+  ]
+}
