@@ -1,0 +1,58 @@
+{
+  "candidates": [
+    {
+      "model_id": "mlx-community/Qwen2.5-Coder-7B-Instruct-4bit",
+      "backend": "mlx",
+      "routing_label": "qwen-coder-7b-community-alt",
+      "notes": "Alternative community quant to the already-tested LM Studio Qwen2.5-Coder 7B. Storage observed in HF catalog: about 4.28 GB."
+    },
+    {
+      "model_id": "lmstudio-community/Qwen2.5-Coder-14B-Instruct-MLX-4bit",
+      "backend": "mlx",
+      "routing_label": "qwen-coder-14b-upper-small",
+      "notes": "Practical upper-bound Qwen2.5 coding candidate for 16 GB Mac mini if memory allows. Storage observed in HF catalog: about 8.32 GB."
+    },
+    {
+      "model_id": "lmstudio-community/Qwen2.5-Coder-3B-Instruct-MLX-4bit",
+      "backend": "mlx",
+      "routing_label": "qwen-coder-3b-lmstudio-alt",
+      "notes": "Alternative LM Studio quant to the already-tested mlx-community Qwen2.5-Coder 3B. Storage observed in HF catalog: about 1.75 GB."
+    },
+    {
+      "model_id": "mlx-community/DeepSeek-Coder-V2-Lite-Instruct-4bit-mlx",
+      "backend": "mlx",
+      "routing_label": "deepseek-coder-v2-lite",
+      "notes": "Different from the older DeepSeek Coder 1.3B/6.7B candidates that failed. Custom-code/runtime risk remains. Storage observed in HF catalog: about 8.84 GB."
+    },
+    {
+      "model_id": "lmstudio-community/Devstral-Small-2507-MLX-4bit",
+      "backend": "mlx",
+      "routing_label": "devstral-small-agentic-heavy",
+      "notes": "Agentic coding-oriented Mistral/Devstral candidate. Heavy for M4 16 GB. Storage observed in HF catalog: about 13.28 GB."
+    },
+    {
+      "model_id": "mlx-community/granite-3b-code-instruct-4bit",
+      "backend": "mlx",
+      "routing_label": "granite-code-3b-legacy",
+      "notes": "Older IBM Granite code SLM. Low download count but useful non-Qwen 3B comparison."
+    },
+    {
+      "model_id": "mlx-community/stable-code-instruct-3b-4bit",
+      "backend": "mlx",
+      "routing_label": "stable-code-3b-legacy",
+      "notes": "Older Stable Code 3B instruct candidate. Useful as a lightweight non-Qwen baseline."
+    },
+    {
+      "model_id": "aciidix/FastApply-1.5B-v1.0-mlx-4Bit",
+      "backend": "mlx",
+      "routing_label": "fastapply-1.5b-edit-apply",
+      "notes": "Apply/edit-specialized small model. Best tested on edit-contract and patch-application style tasks, not general generation."
+    },
+    {
+      "model_id": "dangerusslee/FastApply-7B-v1.0-mlx-4Bit",
+      "backend": "mlx",
+      "routing_label": "fastapply-7b-edit-apply",
+      "notes": "Larger apply/edit-specialized candidate. Low downloads but directly relevant to patch-apply role testing."
+    }
+  ]
+}
