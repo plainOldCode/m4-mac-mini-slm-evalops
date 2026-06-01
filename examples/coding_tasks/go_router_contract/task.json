@@ -4,8 +4,8 @@
   "language": "go",
   "role": "explain_route",
   "title": "Choose an account route in Go",
-  "description": "Complete a small Go routing helper. This task uses dependency-light structural tests until a Go compiler lane is enabled.",
-  "test_command": ["python3", "tests/check_go_contract.py"],
+  "description": "Complete a small Go routing helper with real go test coverage.",
+  "test_command": ["go", "test", "./..."],
   "allowed_paths": ["src/router.go"],
   "instructions": [
     "Edit only src/router.go.",

@@ -1,0 +1,350 @@
+{
+  "models": [
+    {
+      "model_id": "lmstudio-community/Qwen3-4B-Instruct-2507-MLX-5bit",
+      "backend": "mlx",
+      "routing_label": "general-instruct-local-baseline",
+      "task_count": 5,
+      "download_status": "ok",
+      "download_elapsed_seconds": 244.051,
+      "elapsed_seconds": 297.287,
+      "json_valid_count": 5,
+      "schema_valid_count": 5,
+      "changed_count": 5,
+      "tests_passed_count": 3,
+      "cache_bytes_before_cleanup": 5563892588,
+      "cleanup_status": "deleted",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_syntax_repair",
+          "stage": "v1_5_polyglot",
+          "language": "python",
+          "role": "syntax_repair",
+          "status": "ok",
+          "generation_elapsed_seconds": 9.593,
+          "test_elapsed_seconds": 0.034,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 24,
+          "applied_paths": [
+            "src/allocation.py"
+          ],
+          "rejected_paths": [],
+          "error_tail": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "task_id": "typescript_type_contract",
+          "stage": "v1_5_polyglot",
+          "language": "typescript",
+          "role": "type_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 13.544,
+          "test_elapsed_seconds": 0.434,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 53,
+          "applied_paths": [
+            "src/quoteSummary.ts"
+          ],
+          "rejected_paths": [],
+          "error_tail": "\nFetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]\nFetching 11 files: 100%|██████████| 11/11 [00:00<00:00, 61516.46it/s]\n"
+        },
+        {
+          "task_id": "javascript_unit_patch",
+          "stage": "v1_5_polyglot",
+          "language": "javascript",
+          "role": "unit_patch",
+          "status": "ok",
+          "generation_elapsed_seconds": 6.646,
+          "test_elapsed_seconds": 0.044,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 17,
+          "applied_paths": [
+            "src/drawdown.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": "node:internal/assert/utils:146\n  throw error;\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0.09 !== 0\n\n    at Object.<anonymous> (/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-compiled-2026-06-01/0001-lmstudio-community-Qwen3-4B-Instruct-2507-MLX-5bit/tasks/javascript_unit_patch/repo/tests/drawdown.test.js:6:8)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 0.09,\n  expected: 0,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "go_router_contract",
+          "stage": "v1_5_polyglot",
+          "language": "go",
+          "role": "explain_route",
+          "status": "ok",
+          "generation_elapsed_seconds": 10.87,
+          "test_elapsed_seconds": 0.75,
+          "returncode": 0,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": true,
+          "diff_lines": 29,
+          "applied_paths": [
+            "src/router.go"
+          ],
+          "rejected_paths": [],
+          "error_tail": "\nFetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]\nFetching 11 files: 100%|██████████| 11/11 [00:00<00:00, 38608.66it/s]\n"
+        },
+        {
+          "task_id": "rust_result_contract",
+          "stage": "v1_5_polyglot",
+          "language": "rust",
+          "role": "result_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 11.198,
+          "test_elapsed_seconds": 0.087,
+          "returncode": 101,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 111,
+          "applied_paths": [
+            "src/lib.rs"
+          ],
+          "rejected_paths": [],
+          "error_tail": "                                                                  ^\n\nerror: unknown start of token: \\\n --> src/lib.rs:1:772\n  |\n1 | ...,\\n        Err(_) => Err(\"invalid quantity\".to_string()),\\n    }\\n}\n  |                                                                    ^\n\nerror: expected `:`, found keyword `pub`\n --> src/lib.rs:1:27\n  |\n1 | pub struct Holding {\\n    pub symbol: String,\\n    pub quantity: u32,\\n}\\n\\npub fn parse_holding(input: &str) -> Result<Holding, Stri...\n  |            -------        ^^^ expected `:`\n  |            |\n  |            while parsing this struct\n\nerror: expected one of `!` or `::`, found `npub`\n --> src/lib.rs:1:76\n  |\n1 | pub struct Holding {\\n    pub symbol: String,\\n    pub quantity: u32,\\n}\\n\\npub fn parse_holding(input: &str) -> Result<Holding, Stri...\n  |                                                                            ^^^^ expected one of `!` or `::`\n  |\nhelp: there is a keyword `fn` with a similar name\n  |\n1 | pub struct Holding {\\n    pub symbol: String,\\n    pub quantity: u32,\\n}\\fn\\npub fn parse_holding(input: &str) -> Result<Holding, String> {\\n    let input = input.trim();\\n\\n    if input.is_empty() {\\n        return Err(\"empty input\".to_string());\\n    }\\n\\n    let parts: Vec<&str> = input.splitn(2, \":\").collect();\\n\\n    if parts.len() != 2 {\\n        return Err(\"missing colon\".to_string());\\n    }\\n\\n    let symbol = parts[0].to_uppercase();\\n\\n    if symbol.is_empty() {\\n        return Err(\"empty symbol\".to_string());\\n    }\\n\\n\\n    let quantity_str = parts[1];\\n\\n    match quantity_str.parse::<u32>() {\\n        Ok(quantity) => Ok(Holding {\\n            symbol,\\n            quantity,\\n        }),\\n        Err(_) => Err(\"invalid quantity\".to_string()),\\n    }\\n}\n  |                                                                          +\n\nerror: could not compile `rust_result_contract` (lib) due to 36 previous errors\nerror: could not compile `rust_result_contract` (lib test) due to 36 previous errors\n"
+        }
+      ]
+    },
+    {
+      "model_id": "mlx-community/Qwen2.5-Coder-3B-Instruct-4bit",
+      "backend": "mlx",
+      "routing_label": "coding-slm-3b-challenger",
+      "task_count": 5,
+      "download_status": "ok",
+      "download_elapsed_seconds": 150.517,
+      "elapsed_seconds": 179.596,
+      "json_valid_count": 2,
+      "schema_valid_count": 2,
+      "changed_count": 2,
+      "tests_passed_count": 0,
+      "cache_bytes_before_cleanup": 3495885147,
+      "cleanup_status": "deleted",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_syntax_repair",
+          "stage": "v1_5_polyglot",
+          "language": "python",
+          "role": "syntax_repair",
+          "status": "ok",
+          "generation_elapsed_seconds": 4.553,
+          "test_elapsed_seconds": 0.0,
+          "returncode": null,
+          "json_valid": false,
+          "schema_valid": false,
+          "changed": false,
+          "tests_passed": false,
+          "diff_lines": 0,
+          "applied_paths": [],
+          "rejected_paths": [],
+          "error_tail": "\nFetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]\nFetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 70823.14it/s]\n"
+        },
+        {
+          "task_id": "typescript_type_contract",
+          "stage": "v1_5_polyglot",
+          "language": "typescript",
+          "role": "type_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 6.437,
+          "test_elapsed_seconds": 0.0,
+          "returncode": null,
+          "json_valid": false,
+          "schema_valid": false,
+          "changed": false,
+          "tests_passed": false,
+          "diff_lines": 0,
+          "applied_paths": [],
+          "rejected_paths": [],
+          "error_tail": "\nFetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]\nFetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 108473.38it/s]\n"
+        },
+        {
+          "task_id": "javascript_unit_patch",
+          "stage": "v1_5_polyglot",
+          "language": "javascript",
+          "role": "unit_patch",
+          "status": "ok",
+          "generation_elapsed_seconds": 4.172,
+          "test_elapsed_seconds": 0.048,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 14,
+          "applied_paths": [
+            "src/drawdown.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": "node:internal/assert/utils:146\n  throw error;\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 9.090909090909092\n- 0\n\n    at Object.<anonymous> (/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-compiled-2026-06-01/0002-mlx-community-Qwen2-5-Coder-3B-Instruct-4bit/tasks/javascript_unit_patch/repo/tests/drawdown.test.js:6:8)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 9.090909090909092,\n  expected: 0,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "go_router_contract",
+          "stage": "v1_5_polyglot",
+          "language": "go",
+          "role": "explain_route",
+          "status": "ok",
+          "generation_elapsed_seconds": 7.101,
+          "test_elapsed_seconds": 0.564,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 35,
+          "applied_paths": [
+            "src/router.go"
+          ],
+          "rejected_paths": [],
+          "error_tail": "\nFetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]\nFetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 47127.01it/s]\n"
+        },
+        {
+          "task_id": "rust_result_contract",
+          "stage": "v1_5_polyglot",
+          "language": "rust",
+          "role": "result_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 6.173,
+          "test_elapsed_seconds": 0.0,
+          "returncode": null,
+          "json_valid": false,
+          "schema_valid": false,
+          "changed": false,
+          "tests_passed": false,
+          "diff_lines": 0,
+          "applied_paths": [],
+          "rejected_paths": [],
+          "error_tail": "\nFetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]\nFetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 41482.13it/s]\n"
+        }
+      ]
+    },
+    {
+      "model_id": "mlx-community/Qwen2.5-Coder-1.5B-Instruct-4bit",
+      "backend": "mlx",
+      "routing_label": "coding-slm-1.5b-protocol-baseline",
+      "task_count": 5,
+      "download_status": "ok",
+      "download_elapsed_seconds": 77.583,
+      "elapsed_seconds": 95.66,
+      "json_valid_count": 4,
+      "schema_valid_count": 4,
+      "changed_count": 4,
+      "tests_passed_count": 0,
+      "cache_bytes_before_cleanup": 1760422057,
+      "cleanup_status": "deleted",
+      "cleanup_error": "",
+      "results": [
+        {
+          "task_id": "python_syntax_repair",
+          "stage": "v1_5_polyglot",
+          "language": "python",
+          "role": "syntax_repair",
+          "status": "ok",
+          "generation_elapsed_seconds": 2.816,
+          "test_elapsed_seconds": 0.0,
+          "returncode": null,
+          "json_valid": false,
+          "schema_valid": false,
+          "changed": false,
+          "tests_passed": false,
+          "diff_lines": 0,
+          "applied_paths": [],
+          "rejected_paths": [],
+          "error_tail": "\nFetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]\nFetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 22482.87it/s]\n"
+        },
+        {
+          "task_id": "typescript_type_contract",
+          "stage": "v1_5_polyglot",
+          "language": "typescript",
+          "role": "type_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 4.17,
+          "test_elapsed_seconds": 0.431,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 30,
+          "applied_paths": [
+            "src/quoteSummary.ts"
+          ],
+          "rejected_paths": [],
+          "error_tail": "node:internal/assert/utils:146\n  throw error;\n  ^\n\nAssertionError [ERR_ASSERTION]: Round numeric outputs to two decimals\n    at Object.<anonymous> (/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-compiled-2026-06-01/0003-mlx-community-Qwen2-5-Coder-1-5B-Instruct-4bit/tasks/typescript_type_contract/repo/tests/check_typescript_contract.js:19:8)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: 'export interface Quote {\\n' +\n    '  symbol: string;\\n' +\n    '  previousClose: number;\\n' +\n    '  currentPrice: number;\\n' +\n    '}\\n' +\n    '\\n' +\n    'export interface QuoteSummary {\\n' +\n    '  symbol: string;\\n' +\n    '  change: number;\\n' +\n    '  changePct: number;\\n' +\n    \"  direction: 'up' | 'down' | 'flat';\\n\" +\n    '}\\n' +\n    '\\n' +\n    'export function summarizeQuote(quote: Quote): QuoteSummary {\\n' +\n    '  const change = quote.currentPrice - quote.previousClose;\\n' +\n    '  const changePct = (change / quote.previousClose) * 100;\\n' +\n    '\\n' +\n    '  if (change > 0) {\\n' +\n    \"    return { symbol: quote.symbol, change, changePct, direction: 'up' };\\n\" +\n    '  } else if (change < 0) {\\n' +\n    \"    return { symbol: quote.symbol, change, changePct, direction: 'down' };\\n\" +\n    '  } else {\\n' +\n    \"    return { symbol: quote.symbol, change, changePct, direction: 'flat' };\\n\" +\n    '  }\\n' +\n    '}\\n',\n  expected: /Math\\.round/,\n  operator: 'match',\n  diff: 'simple'\n}\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "javascript_unit_patch",
+          "stage": "v1_5_polyglot",
+          "language": "javascript",
+          "role": "unit_patch",
+          "status": "ok",
+          "generation_elapsed_seconds": 2.413,
+          "test_elapsed_seconds": 0.043,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 8,
+          "applied_paths": [
+            "src/drawdown.js"
+          ],
+          "rejected_paths": [],
+          "error_tail": "node:internal/assert/utils:146\n  throw error;\n  ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n10 !== 0\n\n    at Object.<anonymous> (/Users/miniadmin/.openclaw/workspace/projects/local-llm-evalops/runs/coding-generation-role-language-compiled-2026-06-01/0003-mlx-community-Qwen2-5-Coder-1-5B-Instruct-4bit/tasks/javascript_unit_patch/repo/tests/drawdown.test.js:6:8)\n    at Module._compile (node:internal/modules/cjs/loader:1829:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)\n    at Module.load (node:internal/modules/cjs/loader:1552:32)\n    at Module._load (node:internal/modules/cjs/loader:1354:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 10,\n  expected: 0,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v26.0.0\n"
+        },
+        {
+          "task_id": "go_router_contract",
+          "stage": "v1_5_polyglot",
+          "language": "go",
+          "role": "explain_route",
+          "status": "ok",
+          "generation_elapsed_seconds": 3.763,
+          "test_elapsed_seconds": 0.559,
+          "returncode": 1,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 25,
+          "applied_paths": [
+            "src/router.go"
+          ],
+          "rejected_paths": [],
+          "error_tail": "\nFetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]\nFetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 78972.25it/s]\n"
+        },
+        {
+          "task_id": "rust_result_contract",
+          "stage": "v1_5_polyglot",
+          "language": "rust",
+          "role": "result_contract",
+          "status": "ok",
+          "generation_elapsed_seconds": 3.71,
+          "test_elapsed_seconds": 0.135,
+          "returncode": 101,
+          "json_valid": true,
+          "schema_valid": true,
+          "changed": true,
+          "tests_passed": false,
+          "diff_lines": 26711,
+          "applied_paths": [
+            "src/lib.rs"
+          ],
+          "rejected_paths": [],
+          "error_tail": "error[E0599]: no method named `split_whitespace` found for tuple `(&str, &str)` in the current scope\n --> src/lib.rs:8:59\n  |\n8 |     let parts: Vec<&str> = input.split_once(':').unwrap().split_whitespace().collect();\n  |                            -----                          ^^^^^^^^^^^^^^^^ method not found in `(&str, &str)`\n  |                            |\n  |                            method `split_whitespace` is available on `&str`\n  |\nhelp: some of the expressions' fields have a method of the same name\n  |\n8 |     let parts: Vec<&str> = input.split_once(':').unwrap().0.split_whitespace().collect();\n  |                                                           ++\n8 |     let parts: Vec<&str> = input.split_once(':').unwrap().1.split_whitespace().collect();\n  |                                                           ++\n\nFor more information about this error, try `rustc --explain E0599`.\nerror: could not compile `rust_result_contract` (lib) due to 1 previous error\nerror: could not compile `rust_result_contract` (lib test) due to 1 previous error\n"
+        }
+      ]
+    }
+  ]
+}

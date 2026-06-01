@@ -13,7 +13,7 @@
     },
     {
       "id": "v1_5_polyglot",
-      "description": "Dependency-light role/language suite for small-model capability mapping.",
+      "description": "Role/language suite for small-model capability mapping with compiled checks where local toolchains are available.",
       "task_dirs": [
         "examples/coding_tasks/python_syntax_repair",
         "examples/coding_tasks/typescript_type_contract",
@@ -23,7 +23,7 @@
       ],
       "languages": ["python", "typescript", "javascript", "go", "rust"],
       "roles": ["syntax_repair", "type_contract", "unit_patch", "explain_route", "result_contract"],
-      "toolchain_note": "This first v1.5 suite is dependency-light. Go, Rust, and TypeScript tasks use structural contract tests so the suite can run before installing compilers.",
+      "toolchain_note": "Python, JavaScript, TypeScript, Go, and Rust tasks now run local tests or compiler-backed checks. TypeScript uses tsc, Go uses go test, and Rust uses cargo test.",
       "candidate_external_benches": [
         "nuprl/MultiPL-E",
         "Aider-AI/polyglot-benchmark"

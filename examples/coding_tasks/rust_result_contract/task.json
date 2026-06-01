@@ -4,8 +4,8 @@
   "language": "rust",
   "role": "result_contract",
   "title": "Model a Rust parse result",
-  "description": "Complete a Rust helper with explicit Result-based error handling. This task uses structural tests until a Rust compiler lane is enabled.",
-  "test_command": ["python3", "tests/check_rust_contract.py"],
+  "description": "Complete a Rust helper with explicit Result-based error handling and real cargo test coverage.",
+  "test_command": ["cargo", "test", "--quiet"],
   "allowed_paths": ["src/lib.rs"],
   "instructions": [
     "Edit only src/lib.rs.",

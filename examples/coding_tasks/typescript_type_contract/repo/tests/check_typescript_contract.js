@@ -1,8 +1,12 @@
 const assert = require("node:assert/strict");
+const { execFileSync } = require("node:child_process");
 const fs = require("node:fs");
 const path = require("node:path");
 
-const source = fs.readFileSync(path.join(__dirname, "..", "src", "quoteSummary.ts"), "utf8");
+const file = path.join(__dirname, "..", "src", "quoteSummary.ts");
+execFileSync("tsc", ["--strict", "--noEmit", "--target", "ES2020", file], { stdio: "pipe" });
+
+const source = fs.readFileSync(file, "utf8");
 
 assert.match(source, /export\s+interface\s+Quote\b/, "Quote interface must be exported");
 assert.match(source, /symbol\s*:\s*string/, "Quote.symbol must be a string");

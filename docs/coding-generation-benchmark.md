@@ -12,11 +12,11 @@ do not depend on an LLM judge.
 | `v1_5_polyglot` | Python, TypeScript, JavaScript, Go, Rust | Map small-model role fit across common AI-coding languages. |
 | `v2_frontend` | React, Vue, HTML, CSS | Add component-generation and UI-contract checks. |
 
-`v1_5_polyglot` is dependency-light by design. Python and JavaScript tasks run
-real tests immediately. TypeScript, Go, and Rust tasks use structural contract
-checks until the local TypeScript, Go, and Rust toolchains are installed. A later
-`v1_6_compiled` lane can add true compiler checks without losing the fast smoke
-path.
+`v1_5_polyglot` uses local toolchains where available. Python and JavaScript
+run regular unit tests, TypeScript uses `tsc --strict --noEmit`, Go uses
+`go test ./...`, and Rust uses `cargo test`. Structural checks can still be
+combined with compiler checks when they capture benchmark-specific API
+contracts.
 
 ## Role Axes
 

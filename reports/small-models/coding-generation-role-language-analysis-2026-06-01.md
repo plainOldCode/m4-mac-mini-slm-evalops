@@ -23,7 +23,7 @@ The coding lane now separates language coverage from role suitability. The new `
 | `go_router_contract` | Go | explain/route | dependency-light structural contract check |
 | `rust_result_contract` | Rust | result contract | dependency-light structural contract check |
 
-Go, Rust, and TypeScript are intentionally dependency-light in this pass because this Mac does not currently have Go, Rust, or the TypeScript compiler installed. A future compiled lane can replace these checks after toolchain setup.
+This first report used dependency-light structural checks for TypeScript, Go, and Rust because the compilers were not installed at the time. A compiler-backed rerun is recorded separately after installing Go, Rust, and TypeScript.
 
 ## Results
 
