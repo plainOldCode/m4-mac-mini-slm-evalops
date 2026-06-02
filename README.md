@@ -78,6 +78,7 @@ Primary reports:
 - [Coding generation benchmark plan](docs/coding-generation-benchmark.md)
 - [Small model core benchmark pack](benchmark_packs/small-model-core/README.md)
 - [Aggregate Ollama second-queue scoring](reports/small-models/aggregate-model-scores-ollama-mac-mini-2-2026-06-02.md)
+- [HF MLX expanded next queue](reports/small-models/hf-mlx-expanded-next-queue-2026-06-02.md)
 
 ## Coding Generation Results
 
@@ -363,9 +364,9 @@ runs/                     Generated local runs; git-ignored
 
 ## Next Milestones
 
-1. Work through the saved Hugging Face candidate catalog in
-   `docs/model-candidates/hf-mlx-candidate-catalog-2026-05-30.md` and
-   `docs/model-candidates/m4-mac-mini-mlx-candidates-2026-05-30.md`.
+1. Run the expanded Hugging Face MLX next queue in
+   `data/benchmark/hf-mlx-expanded-next-queue-2026-06-02.json`, starting with
+   `text_core` and keeping reasoning/VLM lanes separate.
 2. Add attempt-scoped model cache directories and automatic post-test cleanup.
 3. Add Apple Silicon runtime metrics where available.
 4. Generate aggregate HTML reports across many attempts.
