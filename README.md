@@ -367,6 +367,8 @@ runs/                     Generated local runs; git-ignored
 1. Run the expanded Hugging Face MLX next queue with
    `. .venv/bin/activate && python scripts/run_small_model_core_suite.py`, starting with
    `--candidate-lane text_core --case-lane summary --case-lane extraction`, then move lane by lane.
+   The runner defaults to `--max-tokens 900` because reasoning models can spend several hundred tokens
+   before emitting JSON.
 2. Add Apple Silicon runtime metrics where available.
 3. Generate aggregate HTML reports across many attempts.
 4. Publish a blog post: "Benchmarking small local models on an M4 Mac mini."

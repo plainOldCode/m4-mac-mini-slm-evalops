@@ -65,7 +65,7 @@ def main() -> int:
     parser.add_argument("--limit", type=int, default=1)
     parser.add_argument("--timeout", type=int, default=120)
     parser.add_argument("--download-timeout", type=int, default=1800)
-    parser.add_argument("--max-tokens", type=int, default=360)
+    parser.add_argument("--max-tokens", type=int, default=900)
     parser.add_argument("--skip-existing", action="store_true")
     args = parser.parse_args()
 
@@ -211,6 +211,7 @@ def run_model(
         "download_status": download_status,
         "download_elapsed_seconds": download_elapsed,
         "elapsed_seconds": elapsed,
+        "max_tokens": max_tokens,
         "json_valid_count": sum(1 for item in results if item.json_valid),
         "schema_valid_count": sum(1 for item in results if item.schema_valid),
         "content_match_count": sum(1 for item in results if item.content_match),
@@ -486,17 +487,21 @@ def render_suite_markdown(output: dict[str, Any]) -> str:
         "",
         "This suite evaluates public-safe summary, extraction, protocol, and patch tasks.",
         "",
-        "| Rank | Model | Lane | Pass | Content | Schema | JSON | Cleanup |",
-        "| ---: | --- | --- | ---: | ---: | ---: | ---: | ---: |",
+        "| Rank | Model | Lane | Pass | Content | Schema | JSON | Elapsed | Storage | Cache | Cleanup |",
+        "| ---: | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for rank, model in enumerate(output["models"], start=1):
         total = model["case_count"]
+        cache_gb = float(model.get("cache_bytes_before_cleanup", 0)) / 1_000_000_000
         lines.append(
             f"| {rank} | `{model['model_id']}` | `{model.get('lane', '')}` | "
             f"{model['case_pass_count']}/{total} | "
             f"{model['content_match_count']}/{total} | "
             f"{model['schema_valid_count']}/{total} | "
             f"{model['json_valid_count']}/{total} | "
+            f"{model.get('elapsed_seconds', 0)}s | "
+            f"{model.get('storage_gb', '')}GB | "
+            f"{cache_gb:.2f}GB | "
             f"{model['cleanup_count']} |"
         )
     lines += ["", "## Notes", ""]
