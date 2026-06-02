@@ -97,6 +97,25 @@ class SmallModelCoreRunnerTest(unittest.TestCase):
         self.assertIs(scored["schema_valid"], False)
         self.assertIs(scored["case_pass"], False)
 
+    def test_build_prompt_includes_allowlisted_fixture_content(self) -> None:
+        case = module.CoreCase(
+            index=1,
+            lane="patch",
+            case_id="case-001",
+            title="Case",
+            prompt="Return JSON only.",
+            expected={},
+            fixture_dir="patch_tasks/model_card_cleanup/repo",
+            solution_dir="",
+            allowed_paths=["README.md"],
+        )
+
+        prompt = module.build_prompt(case, Path("benchmark_packs/small-model-core"))
+
+        self.assertIn("--- FILE: README.md ---", prompt)
+        self.assertIn("Qwen3 4B remains the lightweight local baseline.", prompt)
+        self.assertIn("PRIVATE: internal account note", prompt)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -242,13 +242,14 @@ def run_prompt_case(
     case_dir = attempt_dir / "raw" / case.case_id
     case_dir.mkdir(parents=True)
     (case_dir / "prompt.json").write_text(json.dumps(asdict(case), indent=2, ensure_ascii=False))
-    (case_dir / "prompt.txt").write_text(case.prompt)
+    prompt = build_prompt(case, pack_dir)
+    (case_dir / "prompt.txt").write_text(prompt)
     if case.fixture_dir:
         fixture_src = pack_dir / case.fixture_dir
         if fixture_src.exists():
             shutil.copytree(fixture_src, case_dir / "fixture")
 
-    command = ollama_command(model_id, case.prompt, max_tokens) if backend == "ollama" else [
+    command = ollama_command(model_id, prompt, max_tokens) if backend == "ollama" else [
         sys.executable,
         "-m",
         "mlx_lm",
@@ -256,7 +257,7 @@ def run_prompt_case(
         "--model",
         model_id,
         "--prompt",
-        case.prompt,
+        prompt,
         "--max-tokens",
         str(max_tokens),
         "--temp",
@@ -272,7 +273,7 @@ def run_prompt_case(
     status = "error"
     try:
         if backend == "ollama":
-            stdout, status, stderr = generate_ollama(model_id, case.prompt, timeout, max_tokens)
+            stdout, status, stderr = generate_ollama(model_id, prompt, timeout, max_tokens)
             returncode = 0 if status == "ok" else 1
         else:
             completed = subprocess.run(command, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout, env=env)
@@ -313,6 +314,29 @@ def run_prompt_case(
     )
     (case_dir / "result.json").write_text(json.dumps(asdict(result), indent=2, ensure_ascii=False))
     return result
+
+
+def build_prompt(case: CoreCase, pack_dir: Path) -> str:
+    if not case.fixture_dir:
+        return case.prompt
+    fixture_src = pack_dir / case.fixture_dir
+    if not fixture_src.exists():
+        return case.prompt
+
+    paths = case.allowed_paths or sorted(str(path.relative_to(fixture_src)) for path in fixture_src.rglob("*") if path.is_file())
+    blocks: list[str] = []
+    for relative in paths:
+        path = fixture_src / relative
+        if not path.is_file():
+            continue
+        try:
+            content = path.read_text()
+        except UnicodeDecodeError:
+            continue
+        blocks.append(f"--- FILE: {relative} ---\n{content.rstrip()}\n--- END FILE: {relative} ---")
+    if not blocks:
+        return case.prompt
+    return case.prompt + "\n\nCurrent repository files:\n\n" + "\n\n".join(blocks)
 
 
 def score_case(parsed: Any, case: CoreCase) -> dict[str, bool]:

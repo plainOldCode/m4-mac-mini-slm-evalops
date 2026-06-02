@@ -126,10 +126,11 @@
           "allowed_paths": ["README.md"],
           "prompt": "Return JSON only with schema {\"case_id\":\"patch-model-card-cleanup-001\",\"files\":[{\"path\":\"README.md\",\"content\":\"complete replacement text\"}]}. Edit only README.md. Remove private/internal notes, keep the public benchmark result, and add one short next-step sentence about rerunning the core pack after adapter changes.",
           "expected": {
-            "contains": [
-              "Qwen3 4B remains the lightweight local baseline.",
-              "Next step: rerun the small-model-core pack after adapter changes."
-            ],
+        "contains": [
+          "Qwen3 4B remains the lightweight local baseline.",
+          "core pack",
+          "adapter changes"
+        ],
             "does_not_contain": [
               "PRIVATE",
               "internal account note"
