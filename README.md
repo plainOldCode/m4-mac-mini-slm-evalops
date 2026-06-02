@@ -79,6 +79,8 @@ Primary reports:
 - [Small model core benchmark pack](benchmark_packs/small-model-core/README.md)
 - [Aggregate Ollama second-queue scoring](reports/small-models/aggregate-model-scores-ollama-mac-mini-2-2026-06-02.md)
 - [HF MLX expanded next queue](reports/small-models/hf-mlx-expanded-next-queue-2026-06-02.md)
+- [Small model core text_core results](reports/small-models/small-model-core-text-core-2026-06-02.md)
+- [Small model core reasoning_cleanup results](reports/small-models/small-model-core-reasoning-cleanup-2026-06-02.md)
 
 ## Coding Generation Results
 
@@ -364,9 +366,9 @@ runs/                     Generated local runs; git-ignored
 
 ## Next Milestones
 
-1. Run the expanded Hugging Face MLX next queue with
+1. Continue the expanded Hugging Face MLX next queue with
    `. .venv/bin/activate && python scripts/run_small_model_core_suite.py`, starting with
-   `--candidate-lane text_core --case-lane summary --case-lane extraction`, then move lane by lane.
+   `--candidate-lane coding_patch --case-lane patch`, then move to remaining specialized lanes.
    The runner defaults to `--max-tokens 900` because reasoning models can spend several hundred tokens
    before emitting JSON.
 2. Add Apple Silicon runtime metrics where available.
