@@ -1,0 +1,286 @@
+{
+  "suite": "aggregate-model-scores",
+  "method": "Aggregate = 45% quality + 35% protocol + 20% hardware. Each dimension averages available components only.",
+  "models": [
+    {
+      "model_id": "qwen3:8b",
+      "aggregate_score": 78.0,
+      "quality_score": 70.7,
+      "protocol_score": 79.2,
+      "hardware_score": 92.5,
+      "components": {
+        "quality": {
+          "factual_alias": 90.0,
+          "factual_strict": 62.0,
+          "coding_tests": 60.0
+        },
+        "protocol": {
+          "factual_json": 100.0,
+          "factual_schema": 100.0,
+          "tool_case_pass": 75.0,
+          "tool_sequence": 83.3,
+          "tool_arguments": 75.0,
+          "native_tool": 0.0,
+          "coding_json": 100.0,
+          "coding_schema": 100.0
+        },
+        "hardware": {
+          "tool_completion": 100.0,
+          "tool_elapsed": 100.0,
+          "tool_cleanup": 100.0,
+          "native_elapsed": 60.0,
+          "native_cleanup": 100.0,
+          "coding_completion": 100.0,
+          "coding_elapsed": 80.0,
+          "coding_cleanup": 100.0
+        }
+      },
+      "rank": 1
+    },
+    {
+      "model_id": "gemma3:12b",
+      "aggregate_score": 76.8,
+      "quality_score": 66.3,
+      "protocol_score": 81.2,
+      "hardware_score": 92.5,
+      "components": {
+        "quality": {
+          "factual_alias": 100.0,
+          "factual_strict": 59.0,
+          "coding_tests": 40.0
+        },
+        "protocol": {
+          "factual_json": 100.0,
+          "factual_schema": 100.0,
+          "tool_case_pass": 75.0,
+          "tool_sequence": 100.0,
+          "tool_arguments": 75.0,
+          "native_tool": 0.0,
+          "coding_json": 100.0,
+          "coding_schema": 100.0
+        },
+        "hardware": {
+          "tool_completion": 100.0,
+          "tool_elapsed": 80.0,
+          "tool_cleanup": 100.0,
+          "native_elapsed": 100.0,
+          "native_cleanup": 100.0,
+          "coding_completion": 100.0,
+          "coding_elapsed": 60.0,
+          "coding_cleanup": 100.0
+        }
+      },
+      "rank": 2
+    },
+    {
+      "model_id": "qwen2.5:14b",
+      "aggregate_score": 74.4,
+      "quality_score": 67.7,
+      "protocol_score": 74.2,
+      "hardware_score": 90.0,
+      "components": {
+        "quality": {
+          "factual_alias": 88.0,
+          "factual_strict": 75.0,
+          "coding_tests": 40.0
+        },
+        "protocol": {
+          "factual_json": 100.0,
+          "factual_schema": 100.0,
+          "tool_case_pass": 75.0,
+          "tool_sequence": 83.3,
+          "tool_arguments": 75.0,
+          "native_tool": 0.0,
+          "coding_json": 100.0,
+          "coding_schema": 60.0
+        },
+        "hardware": {
+          "tool_completion": 100.0,
+          "tool_elapsed": 100.0,
+          "tool_cleanup": 100.0,
+          "native_elapsed": 60.0,
+          "native_cleanup": 100.0,
+          "coding_completion": 100.0,
+          "coding_elapsed": 60.0,
+          "coding_cleanup": 100.0
+        }
+      },
+      "rank": 3
+    },
+    {
+      "model_id": "cogito:8b",
+      "aggregate_score": 74.0,
+      "quality_score": 57.0,
+      "protocol_score": 82.3,
+      "hardware_score": 97.5,
+      "components": {
+        "quality": {
+          "factual_alias": 87.0,
+          "factual_strict": 44.0,
+          "coding_tests": 40.0
+        },
+        "protocol": {
+          "factual_json": 100.0,
+          "factual_schema": 100.0,
+          "tool_case_pass": 83.3,
+          "tool_sequence": 91.7,
+          "tool_arguments": 83.3,
+          "native_tool": 0.0,
+          "coding_json": 100.0,
+          "coding_schema": 100.0
+        },
+        "hardware": {
+          "tool_completion": 100.0,
+          "tool_elapsed": 100.0,
+          "tool_cleanup": 100.0,
+          "native_elapsed": 100.0,
+          "native_cleanup": 100.0,
+          "coding_completion": 100.0,
+          "coding_elapsed": 80.0,
+          "coding_cleanup": 100.0
+        }
+      },
+      "rank": 4
+    },
+    {
+      "model_id": "deepseek-coder-v2:16b",
+      "aggregate_score": 70.6,
+      "quality_score": 55.7,
+      "protocol_score": 72.9,
+      "hardware_score": 100.0,
+      "components": {
+        "quality": {
+          "factual_alias": 86.0,
+          "factual_strict": 41.0,
+          "coding_tests": 40.0
+        },
+        "protocol": {
+          "factual_json": 100.0,
+          "factual_schema": 100.0,
+          "tool_case_pass": 50.0,
+          "tool_sequence": 75.0,
+          "tool_arguments": 58.3,
+          "native_tool": 0.0,
+          "coding_json": 100.0,
+          "coding_schema": 100.0
+        },
+        "hardware": {
+          "tool_completion": 100.0,
+          "tool_elapsed": 100.0,
+          "tool_cleanup": 100.0,
+          "native_elapsed": 100.0,
+          "native_cleanup": 100.0,
+          "coding_completion": 100.0,
+          "coding_elapsed": 100.0,
+          "coding_cleanup": 100.0
+        }
+      },
+      "rank": 5
+    },
+    {
+      "model_id": "mistral-nemo:12b",
+      "aggregate_score": 69.0,
+      "quality_score": 47.7,
+      "protocol_score": 80.2,
+      "hardware_score": 97.5,
+      "components": {
+        "quality": {
+          "factual_alias": 73.0,
+          "factual_strict": 50.0,
+          "coding_tests": 20.0
+        },
+        "protocol": {
+          "factual_json": 100.0,
+          "factual_schema": 100.0,
+          "tool_case_pass": 75.0,
+          "tool_sequence": 91.7,
+          "tool_arguments": 75.0,
+          "native_tool": 0.0,
+          "coding_json": 100.0,
+          "coding_schema": 100.0
+        },
+        "hardware": {
+          "tool_completion": 100.0,
+          "tool_elapsed": 100.0,
+          "tool_cleanup": 100.0,
+          "native_elapsed": 100.0,
+          "native_cleanup": 100.0,
+          "coding_completion": 100.0,
+          "coding_elapsed": 80.0,
+          "coding_cleanup": 100.0
+        }
+      },
+      "rank": 6
+    },
+    {
+      "model_id": "phi4-mini",
+      "aggregate_score": 67.2,
+      "quality_score": 47.0,
+      "protocol_score": 75.9,
+      "hardware_score": 97.5,
+      "components": {
+        "quality": {
+          "factual_alias": 75.0,
+          "factual_strict": 46.0,
+          "coding_tests": 20.0
+        },
+        "protocol": {
+          "factual_json": 100.0,
+          "factual_schema": 99.0,
+          "tool_case_pass": 58.3,
+          "tool_sequence": 91.7,
+          "tool_arguments": 58.3,
+          "native_tool": 0.0,
+          "coding_json": 100.0,
+          "coding_schema": 100.0
+        },
+        "hardware": {
+          "tool_completion": 100.0,
+          "tool_elapsed": 100.0,
+          "tool_cleanup": 100.0,
+          "native_elapsed": 100.0,
+          "native_cleanup": 100.0,
+          "coding_completion": 100.0,
+          "coding_elapsed": 80.0,
+          "coding_cleanup": 100.0
+        }
+      },
+      "rank": 7
+    },
+    {
+      "model_id": "granite3-dense:8b",
+      "aggregate_score": 65.3,
+      "quality_score": 46.7,
+      "protocol_score": 70.8,
+      "hardware_score": 97.5,
+      "components": {
+        "quality": {
+          "factual_alias": 83.0,
+          "factual_strict": 57.0,
+          "coding_tests": 0.0
+        },
+        "protocol": {
+          "factual_json": 100.0,
+          "factual_schema": 100.0,
+          "tool_case_pass": 50.0,
+          "tool_sequence": 66.7,
+          "tool_arguments": 50.0,
+          "native_tool": 0.0,
+          "coding_json": 100.0,
+          "coding_schema": 100.0
+        },
+        "hardware": {
+          "tool_completion": 100.0,
+          "tool_elapsed": 100.0,
+          "tool_cleanup": 100.0,
+          "native_elapsed": 100.0,
+          "native_cleanup": 100.0,
+          "coding_completion": 100.0,
+          "coding_elapsed": 80.0,
+          "coding_cleanup": 100.0
+        }
+      },
+      "rank": 8
+    }
+  ]
+}

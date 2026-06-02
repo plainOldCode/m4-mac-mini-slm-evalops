@@ -76,6 +76,8 @@ Primary reports:
 - [Next14 MLX candidate scoring](reports/small-models/multilingual-domain-suite-next14-alias-normalized-2026-05-31.md)
 - [M4 MLX candidate refresh](reports/small-models/m4-mac-mini-mlx-refresh-analysis-2026-05-31.md)
 - [Coding generation benchmark plan](docs/coding-generation-benchmark.md)
+- [Small model core benchmark pack](benchmark_packs/small-model-core/README.md)
+- [Aggregate Ollama second-queue scoring](reports/small-models/aggregate-model-scores-ollama-mac-mini-2-2026-06-02.md)
 
 ## Coding Generation Results
 
@@ -361,13 +363,10 @@ runs/                     Generated local runs; git-ignored
 
 ## Next Milestones
 
-1. Add `benchmark_packs/small-model-core` with non-coding summary, extraction,
-   protocol, and patch tasks.
-2. Add aggregate scoring across quality, protocol, and hardware lanes.
-3. Work through the saved Hugging Face candidate catalog in
+1. Work through the saved Hugging Face candidate catalog in
    `docs/model-candidates/hf-mlx-candidate-catalog-2026-05-30.md` and
    `docs/model-candidates/m4-mac-mini-mlx-candidates-2026-05-30.md`.
-4. Add attempt-scoped model cache directories and automatic post-test cleanup.
-5. Add Apple Silicon runtime metrics where available.
-6. Generate aggregate HTML reports across many attempts.
-7. Publish a blog post: "Benchmarking small local models on an M4 Mac mini."
+2. Add attempt-scoped model cache directories and automatic post-test cleanup.
+3. Add Apple Silicon runtime metrics where available.
+4. Generate aggregate HTML reports across many attempts.
+5. Publish a blog post: "Benchmarking small local models on an M4 Mac mini."
