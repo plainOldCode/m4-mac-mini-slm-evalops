@@ -364,10 +364,9 @@ runs/                     Generated local runs; git-ignored
 
 ## Next Milestones
 
-1. Run the expanded Hugging Face MLX next queue in
-   `data/benchmark/hf-mlx-expanded-next-queue-2026-06-02.json`, starting with
-   `text_core` and keeping reasoning/VLM lanes separate.
-2. Add attempt-scoped model cache directories and automatic post-test cleanup.
-3. Add Apple Silicon runtime metrics where available.
-4. Generate aggregate HTML reports across many attempts.
-5. Publish a blog post: "Benchmarking small local models on an M4 Mac mini."
+1. Run the expanded Hugging Face MLX next queue with
+   `. .venv/bin/activate && python scripts/run_small_model_core_suite.py`, starting with
+   `--candidate-lane text_core --case-lane summary --case-lane extraction`, then move lane by lane.
+2. Add Apple Silicon runtime metrics where available.
+3. Generate aggregate HTML reports across many attempts.
+4. Publish a blog post: "Benchmarking small local models on an M4 Mac mini."
